@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Veterans_App_Employment</string>
+    <string name="load_screen_text">Veteran's Employment App</string>
+    <string name="start_page">Log in or Sign up!</string>
 </resources>
