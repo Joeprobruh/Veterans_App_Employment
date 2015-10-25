@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Air Force"
+        android:id="@+id/radio_air_force"
+        android:layout_gravity="center_horizontal"/>
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Army"
+        android:id="@+id/radio_army"
+        android:layout_gravity="center_horizontal"/>
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coast Guard"
+        android:id="@+id/radio_coast_guard"
+        android:layout_gravity="center_horizontal"/>
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marines"
+        android:id="@+id/radio_marines"
+        android:layout_gravity="center_horizontal"/>
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Navy"
+        android:id="@+id/radio_navy"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

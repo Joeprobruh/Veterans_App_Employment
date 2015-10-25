@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/user_profile_creation_page">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Create a profile for other users and employers to see. Don&apos;t add any information you don&apos;t want to be seen by the public!!!"
+                android:id="@+id/textView10" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Name"
+                android:id="@+id/textView11"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText3"
+                android:textColor="#ff777777"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint="Name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Age"
+                android:id="@+id/textView8"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText4"
+                android:textColor="#ff7a7a7a"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint="Age" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Address"
+                android:id="@+id/textView9"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:ems="10"
+                android:id="@+id/editText5"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint="Address" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sex:"
+                android:textOff="Male"
+                android:textOn="Female"
+                android:id="@+id/switch1"
+                android:enabled="true"
+                android:showText="true"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Military Credentials"
+                android:id="@+id/textView12"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Branch..."
+                android:id="@+id/button_branch"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title..."
+                android:id="@+id/button_title"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rank..."
+                android:id="@+id/button_rank"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
