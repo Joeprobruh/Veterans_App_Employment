@@ -40,6 +40,10 @@ public class Login extends Activity implements View.OnClickListener {
         switch(v.getId()) {
             case R.id.submit_OK:
 
+                Intent i = new Intent(
+                    Login.this, UserProfileCreationPage.class);
+                startActivity(i);
+
                 /*
                 Must verify login credentials here.
                 - To make this simple for vets to use, try to find out how to store the user credentials

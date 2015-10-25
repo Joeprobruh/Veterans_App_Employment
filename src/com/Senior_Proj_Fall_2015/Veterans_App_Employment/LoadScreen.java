@@ -31,6 +31,7 @@ public class LoadScreen extends Activity {
                 // Start your app main activity
                 Intent i = new Intent(LoadScreen.this, StartPage.class);
                 startActivity(i);
+                finish();
 
                 // close this activity
                 finish();

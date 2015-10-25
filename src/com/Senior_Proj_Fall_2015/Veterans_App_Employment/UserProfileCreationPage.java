@@ -2,17 +2,24 @@ package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.RadioButton;
 
 /**
  * Created by Joe on 10/24/2015.
  */
 public class UserProfileCreationPage extends Activity implements View.OnClickListener {
+
+    private static volatile String militaryBranch = "Branch...";
+    private static String militaryRank = "Rank...";
+    private static String militaryTitle = "Title...";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +43,15 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.button_branch:
-                showRadioboxMilitaryBranch();
+                showRadioboxMilitaryBranch(v);
                 break;
 
             case R.id.button_rank:
-                showRadioboxMilitaryRank();
+                showRadioboxMilitaryRank(v);
                 break;
 
             case R.id.button_title:
-                showRadioboxMilitaryTitle();
+                showRadioboxMilitaryTitle(v);
                 break;
         }
     }
@@ -58,20 +65,20 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
     }
 
-    private void showRadioboxMilitaryBranch() {
+    private void showRadioboxMilitaryBranch(final View view) {
 
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         helpBuilder.setTitle("Military Branch");
 
         LayoutInflater inflater = getLayoutInflater();
-        View checkboxLayout = inflater.inflate(R.layout.layout_radiobox_military_branch, null);
+        final View checkboxLayout = inflater.inflate(R.layout.layout_radiobox_military_branch, null);
         helpBuilder.setView(checkboxLayout);
 
         helpBuilder.setPositiveButton("Ok",
             new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int which) {
-                    // Do nothing but close the dialog
+                    ((Button) view).setText(militaryBranch);
                 }
             });
 
@@ -80,8 +87,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         helpDialog.show();
     }
 
-
-    private void showRadioboxMilitaryRank() {
+    private void showRadioboxMilitaryRank(final View view) {
 
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         helpBuilder.setTitle("Military Rank");
@@ -94,7 +100,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int which) {
-                    // Do nothing but close the dialog
+                    ((Button) view).setText(militaryRank);
                 }
             });
 
@@ -103,7 +109,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         helpDialog.show();
     }
 
-    private void showRadioboxMilitaryTitle() {
+    private void showRadioboxMilitaryTitle(final View view) {
 
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         helpBuilder.setTitle("Military Title");
@@ -116,13 +122,41 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int which) {
-                    // Do nothing but close the dialog
+                    ((Button) view).setText(militaryRank);
                 }
             });
 
         // Remember, create doesn't show the dialog
         AlertDialog helpDialog = helpBuilder.create();
         helpDialog.show();
+    }
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch (view.getId()) {
+            case R.id.radio_air_force:
+                if (checked)
+                    militaryBranch = "Air Force";
+                break;
+            case R.id.radio_army:
+                if (checked)
+                    militaryBranch = "Army";
+                break;
+            case R.id.radio_coast_guard:
+                if (checked)
+                    militaryBranch = "Coast Guard";
+                break;
+            case R.id.radio_marines:
+                if (checked)
+                    militaryBranch = "Marines";
+                break;
+            case R.id.radio_navy:
+                if (checked)
+                    militaryBranch = "Navy";
+                break;
+        }
     }
 
 }

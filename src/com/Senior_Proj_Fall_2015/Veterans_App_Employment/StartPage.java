@@ -32,12 +32,14 @@ public class StartPage extends Activity implements View.OnClickListener {
                 Intent i = new Intent(
                     StartPage.this, Login.class);
                 startActivity(i);
+                finish();
                 break;
 
             case R.id.sign_up_OK:
                 Intent j = new Intent(
                     StartPage.this, SignUpPage.class);
                 startActivity(j);
+                finish();
                 break;
         }
     }
