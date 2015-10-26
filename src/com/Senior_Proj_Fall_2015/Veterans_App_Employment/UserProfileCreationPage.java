@@ -17,9 +17,51 @@ import android.widget.RadioButton;
  */
 public class UserProfileCreationPage extends Activity implements View.OnClickListener {
 
-    private static volatile String militaryBranch = "Branch...";
     private static String militaryRank = "Rank...";
     private static String militaryTitle = "Title...";
+    private static final CharSequence[] MILITARY_BRANCH = {"Air Force", "Army", "Coast Guard", "Marines", "Navy"};
+    private static final CharSequence[] MILITARY_RANK_ARMY = {"E-1: Private", "E-2: Private 2",
+        "E-3: Private First Class", "E-4: Specialist", "E-4: Corporal", "E-5: Sergeant", "E-6: Staff Sergeant",
+        "E-7: Sergeant First Class", "E-8: Master Sergeant", "E-8: First Sergeant", "E-9: Sergeant Major",
+        "E-9: Sergeant Major of the Army", "W-1: Warrant Officer", "W-2: Chief Warrant Officer 2",
+        "W-3: Chief Warrant Officer 3", "W-4: Chief Warrant Officer 4", "W-5: Chief Warrant Officer 5",
+        "O-1: Second Lieutenant", "O-2: First Lieutenant", "O-3: Captain", "O-4: Major", "O-5: Lieutenant Colonel",
+        "O-6: Colonel", "O-7: Brigadier General", "O-8: Major General", "0-9: Lieutenant General", "O-10: General",
+        "Special: General of the Army"};
+    private static final CharSequence[] MILITARY_RANK_AIR_FORCE = {"E-1: Airman Basic", "E-2: Airman",
+        "E-3: Airman First Class", "E-4: Senior Airman", "E-5: Staff Sergeant", "E-6: Technical Sergeant",
+        "E-7: Master Sergeant", "E-7: Master Sergeant (Diamond)", "E-8: Senior Master Sergeant",
+        "E-8: Senior Master Sergeant (Diamond)", "E-9: Chief Master Sergeant", "E-9: Chief Master Sergeant (Diamond)",
+        "E-9: Command Chief Master Sergeant", "E-9 Spec: Chief Master of the Air Force", "O-1: Second Lieutenant",
+        "O-2: First Lieutenant", "O-3: Captain", "O-4: Major", "O-5: Lieutenant Colonel", "O-6: Colonel",
+        "O-7: Brigadier General", "O-8: Major General", "0-9: Lieutenant General",
+        "O-10: General Air Force Chief of Staff", "Special: General of the Air Force"};
+    private static final CharSequence[] MILITARY_RANK_NAVY = {"E-1: Seaman Recruit", "E-2: Seaman Apprentice",
+        "E-3: Seaman", "E-4: Petty Officer 3rd Class", "E-5: Petty Officer 2nd Class", "E-6: Petty Officer 1st Class",
+        "E-7: Chief Petty Officer", "E-8: Senior Chief Petty Officer", "E-9: Master Chief Petty Officer",
+        "E-9: Fleet/Commander Master Chief Petty Officer", "E-9 Spec: Master Chief Petty Officer of the Navy",
+        "W-2: Chief Warrant Officer 2", "W-3: Chief Warrant Officer 3", "W-4: Chief Warrant Officer 4",
+        "W-5: Chief Warrant Officer 5", "O-1: Ensign", "O-2: Lieutenant Junior Grade", "O-3: Lieutenant",
+        "O-4: Lieutenant Commander", "O-5: Commander", "O-6: Captain", "O-7: Rear Admiral (Lower Half)",
+        "O-8: Rear Admiral (Upper Half)", "O-9: Vice Admiral", "O-10: Admiral Chief of Naval Ops/ Commandant of the CG",
+        "O-11: Fleet Admiral"};
+    private static final CharSequence[] MILITARY_RANK_MARINES = {"E-1: Private", "E-2: Private First Class",
+        "E-3: Lance Corporal", "E-4: Corporal", "E-5: Sergeant", "E-6: Staff Sergeant", "E-7: Gunnery Sergeant",
+        "E-8: Master Sergeant", "E-8: First Sergeant", "E-9: Master Gunnery Sergeant", "E-9: Sergeant Major",
+        "E-9 Spec: Sergeant Major of the Marine Corps", "W-1: Warrant Officer", "W-2: Chief Warrant Officer 2",
+        "W-3: Chief Warrant Officer 3", "W-4: Chief Warrant Officer 4", "W-5: Chief Warrant Officer 5",
+        "O-1: Second Lieutenant", "O-2: First Lieutenant", "O-3: Captain", "O-4: Major", "O-5: Lieutenant Colonel",
+        "O-6: Colonel", "O-7: Brigadier General", "O-8: Major General", "0-9: Lieutenant General", "O-10: General"};
+    private static final CharSequence[] MILITARY_RANK_COAST_GUARD = {
+        "E-1: Seaman Recruit", "E-2: Seaman Apprentice", "E-2: Fireman Apprentice", "E-2: Airman Apprentice",
+        "E-3: Seaman", "E-3: Fireman", "E-3: Airman", "E-4: Petty Officer 3rd Class", "E-5: Petty Officer 2nd Class",
+        "E-6: Petty Officer 1st Class", "E-7: Chief Petty Officer", "E-8: Senior Chief Petty Officer",
+        "E-9: Master Chief Petty Officer", "E-9: Commander Master Chief Petty Officer",
+        "E-9: Master Chief Petty Officer of the Coast Guard", "W-2: Chief Warrant Officer 2",
+        "W-3: Chief Warrant Officer 3", "W-4: Chief Warrant Officer 4", "O-1: Ensign", "O-2: Lieutenant Junior Grade",
+        "O-3: Lieutenant", "O-4: Lieutenant Commander", "O-5: Commander", "O-6: Captain",
+        "O-7: Rear Admiral (Lower Half)", "O-8: Rear Admiral (Upper Half)", "O-9: Vice Admiral",
+        "O-10: Admiral Chief of Naval Ops/ Commandant of the CG"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +85,11 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.button_branch:
-                showRadioboxMilitaryBranch(v);
+                showListMilitaryBranch(v);
                 break;
 
             case R.id.button_rank:
-                showRadioboxMilitaryRank(v);
-                break;
-
-            case R.id.button_title:
-                showRadioboxMilitaryTitle(v);
+                showListMilitaryRank(v);
                 break;
         }
     }
@@ -65,98 +103,59 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
     }
 
-    private void showRadioboxMilitaryBranch(final View view) {
-
+    private void showListMilitaryBranch(final View view) {
         final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         helpBuilder.setTitle("Military Branch");
-
-        LayoutInflater inflater = getLayoutInflater();
-        final View checkboxLayout = inflater.inflate(R.layout.layout_radiobox_military_branch, null);
-        helpBuilder.setView(checkboxLayout);
-
-        helpBuilder.setPositiveButton("Ok",
-            new DialogInterface.OnClickListener() {
-
-                public void onClick(DialogInterface dialog, int which) {
-                    ((Button) view).setText(militaryBranch);
-                }
-            });
-
-        // Remember, create doesn't show the dialog
+        helpBuilder.setItems(MILITARY_BRANCH, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                ((Button) view).setText(MILITARY_BRANCH[which]);
+            }
+        });
         AlertDialog helpDialog = helpBuilder.create();
         helpDialog.show();
     }
 
-    private void showRadioboxMilitaryRank(final View view) {
-
+    private void showListMilitaryRank(final View view) {
+        final Context currContext = this;
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("Military Rank");
-
-        LayoutInflater inflater = getLayoutInflater();
-        View checkboxLayout = inflater.inflate(R.layout.layout_radiobox_military_rank, null);
-        helpBuilder.setView(checkboxLayout);
-
-        helpBuilder.setPositiveButton("Ok",
-            new DialogInterface.OnClickListener() {
-
-                public void onClick(DialogInterface dialog, int which) {
-                    ((Button) view).setText(militaryRank);
+        helpBuilder.setTitle("Choose Branch");
+        helpBuilder.setItems(MILITARY_BRANCH, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                final CharSequence[] branch;
+                switch (MILITARY_BRANCH[which].toString()) {
+                    case "Air Force":
+                        branch = MILITARY_RANK_AIR_FORCE;
+                        break;
+                    case "Army":
+                        branch = MILITARY_RANK_ARMY;
+                        break;
+                    case "Coast Guard":
+                        branch = MILITARY_RANK_COAST_GUARD;
+                        break;
+                    case "Marines":
+                        branch = MILITARY_RANK_MARINES;
+                        break;
+                    case "Navy":
+                        branch = MILITARY_RANK_NAVY;
+                        break;
+                    default:
+                        branch = null;
                 }
-            });
-
-        // Remember, create doesn't show the dialog
-        AlertDialog helpDialog = helpBuilder.create();
-        helpDialog.show();
-    }
-
-    private void showRadioboxMilitaryTitle(final View view) {
-
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("Military Title");
-
-        LayoutInflater inflater = getLayoutInflater();
-        View checkboxLayout = inflater.inflate(R.layout.layout_radiobox_military_title, null);
-        helpBuilder.setView(checkboxLayout);
-
-        helpBuilder.setPositiveButton("Ok",
-            new DialogInterface.OnClickListener() {
-
-                public void onClick(DialogInterface dialog, int which) {
-                    ((Button) view).setText(militaryRank);
-                }
-            });
-
-        // Remember, create doesn't show the dialog
-        AlertDialog helpDialog = helpBuilder.create();
-        helpDialog.show();
-    }
-
-    public void onRadioButtonClicked(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch (view.getId()) {
-            case R.id.radio_air_force:
-                if (checked)
-                    militaryBranch = "Air Force";
-                break;
-            case R.id.radio_army:
-                if (checked)
-                    militaryBranch = "Army";
-                break;
-            case R.id.radio_coast_guard:
-                if (checked)
-                    militaryBranch = "Coast Guard";
-                break;
-            case R.id.radio_marines:
-                if (checked)
-                    militaryBranch = "Marines";
-                break;
-            case R.id.radio_navy:
-                if (checked)
-                    militaryBranch = "Navy";
-                break;
+                AlertDialog.Builder helpBuilder = new AlertDialog.Builder(currContext);
+                helpBuilder.setTitle("Choose Rank");
+                helpBuilder.setItems(branch, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (branch != null) {
+                                ((Button) view).setText(branch[which]);
+                            }
+                        }
+                });
+            AlertDialog helpDialog = helpBuilder.create();
+            helpDialog.show();
         }
+    });
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
     }
 
 }
