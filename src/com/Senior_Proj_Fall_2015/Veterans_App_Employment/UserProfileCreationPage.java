@@ -6,11 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.RadioButton;
 
 /**
  * Created by Joe on 10/24/2015.
@@ -19,6 +16,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
     private static String militaryRank = "Rank...";
     private static String militaryTitle = "Title...";
+    private static String militaryBranch = null;
     private static final CharSequence[] MILITARY_BRANCH = {"Air Force", "Army", "Coast Guard", "Marines", "Navy"};
     private static final CharSequence[] MILITARY_RANK_ARMY = {"E-1: Private", "E-2: Private 2",
         "E-3: Private First Class", "E-4: Specialist", "E-4: Corporal", "E-5: Sergeant", "E-6: Staff Sergeant",
@@ -105,6 +103,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         helpBuilder.setItems(MILITARY_BRANCH, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 ((Button) view).setText(MILITARY_BRANCH[which]);
+                militaryBranch = (String) MILITARY_BRANCH[which];
             }
         });
         AlertDialog helpDialog = helpBuilder.create();
@@ -112,46 +111,47 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     }
 
     private void showListMilitaryRank(final View view) {
-        final Context currContext = this;
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("Choose Branch");
-        helpBuilder.setItems(MILITARY_BRANCH, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                final CharSequence[] branch;
-                switch (MILITARY_BRANCH[which].toString()) {
-                    case "Air Force":
-                        branch = MILITARY_RANK_AIR_FORCE;
-                        break;
-                    case "Army":
-                        branch = MILITARY_RANK_ARMY;
-                        break;
-                    case "Coast Guard":
-                        branch = MILITARY_RANK_COAST_GUARD;
-                        break;
-                    case "Marines":
-                        branch = MILITARY_RANK_MARINES;
-                        break;
-                    case "Navy":
-                        branch = MILITARY_RANK_NAVY;
-                        break;
-                    default:
-                        branch = null;
-                }
-                AlertDialog.Builder helpBuilder = new AlertDialog.Builder(currContext);
-                helpBuilder.setTitle("Choose Rank");
-                helpBuilder.setItems(branch, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (branch != null) {
-                                ((Button) view).setText(branch[which]);
-                            }
-                        }
-                });
+        if (militaryBranch == null) {
+            AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+            helpBuilder.setTitle("Choose Branch First!");
             AlertDialog helpDialog = helpBuilder.create();
             helpDialog.show();
         }
-    });
-        AlertDialog helpDialog = helpBuilder.create();
-        helpDialog.show();
+        else {
+            final Context currContext = this;
+            AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+            helpBuilder.setTitle("Choose " + militaryBranch + " Rank");
+            final CharSequence[] branch;
+            switch (militaryBranch) {
+                case "Air Force":
+                    branch = MILITARY_RANK_AIR_FORCE;
+                    break;
+                case "Army":
+                    branch = MILITARY_RANK_ARMY;
+                    break;
+                case "Coast Guard":
+                    branch = MILITARY_RANK_COAST_GUARD;
+                    break;
+                case "Marines":
+                    branch = MILITARY_RANK_MARINES;
+                    break;
+                case "Navy":
+                    branch = MILITARY_RANK_NAVY;
+                    break;
+                default:
+                    branch = null;
+                    break;
+            }
+            helpBuilder.setItems(branch, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    if (branch != null) {
+                        ((Button) view).setText(branch[which]);
+                    }
+                }
+            });
+            AlertDialog helpDialog = helpBuilder.create();
+            helpDialog.show();
+        }
     }
 
 }
