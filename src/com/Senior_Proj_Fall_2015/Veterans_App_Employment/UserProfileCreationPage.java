@@ -72,10 +72,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             (Button) findViewById(R.id.button_branch);
         button_branch.setOnClickListener(this);
 
-        Button button_title =
-            (Button) findViewById(R.id.button_title);
-        button_title.setOnClickListener(this);
-
         Button button_rank =
             (Button) findViewById(R.id.button_rank);
         button_rank.setOnClickListener(this);
