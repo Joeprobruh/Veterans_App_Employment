@@ -14,8 +14,6 @@ import android.widget.Button;
  */
 public class UserProfileCreationPage extends Activity implements View.OnClickListener {
 
-    private static String militaryRank = "Rank...";
-    private static String militaryTitle = "Title...";
     private static String militaryBranch = null;
     private static final CharSequence[] MILITARY_BRANCH = {"Air Force", "Army", "Coast Guard", "Marines", "Navy"};
     private static final CharSequence[] MILITARY_RANK_ARMY = {"E-1: Private", "E-2: Private 2",
@@ -73,6 +71,14 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         Button button_rank =
             (Button) findViewById(R.id.button_rank);
         button_rank.setOnClickListener(this);
+
+        Button button_submit =
+            (Button) findViewById(R.id.button_submit);
+        button_submit.setOnClickListener(this);
+
+        Button button_cancel =
+            (Button) findViewById(R.id.button_cancel);
+        button_cancel.setOnClickListener(this);
     }
 
     @Override
@@ -84,6 +90,18 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
             case R.id.button_rank:
                 showListMilitaryRank(v);
+                break;
+
+            case R.id.button_submit:
+                Intent i = new Intent(
+                    UserProfileCreationPage.this, JobOpportunityList.class);
+                startActivity(i);
+                break;
+
+            case R.id.button_cancel:
+                Intent j = new Intent(
+                    UserProfileCreationPage.this, UserDatabase.class);
+                startActivity(j);
                 break;
         }
     }

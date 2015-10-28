@@ -95,7 +95,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:checked="true"
-                android:textColorLink="#ffff00d1"/>
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -211,12 +211,48 @@
                     android:layout_alignLeft="@+id/skill_fifth"/>
             </RelativeLayout>
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Description"
+                android:id="@+id/textView14"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:ems="10"
-                android:id="@+id/editText6"/>
+                android:id="@+id/editText6"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:id="@+id/button_submit"
+                    android:layout_marginLeft="20dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:id="@+id/button_cancel"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/button_submit"
+                    android:layout_alignLeft="@+id/button_submit"
+                    android:layout_marginLeft="120dp"/>
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>
