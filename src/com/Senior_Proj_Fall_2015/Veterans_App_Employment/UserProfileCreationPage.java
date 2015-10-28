@@ -14,6 +14,8 @@ import android.widget.Button;
  */
 public class UserProfileCreationPage extends Activity implements View.OnClickListener {
 
+    //Testing Larry's pushing capabilities
+
     private static String militaryBranch = null;
     private static final CharSequence[] MILITARY_BRANCH = {"Air Force", "Army", "Coast Guard", "Marines", "Navy"};
     private static final CharSequence[] MILITARY_RANK_ARMY = {"E-1: Private", "E-2: Private 2",
