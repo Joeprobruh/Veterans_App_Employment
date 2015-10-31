@@ -21,7 +21,7 @@ public class MenuLayout {
         -Search For Jobs
             -Moves to activity JobOpportunityList
         -Edit Profile
-            -Moves to activity UserProfileCreationLayout
+            -Moves to activity UserProfileCreationPage
                 -Fields that have information already will be automatically populated
      */
 }

@@ -14,8 +14,6 @@ import android.widget.Button;
  */
 public class UserProfileCreationPage extends Activity implements View.OnClickListener {
 
-    //Testing Larry's pushing capabilities
-
     private static String militaryBranch = null;
     private static final CharSequence[] MILITARY_BRANCH = {"Air Force", "Army", "Coast Guard", "Marines", "Navy"};
     private static final CharSequence[] MILITARY_RANK_ARMY = {"E-1: Private", "E-2: Private 2",
@@ -95,12 +93,14 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                 break;
 
             case R.id.button_submit:
+                //Verify all fields are filled in and valid, then:
                 Intent i = new Intent(
-                    UserProfileCreationPage.this, JobOpportunityList.class);
+                    UserProfileCreationPage.this, MenuPage.class);
                 startActivity(i);
                 break;
 
             case R.id.button_cancel:
+                //Not sure what we're gonna switch to, put this in just because.
                 Intent j = new Intent(
                     UserProfileCreationPage.this, UserDatabase.class);
                 startActivity(j);

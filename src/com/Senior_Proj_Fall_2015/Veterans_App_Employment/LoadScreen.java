@@ -32,9 +32,6 @@ public class LoadScreen extends Activity {
                 Intent i = new Intent(LoadScreen.this, StartPage.class);
                 startActivity(i);
                 finish();
-
-                // close this activity
-                finish();
             }
 
         }, SPLASH_TIME_OUT);

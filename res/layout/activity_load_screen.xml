@@ -7,22 +7,15 @@
     android:layout_height="match_parent"
     android:weightSum="1" >
 
-<ImageView
+    <TextView
 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/header"
-    android:layout_weight="0.69"
-    android:contentDescription="load screen picture" />
-
-<TextView
-
-    android:layout_width="272dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="@+id/load_screen_text"
+    android:text="Veteran&apos;s Employment App"
     android:id="@+id/welcomeText"
     android:layout_gravity="center_horizontal"
-    android:layout_weight="0.04" />
+    android:singleLine="false"
+    android:layout_marginTop="300dp"/>
 
 </LinearLayout>

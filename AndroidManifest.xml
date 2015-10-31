@@ -36,6 +36,15 @@
         <!-- User Profile Creation activity -->
         <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.UserProfileCreationPage"/>
 
+        <!-- Menu activity -->
+        <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.MenuPage"/>
+
+        <!-- Resources activity -->
+        <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.ResourcesPage"/>
+
+        <!-- Search Employer Database activity -->
+        <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.SearchEmployerDatabase"/>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
