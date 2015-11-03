@@ -26,6 +26,8 @@ public class NetClient {
     private static final String signUp = "adduser.php";
     private static final String addJob = "addjob.php";
     private static final String loadVetProfile = "getavet.php";
+    private static final String loadVets = "getvets.php";
+    private static final String loadJobs = "getjobs.php";
 
     private HttpClient httpClient = null;
     DataKeeper dataKeeper;
@@ -403,6 +405,69 @@ public class NetClient {
         });
         thread.start();
 
+    }
+    public void loadVets(){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // Creating HTTP Post
+                HttpPost httpPost = new HttpPost(directory + loadVets);
+                // Making HTTP Request
+                try {
+                    HttpResponse response = httpClient.execute(httpPost);
+                    int responseCode = response.getStatusLine().getStatusCode();
+                    switch (responseCode) {
+                        case 200:
+                            HttpEntity entity = response.getEntity();
+                            if (entity != null) {
+                                String responseBody = EntityUtils.toString(entity);
+                                try {
+                                    JSONArray array = new JSONArray(responseBody);
+                                    dataKeeper.setVetList(array);
+                                } catch (Throwable t) {
+                                }
+                            }
+                    }
+                } catch (ClientProtocolException e) {
+                    // writing exception to log
+                } catch (IOException e) {
+                    // writing exception to log
+                }
+            }
+        });
+        thread.start();
+    }
+
+    public void loadJobs(){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // Creating HTTP Post
+                HttpPost httpPost = new HttpPost(directory + loadJobs);
+                // Making HTTP Request
+                try {
+                    HttpResponse response = httpClient.execute(httpPost);
+                    int responseCode = response.getStatusLine().getStatusCode();
+                    switch (responseCode) {
+                        case 200:
+                            HttpEntity entity = response.getEntity();
+                            if (entity != null) {
+                                String responseBody = EntityUtils.toString(entity);
+                                try {
+                                    JSONArray array = new JSONArray(responseBody);
+                                    dataKeeper.setJobList(array);
+                                } catch (Throwable t) {
+                                }
+                            }
+                    }
+                } catch (ClientProtocolException e) {
+                    // writing exception to log
+                } catch (IOException e) {
+                    // writing exception to log
+                }
+            }
+        });
+        thread.start();
     }
     public String getUserID(){
         return userID;
