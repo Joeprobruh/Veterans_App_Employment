@@ -10,6 +10,7 @@ public class DataKeeper {
     private JSONObject vetProfile;
     private JSONArray veteranList;
     private JSONObject employerProfile;
+    private JSONObject job;
     private JSONArray jobList;
     public DataKeeper(){
         vetProfile = null;

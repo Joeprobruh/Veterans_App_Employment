@@ -33,7 +33,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38a746ba-4958-497e-b62f-694f232278dd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\EmployerDatabase.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\EmployerProfileCreationLayout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\EmployerProfileLayout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\JobOpportunityProfileCreationLayout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\JobOpportunityProfileLayout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\Login.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\MenuLayout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\R.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\SignUpPage.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\UserProfileCreationLayout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\UserProfileCreationPage$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\UserProfileCreationPage$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\UserProfileCreationPage.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Larry\Desktop\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\UserProfileLayout.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/LoadScreen.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/LoadScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SearchEmployerDatabase.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SearchEmployerDatabase.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Veterans_App_Employment.iws" />
@@ -71,47 +95,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NetClient.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NetClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10426009">
-              <caret line="362" column="4" selection-start-line="362" selection-start-column="4" selection-end-line="362" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="274" column="198" selection-start-line="274" selection-start-column="198" selection-end-line="274" selection-end-column="198" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1674#3455#0" expanded="true" />
-                <element signature="e#1923#1938#0" expanded="true" />
-                <element signature="e#3454#3455#0" expanded="true" />
-                <element signature="e#3596#5501#0" expanded="true" />
-                <element signature="e#3839#3854#0" expanded="true" />
-                <element signature="e#5500#5501#0" expanded="true" />
-                <element signature="e#5661#7613#0" expanded="true" />
-                <element signature="e#5905#5920#0" expanded="true" />
-                <element signature="e#7612#7613#0" expanded="true" />
-                <element signature="e#7831#10069#0" expanded="true" />
-                <element signature="e#8082#8097#0" expanded="true" />
-                <element signature="e#10068#10069#0" expanded="true" />
-                <element signature="e#10299#12520#0" expanded="true" />
-                <element signature="e#10555#10570#0" expanded="true" />
-                <element signature="e#12519#12520#0" expanded="true" />
-                <element signature="e#12767#15065#0" expanded="true" />
-                <element signature="e#13011#13026#0" expanded="true" />
-                <element signature="e#15064#15065#0" expanded="true" />
-                <element signature="e#15224#17133#0" expanded="true" />
-                <element signature="e#15473#15488#0" expanded="true" />
-                <element signature="e#17132#17133#0" expanded="true" />
-                <element signature="e#17236#18995#0" expanded="true" />
-                <element signature="e#17488#17503#0" expanded="true" />
-                <element signature="e#18994#18995#0" expanded="true" />
+                <element signature="e#1734#3515#0" expanded="true" />
+                <element signature="e#1983#1998#0" expanded="true" />
+                <element signature="e#3514#3515#0" expanded="true" />
+                <element signature="e#3656#5561#0" expanded="true" />
+                <element signature="e#3899#3914#0" expanded="true" />
+                <element signature="e#5560#5561#0" expanded="true" />
+                <element signature="e#5721#7728#0" expanded="true" />
+                <element signature="e#5965#5980#0" expanded="true" />
+                <element signature="e#7727#7728#0" expanded="true" />
+                <element signature="e#7972#10210#0" expanded="true" />
+                <element signature="e#8223#8238#0" expanded="true" />
+                <element signature="e#10209#10210#0" expanded="true" />
+                <element signature="e#10467#12688#0" expanded="true" />
+                <element signature="e#10723#10738#0" expanded="true" />
+                <element signature="e#12687#12688#0" expanded="true" />
+                <element signature="e#12958#15256#0" expanded="true" />
+                <element signature="e#13202#13217#0" expanded="true" />
+                <element signature="e#15255#15256#0" expanded="true" />
+                <element signature="e#15415#17324#0" expanded="true" />
+                <element signature="e#15664#15679#0" expanded="true" />
+                <element signature="e#17323#17324#0" expanded="true" />
+                <element signature="e#17427#19186#0" expanded="true" />
+                <element signature="e#17679#17694#0" expanded="true" />
+                <element signature="e#19185#19186#0" expanded="true" />
+                <element signature="e#19249#19250#0" expanded="true" />
+                <element signature="e#19278#19279#0" expanded="true" />
+                <element signature="e#19310#19311#0" expanded="true" />
+                <element signature="e#19343#19344#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataKeeper.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataKeeper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,8 +199,8 @@
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobListDatabaseHelper.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" />
       </list>
     </option>
   </component>
@@ -603,12 +631,12 @@
       <updated>1445719337458</updated>
       <workItem from="1446039565771" duration="883000" />
       <workItem from="1446040886813" duration="1036000" />
-      <workItem from="1446566987630" duration="1054000" />
+      <workItem from="1446566987630" duration="4954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2973000" />
+    <option name="totallyTimeSpent" value="6873000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
@@ -616,6 +644,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32864866" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939914" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -638,7 +667,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32805908" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -960,14 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="10" selection-start-line="132" selection-start-column="10" selection-end-line="132" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuLayout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.425">
@@ -985,46 +1005,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="132" column="10" selection-start-line="132" selection-start-column="10" selection-end-line="132" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10426009">
-          <caret line="362" column="4" selection-start-line="362" selection-start-column="4" selection-end-line="362" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="274" column="198" selection-start-line="274" selection-start-column="198" selection-end-line="274" selection-end-column="198" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1674#3455#0" expanded="true" />
-            <element signature="e#1923#1938#0" expanded="true" />
-            <element signature="e#3454#3455#0" expanded="true" />
-            <element signature="e#3596#5501#0" expanded="true" />
-            <element signature="e#3839#3854#0" expanded="true" />
-            <element signature="e#5500#5501#0" expanded="true" />
-            <element signature="e#5661#7613#0" expanded="true" />
-            <element signature="e#5905#5920#0" expanded="true" />
-            <element signature="e#7612#7613#0" expanded="true" />
-            <element signature="e#7831#10069#0" expanded="true" />
-            <element signature="e#8082#8097#0" expanded="true" />
-            <element signature="e#10068#10069#0" expanded="true" />
-            <element signature="e#10299#12520#0" expanded="true" />
-            <element signature="e#10555#10570#0" expanded="true" />
-            <element signature="e#12519#12520#0" expanded="true" />
-            <element signature="e#12767#15065#0" expanded="true" />
-            <element signature="e#13011#13026#0" expanded="true" />
-            <element signature="e#15064#15065#0" expanded="true" />
-            <element signature="e#15224#17133#0" expanded="true" />
-            <element signature="e#15473#15488#0" expanded="true" />
-            <element signature="e#17132#17133#0" expanded="true" />
-            <element signature="e#17236#18995#0" expanded="true" />
-            <element signature="e#17488#17503#0" expanded="true" />
-            <element signature="e#18994#18995#0" expanded="true" />
+            <element signature="e#1734#3515#0" expanded="true" />
+            <element signature="e#1983#1998#0" expanded="true" />
+            <element signature="e#3514#3515#0" expanded="true" />
+            <element signature="e#3656#5561#0" expanded="true" />
+            <element signature="e#3899#3914#0" expanded="true" />
+            <element signature="e#5560#5561#0" expanded="true" />
+            <element signature="e#5721#7728#0" expanded="true" />
+            <element signature="e#5965#5980#0" expanded="true" />
+            <element signature="e#7727#7728#0" expanded="true" />
+            <element signature="e#7972#10210#0" expanded="true" />
+            <element signature="e#8223#8238#0" expanded="true" />
+            <element signature="e#10209#10210#0" expanded="true" />
+            <element signature="e#10467#12688#0" expanded="true" />
+            <element signature="e#10723#10738#0" expanded="true" />
+            <element signature="e#12687#12688#0" expanded="true" />
+            <element signature="e#12958#15256#0" expanded="true" />
+            <element signature="e#13202#13217#0" expanded="true" />
+            <element signature="e#15255#15256#0" expanded="true" />
+            <element signature="e#15415#17324#0" expanded="true" />
+            <element signature="e#15664#15679#0" expanded="true" />
+            <element signature="e#17323#17324#0" expanded="true" />
+            <element signature="e#17427#19186#0" expanded="true" />
+            <element signature="e#17679#17694#0" expanded="true" />
+            <element signature="e#19185#19186#0" expanded="true" />
+            <element signature="e#19249#19250#0" expanded="true" />
+            <element signature="e#19278#19279#0" expanded="true" />
+            <element signature="e#19310#19311#0" expanded="true" />
+            <element signature="e#19343#19344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

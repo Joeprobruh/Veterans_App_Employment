@@ -32,12 +32,14 @@ public class NetClient {
     private String userID;
     private String jobID;
     private String role;
+    private boolean isSignedUp;
 
     public NetClient(DataKeeper dk) {
         dataKeeper = dk;
         httpClient = new DefaultHttpClient();
-        jobID = "-1";
-        userID = "10";
+        jobID = null;
+        userID = null;
+        isSignedUp = false;
     }
 
     public void addVetSkill(final String skill, final String months) {
@@ -158,6 +160,7 @@ public class NetClient {
                                     JSONArray array = new JSONArray(responseBody);
                                     JSONObject obj = array.getJSONObject(0);
                                     String id = obj.getString("id");
+                                    isSignedUp = true;
                                 } catch (Throwable t) {
                                 }
                             } else {
@@ -173,7 +176,7 @@ public class NetClient {
         thread.start();
     }
 
-    public void addVetProfile(final String name, final String age, final String address, final String sex, final String branch, final String rank) {
+    public void addVetProfile(final String name, final String age, final String description, final String address, final String sex, final String branch, final String rank) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -222,7 +225,7 @@ public class NetClient {
 
     }
 
-    public void addEmployerProfile(final String name, final String title, final String company, final String address, final String phone, final String email) {
+    public void addEmployerProfile(final String name, final String title, final String company, final String description,  final String address, final String phone, final String email) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -269,7 +272,7 @@ public class NetClient {
         thread.start();
     }
 
-    public void addJob(final String  title, final String company, final String  description, final String contact, final String address, final String phone, final String email){
+    public void addJob(final String  title, final String company, final String  description, final String contact, final String address, final String phone, final String email, final String deadline){
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -400,5 +403,11 @@ public class NetClient {
         });
         thread.start();
 
+    }
+    public String getUserID(){
+        return userID;
+    }
+    public boolean getSignUp(){
+        return isSignedUp;
     }
 }
