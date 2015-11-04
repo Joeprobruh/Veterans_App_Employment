@@ -3,9 +3,12 @@ package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,7 +20,6 @@ public class SignUpPage extends Activity implements View.OnClickListener {
 
     private static final String regExp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,20}$";
     private Pattern pattern;
-    private Matcher matcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,15 +73,11 @@ public class SignUpPage extends Activity implements View.OnClickListener {
             ((EditText) findViewById(R.id.confirm_password_text_field)).getText().clear();
         }
         else if (verify(user, pass)) {
-
-            // Verify username and password.  If valid, continue to UserProfileCreationPage, and add credentials to
-            // user info database.
-
             /**
              * Idea: Store user/pass combo in local memory to be used in future login attempts??? POSSIBLE?????
              */
-
-            Intent intent = new Intent(this, UserProfileCreationPage.class);
+            status.setText("Set up correctly. Continue...");
+            Intent intent = new Intent(SignUpPage.this, MenuPage.class);
             startActivity(intent);
         }
         else {
@@ -89,8 +87,18 @@ public class SignUpPage extends Activity implements View.OnClickListener {
         }
     }
 
-    private boolean verify(String username, String password) {
-        // stub
-        return true;
+    private boolean verify(final String username, final String password) {
+        TextView status = (TextView) findViewById(R.id.attempt_status);
+        final String role;
+        if (((RadioButton) findViewById(R.id.radio_user)).isChecked()) {
+            role = "veteran";
+        }
+        else {
+            role = "employer";
+        }
+        status.setText("About to attempt signUp()");
+        StartPage.client.signUp(username, password, role);
+        status.setText("signUp finished...");
+        return (StartPage.client.getSignUp());
     }
 }

@@ -13,9 +13,9 @@ public class MenuPage extends Activity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String user = getCurrentLoggedInUser(savedInstanceState);//Stub, check it out
+        String user = getCurrentLoggedInUser();
         super.onCreate(savedInstanceState);
-        if (user.equals("user")) {
+        if (user.equals("veteran")) {
             setContentView(R.layout.activity_menu_user);
             Button button_search_jobs =
                 (Button) findViewById(R.id.button_search_jobs);
@@ -104,9 +104,8 @@ public class MenuPage extends Activity implements View.OnClickListener{
 
     }
 
-    public String getCurrentLoggedInUser (Bundle savedInstanceState) {
-        //gotta figure out where to get the user's profile style: User, or Employer, and return as a string.
-        return "user";
+    public String getCurrentLoggedInUser () {
+        return StartPage.client.getRole();
     }
 
 }

@@ -3,35 +3,28 @@ package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+import android.widget.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Joe on 10/31/2015.
  */
 public class JobOpportunityListPage extends Activity {
 
-    public static Job selection;
-    private SimpleCursorAdapter adapter;
-    private JobListDatabaseHelper jobListDBHelper;
-
-    //private DatabaseEntryList databaseList = getDatabaseList(jobOpportunityList);
-    private ArrayList<Job> databaseList = new ArrayList<>();//stub list
+    ArrayList<HashMap<String, String>> jobList = new ArrayList<HashMap<String, String>>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_opportunity_list);
-
-        jobListDBHelper = new JobListDatabaseHelper(this);
-        jobListDBHelper.open();
-        displayListView();
+        new JobListCreation().execute();
     }
 
     @Override
@@ -42,29 +35,50 @@ public class JobOpportunityListPage extends Activity {
         startActivity(a);
     }
 
-    private void displayListView() {
+    private class JobListCreation extends AsyncTask<String, String, String> {
 
-        String[] columns = new String[]{"Title",
-            "Description",
-            "Submission Date"};
-        int[] spots = new int[] {R.id.textView_job_title,
-            R.id.textView_job_description,
-            R.id.textView_job_submission_date};
+        @Override
+        protected String doInBackground(String... p) {
+            StartPage.client.loadJobs();
+            return new String("hi");
+        }
 
-        Cursor cursor = jobListDBHelper.fetchAllJobListings();
+        @Override
+        protected void onPostExecute (String string) {
+            for (int i = 0; i < StartPage.dk.getJobList().length(); i++) {
+                String title = StartPage.dk.getJobDetail("title", i);
+                String description = StartPage.dk.getJobDetail("description", i);
+                String deadline = StartPage.dk.getJobDetail("deadline", i);
 
-        adapter = new SimpleCursorAdapter(this, R.layout.activity_job_list_item, cursor, columns, spots, 0);
+                HashMap<String, String> map = new HashMap<String, String>();
 
-        final ListView list = (ListView) findViewById(R.id.listView_job_list);
-        list.setAdapter(adapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                selection = databaseList.get(position);
-                Intent i = new Intent(list.getContext(), JobOpportunityProfilePage.class);
-                startActivity(i);
+                map.put("title", title);
+                map.put("description", description);
+                map.put("deadline", deadline);
+
+                jobList.add(map);
+
+                ListView list = (ListView) findViewById(R.id.listView_job_list);
+
+                ListAdapter adapter = new SimpleAdapter(JobOpportunityListPage.this,
+                    jobList,
+                    R.layout.activity_job_opportunity_list,
+                    new String[]{"title", "description", "deadline"},
+                    new int[]{R.id.textView_job_title,
+                        R.id.textView_job_description,
+                        R.id.textView_job_submission_date});
+
+                list.setAdapter(adapter);
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        StartPage.dk.setJob(position);
+                        Intent j = new Intent(JobOpportunityListPage.this, JobOpportunityProfilePage.class);
+                        startActivity(j);
+                    }
+                });
             }
-        });
+        }
     }
 
 }

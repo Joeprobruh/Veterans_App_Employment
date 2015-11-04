@@ -6,8 +6,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.TextView;
 
 /**
  * Created by Joe on 10/24/2015.
@@ -79,11 +83,13 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         Button button_cancel =
             (Button) findViewById(R.id.button_cancel);
         button_cancel.setOnClickListener(this);
+
+        populateFields();
     }
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        switch (v.getId()) {
             case R.id.button_branch:
                 showListMilitaryBranch(v);
                 break;
@@ -93,23 +99,22 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                 break;
 
             case R.id.button_submit:
-                //Verify all fields are filled in and valid, then:
+                validateAndSubmitInputs();
                 Intent i = new Intent(
                     UserProfileCreationPage.this, MenuPage.class);
                 startActivity(i);
                 break;
 
             case R.id.button_cancel:
-                //Not sure what we're gonna switch to, put this in just because.
                 Intent j = new Intent(
-                    UserProfileCreationPage.this, UserDatabase.class);
+                    UserProfileCreationPage.this, MenuPage.class);
                 startActivity(j);
                 break;
         }
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         Intent a = new Intent(Intent.ACTION_MAIN);
         a.addCategory(Intent.CATEGORY_HOME);
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -136,9 +141,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             helpBuilder.setTitle("Choose Branch First!");
             AlertDialog helpDialog = helpBuilder.create();
             helpDialog.show();
-        }
-        else {
-            final Context currContext = this;
+        } else {
             AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
             helpBuilder.setTitle("Choose " + militaryBranch + " Rank");
             final CharSequence[] branch;
@@ -172,6 +175,51 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             AlertDialog helpDialog = helpBuilder.create();
             helpDialog.show();
         }
+    }
+
+    public void populateFields() {
+        StartPage.client.loadVetProfile();
+        String name = StartPage.dk.getVetDetail("name");
+        String age = StartPage.dk.getVetDetail("age");
+        String address = StartPage.dk.getVetDetail("address");
+        String branch = StartPage.dk.getVetDetail("branch");
+        String rank = StartPage.dk.getVetDetail("rank");
+        String description = StartPage.dk.getVetDetail("description");
+        //String[] skills = StartPage.dk.getVetDetail("skills");
+
+        if (!name.equals("")) {
+            ((EditText) findViewById(R.id.user_editText_name)).setText(name);
+        }
+        if (!age.equals("")) {
+            ((EditText) findViewById(R.id.user_editText_age)).setText(age);
+        }
+        if (!address.equals("")) {
+            ((EditText) findViewById(R.id.user_editText_address)).setText(address);
+        }
+        if (!branch.equals("Branch...")) {
+            ((Button) findViewById(R.id.button_branch)).setText(branch);
+        }
+        if (!rank.equals("Rank...")) {
+            ((Button) findViewById(R.id.button_rank)).setText(rank);
+        }
+        if (!description.equals("")) {
+            ((EditText) findViewById(R.id.user_editText_description)).setText(description);
+        }
+        /**
+         *   populate Skill check-boxes
+         */
+    }
+
+    public void validateAndSubmitInputs() {
+        StartPage.client.addVetProfile(((EditText) findViewById(R.id.user_editText_name)).getText().toString(),
+            ((EditText) findViewById(R.id.user_editText_age)).getText().toString(),
+            ((EditText) findViewById(R.id.user_editText_description)).getText().toString(),
+            ((EditText) findViewById(R.id.user_editText_address)).getText().toString(),
+            ((Switch) findViewById(R.id.user_switch_sex)).isChecked() ?
+                ((Switch) findViewById(R.id.user_switch_sex)).getTextOn().toString() :
+                ((Switch) findViewById(R.id.user_switch_sex)).getTextOff().toString(),
+            ((Button) findViewById(R.id.button_branch)).getText().toString(),
+            ((Button) findViewById(R.id.button_rank)).getText().toString());
     }
 
 }

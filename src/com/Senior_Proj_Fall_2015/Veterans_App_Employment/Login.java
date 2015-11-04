@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by Joe on 10/17/2015.
@@ -40,22 +42,22 @@ public class Login extends Activity implements View.OnClickListener {
         switch(v.getId()) {
             case R.id.submit_OK:
 
-                Intent i = new Intent(
-                    Login.this, UserProfileCreationPage.class);
-                startActivity(i);
+                StartPage.client.login(
+                    ((EditText) findViewById(R.id.login_field_username)).getText().toString(),
+                    ((EditText) findViewById(R.id.login_field_password)).getText().toString());
 
-                /*
-                Must verify login credentials here.
-                - To make this simple for vets to use, try to find out how to store the user credentials
-                    for future use, so login is only REQUIRED once, but then the vet can access their
-                    account on other devices if they choose.
+                if (StartPage.client.getUserID() == null) {
+                    ((TextView) findViewById(R.id.login_status)).setText("Username or Password incorrect, try again.");
+                    ((EditText) findViewById(R.id.login_field_username)).getText().clear();
+                    ((EditText) findViewById(R.id.login_field_password)).getText().clear();
+                }
 
-                Once verified:
+                else {
                     Intent i = new Intent(
-                        Login.this, JobOpportunityList.class);
+                        Login.this, MenuPage.class);
                     startActivity(i);
-                    break;
-                */
+                }
+
                 break;
         }
     }

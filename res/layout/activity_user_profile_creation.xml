@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/editText3"
+                android:id="@+id/user_editText_name"
                 android:textColor="#ff777777"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText4"
+                android:id="@+id/user_editText_age"
                 android:textColor="#ff7a7a7a"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
                 android:ems="10"
-                android:id="@+id/editText5"
+                android:id="@+id/user_editText_address"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:hint="Address" />
@@ -88,13 +88,13 @@
                 android:text="Sex:"
                 android:textOff="Male"
                 android:textOn="Female"
-                android:id="@+id/switch1"
+                android:id="@+id/user_switch_sex"
                 android:enabled="true"
                 android:showText="true"
                 android:nestedScrollingEnabled="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:checked="true"
+                android:checked="false"
                 />
 
             <TextView
@@ -216,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Description"
-                android:id="@+id/textView14"
+                android:id="@+id/user_textView_description"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"/>
 
@@ -225,7 +225,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:ems="10"
-                android:id="@+id/editText6"
+                android:id="@+id/user_editText_description"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"

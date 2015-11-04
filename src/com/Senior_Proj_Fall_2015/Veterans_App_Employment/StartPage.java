@@ -11,10 +11,16 @@ import android.widget.Button;
  */
 public class StartPage extends Activity implements View.OnClickListener {
 
+    protected static DataKeeper dk;
+    protected static NetClient client;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
+
+        dk = new DataKeeper();
+        client = new NetClient(dk);
 
         Button login_OK =
             (Button) findViewById(R.id.login_OK);

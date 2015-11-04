@@ -1,6 +1,7 @@
 package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -61,6 +62,15 @@ public class DataKeeper {
         }
     }
 
+    public void setJob (int index) {
+        try {
+            job = jobList.getJSONObject(index);
+        }
+        catch (JSONException e) {
+            job = null;
+        }
+    }
+
     public String getJobDetail(String detail, int index){
         try{
             return jobList.getJSONObject(index).getString(detail);
@@ -68,5 +78,10 @@ public class DataKeeper {
             return null;
         }
     }
+
+    public JSONArray getJobList () {
+        return jobList;
+    }
+
 }
 

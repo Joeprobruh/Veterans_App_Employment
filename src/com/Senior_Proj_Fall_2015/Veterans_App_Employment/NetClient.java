@@ -290,6 +290,7 @@ public class NetClient {
                 nameValuePair.add(new BasicNameValuePair("address", address));
                 nameValuePair.add(new BasicNameValuePair("phone", phone));
                 nameValuePair.add(new BasicNameValuePair("email", email));
+                nameValuePair.add(new BasicNameValuePair("deadline", deadline));
                 // Url Encoding the POST parameters
                 try {
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
@@ -519,4 +520,5 @@ public class NetClient {
     public boolean getSignUp(){
         return isSignedUp;
     }
+    public String getRole() { return role; }
 }
