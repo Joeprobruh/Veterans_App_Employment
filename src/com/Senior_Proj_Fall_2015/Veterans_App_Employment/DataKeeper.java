@@ -71,6 +71,10 @@ public class DataKeeper {
         }
     }
 
+    public JSONObject getJob () {
+        return job;
+    }
+
     public String getJobDetail(String detail, int index){
         try{
             return jobList.getJSONObject(index).getString(detail);

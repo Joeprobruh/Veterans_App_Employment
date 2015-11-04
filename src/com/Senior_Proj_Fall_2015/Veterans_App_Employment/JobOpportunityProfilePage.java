@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by Joe on 10/31/2015.
  */
 public class JobOpportunityProfilePage extends Activity {
-
-    protected Job selection;
 
     protected TextView jobTitle;
     protected TextView jobDescription;
@@ -31,10 +31,15 @@ public class JobOpportunityProfilePage extends Activity {
     }
 
     private void updateProfile() {
-        selection = JobOpportunityListPage.selection;
-        jobTitle.setText(selection.getTitle());
-        jobDescription.setText(selection.getDescription());
-        jobSubDate.setText(selection.getSubmissionDate());
+        JSONObject selection = StartPage.dk.getJob();
+        try {
+        jobTitle.setText(selection.getString("title"));
+        jobDescription.setText(selection.getString("description"));
+        jobSubDate.setText(selection.getString("deadline"));
+        }
+        catch (JSONException e) {
+            ;
+        }
     }
 
 }
