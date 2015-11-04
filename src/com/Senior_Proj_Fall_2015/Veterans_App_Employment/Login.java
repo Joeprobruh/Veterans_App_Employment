@@ -43,13 +43,14 @@ public class Login extends Activity implements View.OnClickListener {
             case R.id.submit_OK:
 
                 StartPage.client.login(
-                    ((EditText) findViewById(R.id.login_field_username)).getText().toString(),
-                    ((EditText) findViewById(R.id.login_field_password)).getText().toString());
+
+                    ((EditText) findViewById(R.id.login_username)).getText().toString(),
+                    ((EditText) findViewById(R.id.login_password)).getText().toString());
 
                 if (StartPage.client.getUserID() == null) {
                     ((TextView) findViewById(R.id.login_status)).setText("Username or Password incorrect, try again.");
-                    ((EditText) findViewById(R.id.login_field_username)).getText().clear();
-                    ((EditText) findViewById(R.id.login_field_password)).getText().clear();
+                    ((EditText) findViewById(R.id.login_username)).getText().clear();
+                    ((EditText) findViewById(R.id.login_password)).getText().clear();
                 }
 
                 else {
