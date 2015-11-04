@@ -28,7 +28,7 @@ public class NetClient {
     private static final String loadVetProfile = "getavet.php";
     private static final String loadVets = "getvets.php";
     private static final String loadJobs = "getjobs.php";
-
+    private static final String loadEmployerProfile = "getaboss.php";
     private HttpClient httpClient = null;
     DataKeeper dataKeeper;
     private String userID;
@@ -133,7 +133,7 @@ public class NetClient {
     }
 
 
-    public void signUp(final String username, final String password, final String role) {
+    public void signUp(final String username, final String password, final String roleParam) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -142,7 +142,7 @@ public class NetClient {
                 List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>(2);
                 nameValuePair.add(new BasicNameValuePair("username", username));
                 nameValuePair.add(new BasicNameValuePair("password", password));
-                nameValuePair.add(new BasicNameValuePair("role", role));
+                nameValuePair.add(new BasicNameValuePair("role", roleParam));
                 // Url Encoding the POST parameters
                 try {
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
@@ -161,7 +161,8 @@ public class NetClient {
                                 try {
                                     JSONArray array = new JSONArray(responseBody);
                                     JSONObject obj = array.getJSONObject(0);
-                                    String id = obj.getString("id");
+                                    userID = obj.getString("id");
+                                    role   = obj.getString("role");
                                     isSignedUp = true;
                                 } catch (Throwable t) {
                                 }
@@ -406,6 +407,49 @@ public class NetClient {
         thread.start();
 
     }
+
+    public void loadEmployerProfile(){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // Creating HTTP Post
+                HttpPost httpPost = new HttpPost(directory + loadEmployerProfile);
+                List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>(2);
+                nameValuePair.add(new BasicNameValuePair("id", userID));
+                // Url Encoding the POST parameters
+                try {
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
+                } catch (UnsupportedEncodingException e) {
+                    // writing error to Log
+                }
+                // Making HTTP Request
+                try {
+                    HttpResponse response = httpClient.execute(httpPost);
+                    int responseCode = response.getStatusLine().getStatusCode();
+                    switch (responseCode) {
+                        case 200:
+                            HttpEntity entity = response.getEntity();
+                            if (entity != null) {
+                                String responseBody = EntityUtils.toString(entity);
+                                try {
+                                    JSONArray array = new JSONArray(responseBody);
+                                    JSONObject obj = array.getJSONObject(0);
+                                    dataKeeper.setEmployerProfile(obj);
+                                } catch (Throwable t) {
+                                }
+                            }
+                    }
+                } catch (ClientProtocolException e) {
+                    // writing exception to log
+                } catch (IOException e) {
+                    // writing exception to log
+                }
+            }
+        });
+        thread.start();
+
+    }
+
     public void loadVets(){
         Thread thread = new Thread(new Runnable() {
             @Override
