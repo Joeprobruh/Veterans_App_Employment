@@ -3,6 +3,7 @@ package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,6 +47,7 @@ public class Login extends Activity implements View.OnClickListener {
 
                     ((EditText) findViewById(R.id.login_username)).getText().toString(),
                     ((EditText) findViewById(R.id.login_password)).getText().toString());
+                SystemClock.sleep(250);
 
                 if (StartPage.client.getUserID() == null) {
                     ((TextView) findViewById(R.id.login_status)).setText("Username or Password incorrect, try again.");

@@ -12,6 +12,7 @@ public class DataKeeper {
     private JSONArray veteranList;
     private JSONObject employerProfile;
     private JSONObject job;
+    private int jobIndex;
     private JSONArray jobList;
     public DataKeeper(){
         vetProfile = null;
@@ -65,6 +66,7 @@ public class DataKeeper {
     public void setJob (int index) {
         try {
             job = jobList.getJSONObject(index);
+            jobIndex = index;
         }
         catch (JSONException e) {
             job = null;

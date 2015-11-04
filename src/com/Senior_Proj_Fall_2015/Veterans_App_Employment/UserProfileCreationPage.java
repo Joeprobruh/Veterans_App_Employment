@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
@@ -100,9 +101,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
             case R.id.button_submit:
                 validateAndSubmitInputs();
-                Intent i = new Intent(
-                    UserProfileCreationPage.this, MenuPage.class);
-                startActivity(i);
+                finish();
                 break;
 
             case R.id.button_cancel:
@@ -179,30 +178,40 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
     public void populateFields() {
         StartPage.client.loadVetProfile();
+        SystemClock.sleep(350);
         String name = StartPage.dk.getVetDetail("name");
         String age = StartPage.dk.getVetDetail("age");
         String address = StartPage.dk.getVetDetail("address");
         String branch = StartPage.dk.getVetDetail("branch");
+        String sex = StartPage.dk.getVetDetail("sex");
         String rank = StartPage.dk.getVetDetail("rank");
         String description = StartPage.dk.getVetDetail("description");
         //String[] skills = StartPage.dk.getVetDetail("skills");
 
-        if (!name.equals("")) {
+        if (name != null) {
             ((EditText) findViewById(R.id.user_editText_name)).setText(name);
         }
-        if (!age.equals("")) {
+        if (age != null) {
             ((EditText) findViewById(R.id.user_editText_age)).setText(age);
         }
-        if (!address.equals("")) {
+        if (address != null) {
             ((EditText) findViewById(R.id.user_editText_address)).setText(address);
         }
-        if (!branch.equals("Branch...")) {
+        if (branch != null) {
             ((Button) findViewById(R.id.button_branch)).setText(branch);
         }
-        if (!rank.equals("Rank...")) {
+        if (sex != null) {
+            if (sex.equals("male")) {
+                ((Switch) findViewById(R.id.user_switch_sex)).setChecked(false);
+            }
+            else {
+                ((Switch) findViewById(R.id.user_switch_sex)).setChecked(true);
+            }
+        }
+        if (rank != null) {
             ((Button) findViewById(R.id.button_rank)).setText(rank);
         }
-        if (!description.equals("")) {
+        if (description != null) {
             ((EditText) findViewById(R.id.user_editText_description)).setText(description);
         }
         /**

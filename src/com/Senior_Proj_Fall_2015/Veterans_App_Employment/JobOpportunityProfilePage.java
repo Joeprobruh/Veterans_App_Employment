@@ -23,9 +23,9 @@ public class JobOpportunityProfilePage extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_opportunity_profile);
 
-        jobTitle = (TextView) findViewById(R.id.textView_job_title);
-        jobDescription = (TextView) findViewById(R.id.textView_job_description);
-        jobSubDate = (TextView) findViewById(R.id.textView_job_submission_date);
+        jobTitle = (TextView) findViewById(R.id.textView_job_profile_title);
+        jobDescription = (TextView) findViewById(R.id.textView_job_profile_description);
+        jobSubDate = (TextView) findViewById(R.id.textView_job_profile_submission_date);
 
         updateProfile();
     }
@@ -33,9 +33,9 @@ public class JobOpportunityProfilePage extends Activity {
     private void updateProfile() {
         JSONObject selection = StartPage.dk.getJob();
         try {
-        jobTitle.setText(selection.getString("title"));
-        jobDescription.setText(selection.getString("description"));
-        jobSubDate.setText(selection.getString("deadline"));
+        jobTitle.setText(selection.getString("id"));
+        jobDescription.setText(selection.getString("company"));
+        jobSubDate.setText(selection.getString("description"));
         }
         catch (JSONException e) {
             ;

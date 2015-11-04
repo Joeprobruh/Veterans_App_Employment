@@ -189,6 +189,7 @@ public class NetClient {
                 nameValuePair.add(new BasicNameValuePair("id", userID));
                 nameValuePair.add(new BasicNameValuePair("name", name));
                 nameValuePair.add(new BasicNameValuePair("age", age));
+                nameValuePair.add(new BasicNameValuePair("description", description));
                 nameValuePair.add(new BasicNameValuePair("address", address));
                 nameValuePair.add(new BasicNameValuePair("sex", sex));
                 nameValuePair.add(new BasicNameValuePair("branch", branch));

@@ -33,6 +33,9 @@
         <!-- Sign Up activity -->
         <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.SignUpPage"/>
 
+        <!-- Job List View activity -->
+        <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.JobOpportunityListPage"/>
+
         <!-- User Profile Creation activity -->
         <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.UserProfileCreationPage"/>
 
@@ -41,6 +44,9 @@
 
         <!-- Resources activity -->
         <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.ResourcesPage"/>
+
+        <!-- Job Profile Page activity -->
+        <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.JobOpportunityProfilePage"/>
 
         <!-- Search Employer Database activity -->
         <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.SearchEmployerDatabase"/>

@@ -52,7 +52,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
         switch(v.getId()) {
             case R.id.button_search_jobs:
                 Intent i = new Intent(
-                    MenuPage.this, JobOpportunityList.class);
+                    MenuPage.this, JobOpportunityListPage.class);
                 startActivity(i);
                 break;
             case R.id.button_search_employer_list:
