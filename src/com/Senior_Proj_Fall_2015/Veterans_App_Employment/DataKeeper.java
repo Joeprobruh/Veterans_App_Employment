@@ -46,7 +46,40 @@ public class DataKeeper {
             return null;
         }
     }
+    public String[] getVetSkills(){
+        String[] skills;
+        try {
+            int length = vetProfile.getInt("index");
+            JSONArray skillJSON = vetProfile.getJSONArray("skills");
+            skills = new String[length];
+            for (int i = 0; i < length; i ++){
+                skills[i] = (String)skillJSON.get(i);
+            }
+            return skills;
+        } catch (JSONException e) {
 
+        }
+        return null;
+    }
+    public String[] getVetSkills(int index){
+        String[] skills;
+        try {
+
+            JSONObject obj = veteranList.getJSONObject(index);
+            int length = obj.getInt("index");
+            if (length == 0)
+                return null;
+            JSONArray skillJSON = obj.getJSONArray("skills");
+            skills = new String[length];
+            for (int i = 0; i < length; i ++){
+                skills[i] = (String)skillJSON.get(i);
+            }
+            return skills;
+        } catch (JSONException e) {
+
+        }
+        return null;
+    }
     public String getVetDetail(String detail, int index){
         try{
             return veteranList.getJSONObject(index).getString(detail);

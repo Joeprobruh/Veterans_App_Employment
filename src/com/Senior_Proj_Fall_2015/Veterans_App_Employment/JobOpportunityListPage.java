@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.*;
 import org.json.JSONArray;
@@ -40,6 +41,7 @@ public class JobOpportunityListPage extends Activity {
         @Override
         protected String doInBackground(String... p) {
             StartPage.client.loadJobs();
+            SystemClock.sleep(250);
             return new String("hi");
         }
 
