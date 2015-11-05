@@ -50,6 +50,8 @@ public class DataKeeper {
         String[] skills;
         try {
             int length = vetProfile.getInt("index");
+            if (length == 0)
+                return null;
             JSONArray skillJSON = vetProfile.getJSONArray("skills");
             skills = new String[length];
             for (int i = 0; i < length; i ++){
@@ -66,6 +68,25 @@ public class DataKeeper {
         try {
 
             JSONObject obj = veteranList.getJSONObject(index);
+            int length = obj.getInt("index");
+            if (length == 0)
+                return null;
+            JSONArray skillJSON = obj.getJSONArray("skills");
+            skills = new String[length];
+            for (int i = 0; i < length; i ++){
+                skills[i] = (String)skillJSON.get(i);
+            }
+            return skills;
+        } catch (JSONException e) {
+
+        }
+        return null;
+    }
+    public String[] getJobSkills(int index){
+        String[] skills;
+        try {
+
+            JSONObject obj = jobList.getJSONObject(index);
             int length = obj.getInt("index");
             if (length == 0)
                 return null;
