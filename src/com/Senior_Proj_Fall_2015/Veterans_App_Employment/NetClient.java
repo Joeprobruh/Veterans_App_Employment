@@ -46,7 +46,7 @@ public class NetClient {
         isSignedUp = false;
     }
 
-    public void addVetSkill(String[] skill, String months) {
+    public void addVetSkill(final String[] skill, final String months) {
         Thread thread = new Thread(new Runnable(){
             @Override
             public void run() {
@@ -334,37 +334,42 @@ public class NetClient {
         thread.start();
     }
 
-    public void addJobSkill(final String jobid, final String skill, final String months){
-        Thread thread = new Thread(new Runnable() {
+    public void addJobSkill(final String[] skill, final String months) {
+        Thread thread = new Thread(new Runnable(){
             @Override
             public void run() {
                 // Creating HTTP Post
+                Integer numSkills = skill.length;
+
                 HttpPost httpPost = new HttpPost(directory + addJobSkill);
                 List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>(2);
                 nameValuePair.add(new BasicNameValuePair("id", jobID));
-                nameValuePair.add(new BasicNameValuePair("skill", skill));
-                nameValuePair.add(new BasicNameValuePair("months", months));
-                // Url Encoding the POST parameters
-                try {
-                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
-                } catch (UnsupportedEncodingException e) {
-                    // writing error to Log
+                String key;
+                nameValuePair.add(new BasicNameValuePair("numskills", numSkills.toString()));
+                for (int i = 0; i < numSkills; i ++) {
+                    key = "skill" + i;
+                    nameValuePair.add(new BasicNameValuePair(key, skill[i]));
                 }
+
+                // Url Encoding the POST parameters
+                try{
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
+                } catch (UnsupportedEncodingException e) {}
                 // Making HTTP Request
-                try {
+                try{
                     HttpResponse response = httpClient.execute(httpPost);
                     int responseCode = response.getStatusLine().getStatusCode();
                     switch (responseCode) {
                         case 200:
                             HttpEntity entity = response.getEntity();
                             if (entity != null) {
-                                String responseBody = EntityUtils.toString(entity);
                                 try {
+                                    String responseBody = EntityUtils.toString(entity);
                                     JSONArray array = new JSONArray(responseBody);
                                     JSONObject obj = array.getJSONObject(0);
-                                    String id = obj.getString("id");
-                                } catch (Throwable t) {
                                 }
+                                catch(Throwable T){}
+
                             }
                     }
                 } catch (ClientProtocolException e) {
@@ -375,7 +380,9 @@ public class NetClient {
             }
         });
         thread.start();
+
     }
+
 
     public void loadVetProfile(){
         Thread thread = new Thread(new Runnable() {
