@@ -33,11 +33,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38a746ba-4958-497e-b62f-694f232278dd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/Senior_Proj_Fall_2015/Veterans_App_Employment/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/Senior_Proj_Fall_2015/Veterans_App_Employment/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Veterans_App_Employment.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -140,12 +136,13 @@
       <file leaf-file-name="NetClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.1648107">
-              <caret line="248" column="85" selection-start-line="248" selection-start-column="85" selection-end-line="248" selection-end-column="85" />
+            <state vertical-scroll-proportion="0.018930959">
+              <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
               <folding>
-                <element signature="e#24528#26213#0" expanded="true" />
-                <element signature="e#24784#24799#0" expanded="true" />
-                <element signature="e#26212#26213#0" expanded="true" />
+                <element signature="e#13570#16021#0" expanded="true" />
+                <element signature="e#13814#13829#0" expanded="true" />
+                <element signature="e#16020#16021#0" expanded="true" />
+                <element signature="e#24868#24883#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -213,6 +210,13 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="NamedScopeManager">
     <order />
   </component>
@@ -245,6 +249,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -352,8 +358,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -592,6 +596,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
@@ -643,11 +653,12 @@
       <workItem from="1446595795876" duration="56000" />
       <workItem from="1446700818752" duration="57000" />
       <workItem from="1446752099989" duration="813000" />
+      <workItem from="1446835475282" duration="207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9483000" />
+    <option name="totallyTimeSpent" value="9690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
@@ -710,9 +721,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="503" column="0" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
           <folding>
-            <element signature="e#24528#26213#0" expanded="true" />
-            <element signature="e#24784#24799#0" expanded="true" />
-            <element signature="e#26212#26213#0" expanded="true" />
+            <element signature="e#13570#16021#0" expanded="true" />
+            <element signature="e#13814#13829#0" expanded="true" />
+            <element signature="e#16020#16021#0" expanded="true" />
+            <element signature="e#24868#24883#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -722,9 +734,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="503" column="0" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
           <folding>
-            <element signature="e#24528#26213#0" expanded="true" />
-            <element signature="e#24784#24799#0" expanded="true" />
-            <element signature="e#26212#26213#0" expanded="true" />
+            <element signature="e#13570#16021#0" expanded="true" />
+            <element signature="e#13814#13829#0" expanded="true" />
+            <element signature="e#16020#16021#0" expanded="true" />
+            <element signature="e#24868#24883#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1115,12 +1128,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.1648107">
-          <caret line="248" column="85" selection-start-line="248" selection-start-column="85" selection-end-line="248" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.018930959">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
           <folding>
-            <element signature="e#24528#26213#0" expanded="true" />
-            <element signature="e#24784#24799#0" expanded="true" />
-            <element signature="e#26212#26213#0" expanded="true" />
+            <element signature="e#13570#16021#0" expanded="true" />
+            <element signature="e#13814#13829#0" expanded="true" />
+            <element signature="e#16020#16021#0" expanded="true" />
+            <element signature="e#24868#24883#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -265,7 +265,7 @@ public class NetClient {
                                 try {
                                     JSONArray array = new JSONArray(responseBody);
                                     JSONObject obj = array.getJSONObject(0);
-                                    String id = obj.getString("id");
+                                    userID = obj.getString("id");
                                 } catch (Throwable t) {
                                 }
                             }
@@ -280,13 +280,14 @@ public class NetClient {
         thread.start();
     }
 
-    public void addJob(final String  title, final String company, final String  description, final String contact, final String address, final String phone, final String email, final String deadline){
+    public void addJob(final String id, final String title, final String company, final String description, final String contact, final String address, final String phone, final String email, final String deadline){
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 // Creating HTTP Post
                 HttpPost httpPost = new HttpPost(directory + addJob);
                 List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>(2);
+                nameValuePair.add(new BasicNameValuePair("jobid", id));
                 nameValuePair.add(new BasicNameValuePair("id", userID));
                 nameValuePair.add(new BasicNameValuePair("title", title));
                 nameValuePair.add(new BasicNameValuePair("company", company));
