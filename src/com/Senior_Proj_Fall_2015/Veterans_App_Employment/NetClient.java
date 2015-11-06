@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 public class NetClient {
     private static final String directory = "http://elvis.rowan.edu/~romanol8/android/";
-    private static final String addVetSkill = "addSkill.php";
+    private static final String addVetSkill = "addskill.php";
     private static final String addEmployerProfile = "addemployerdetails.php";
     private static final String addVetProfile = "addvetdetails";
     private static final String addJobSkill = "addjobskill.php";
@@ -46,17 +46,22 @@ public class NetClient {
         isSignedUp = false;
     }
 
-    public void addVetSkill(final String skill, final String months) {
+    public void addVetSkill(String[] skill, String months) {
         Thread thread = new Thread(new Runnable(){
             @Override
             public void run() {
                 // Creating HTTP Post
+                Integer numSkills = skill.length;
 
                 HttpPost httpPost = new HttpPost(directory + addVetSkill);
                 List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>(2);
                 nameValuePair.add(new BasicNameValuePair("id", userID));
-                nameValuePair.add(new BasicNameValuePair("skill", skill));
-                nameValuePair.add(new BasicNameValuePair("months", months));
+                String key;
+                nameValuePair.add(new BasicNameValuePair("numskills", numSkills.toString()));
+                for (int i = 0; i < numSkills; i ++) {
+                    key = "skill" + i;
+                    nameValuePair.add(new BasicNameValuePair(key, skill[i]));
+                }
 
                 // Url Encoding the POST parameters
                 try{
@@ -89,7 +94,6 @@ public class NetClient {
         thread.start();
 
     }
-
     public void login (final String username, final String password) {
         Thread thread = new Thread(new Runnable() {
             @Override

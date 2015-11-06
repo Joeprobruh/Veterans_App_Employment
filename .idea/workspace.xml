@@ -136,13 +136,14 @@
       <file leaf-file-name="NetClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.018930959">
-              <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.11358575">
+              <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
               <folding>
-                <element signature="e#13570#16021#0" expanded="true" />
-                <element signature="e#13814#13829#0" expanded="true" />
-                <element signature="e#16020#16021#0" expanded="true" />
-                <element signature="e#24868#24883#0" expanded="true" />
+                <element signature="e#1988#3979#0" expanded="true" />
+                <element signature="e#2287#2302#0" expanded="true" />
+                <element signature="e#3978#3979#0" expanded="true" />
+                <element signature="e#14013#14028#0" expanded="true" />
+                <element signature="e#25067#25082#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -249,8 +250,9 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -357,7 +359,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -654,11 +655,12 @@
       <workItem from="1446700818752" duration="57000" />
       <workItem from="1446752099989" duration="813000" />
       <workItem from="1446835475282" duration="207000" />
+      <workItem from="1446848703911" duration="70000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9690000" />
+    <option name="totallyTimeSpent" value="9760000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
@@ -721,10 +723,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="503" column="0" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
           <folding>
-            <element signature="e#13570#16021#0" expanded="true" />
-            <element signature="e#13814#13829#0" expanded="true" />
-            <element signature="e#16020#16021#0" expanded="true" />
-            <element signature="e#24868#24883#0" expanded="true" />
+            <element signature="e#1988#3979#0" expanded="true" />
+            <element signature="e#2287#2302#0" expanded="true" />
+            <element signature="e#3978#3979#0" expanded="true" />
+            <element signature="e#14013#14028#0" expanded="true" />
+            <element signature="e#25067#25082#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -734,10 +737,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="503" column="0" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
           <folding>
-            <element signature="e#13570#16021#0" expanded="true" />
-            <element signature="e#13814#13829#0" expanded="true" />
-            <element signature="e#16020#16021#0" expanded="true" />
-            <element signature="e#24868#24883#0" expanded="true" />
+            <element signature="e#1988#3979#0" expanded="true" />
+            <element signature="e#2287#2302#0" expanded="true" />
+            <element signature="e#3978#3979#0" expanded="true" />
+            <element signature="e#14013#14028#0" expanded="true" />
+            <element signature="e#25067#25082#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1128,13 +1132,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.018930959">
-          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.11358575">
+          <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
           <folding>
-            <element signature="e#13570#16021#0" expanded="true" />
-            <element signature="e#13814#13829#0" expanded="true" />
-            <element signature="e#16020#16021#0" expanded="true" />
-            <element signature="e#24868#24883#0" expanded="true" />
+            <element signature="e#1988#3979#0" expanded="true" />
+            <element signature="e#2287#2302#0" expanded="true" />
+            <element signature="e#3978#3979#0" expanded="true" />
+            <element signature="e#14013#14028#0" expanded="true" />
+            <element signature="e#25067#25082#0" expanded="true" />
           </folding>
         </state>
       </provider>
