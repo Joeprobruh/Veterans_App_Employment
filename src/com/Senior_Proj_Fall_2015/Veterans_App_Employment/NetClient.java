@@ -3,7 +3,6 @@ package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -31,6 +30,7 @@ public class NetClient {
     private static final String loadJobs = "getjobs.php";
     private static final String loadEmployerProfile = "getaboss.php";
     private static final String loadJobsByEmployer = "getjobsbyemployer.php";
+    private static final String loadEmployers = "getemployers.php";
 
     private HttpClient httpClient = null;
     DataKeeper dataKeeper;
@@ -48,7 +48,7 @@ public class NetClient {
     }
 
     public void addVetSkill(final String[] skill, final String months) {
-        Thread thread = new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable(){
             @Override
             public void run() {
                 // Creating HTTP Post
@@ -59,18 +59,17 @@ public class NetClient {
                 nameValuePair.add(new BasicNameValuePair("id", userID));
                 String key;
                 nameValuePair.add(new BasicNameValuePair("numskills", numSkills.toString()));
-                for (int i = 0; i < numSkills; i++) {
+                for (int i = 0; i < numSkills; i ++) {
                     key = "skill" + i;
                     nameValuePair.add(new BasicNameValuePair(key, skill[i]));
                 }
 
                 // Url Encoding the POST parameters
-                try {
+                try{
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
-                } catch (UnsupportedEncodingException e) {
-                }
+                } catch (UnsupportedEncodingException e) {}
                 // Making HTTP Request
-                try {
+                try{
                     HttpResponse response = httpClient.execute(httpPost);
                     int responseCode = response.getStatusLine().getStatusCode();
                     switch (responseCode) {
@@ -81,8 +80,8 @@ public class NetClient {
                                     String responseBody = EntityUtils.toString(entity);
                                     JSONArray array = new JSONArray(responseBody);
                                     JSONObject obj = array.getJSONObject(0);
-                                } catch (Throwable T) {
                                 }
+                                catch(Throwable T){}
 
                             }
                     }
@@ -96,8 +95,7 @@ public class NetClient {
         thread.start();
 
     }
-
-    public void login(final String username, final String password) {
+    public void login (final String username, final String password) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -171,7 +169,7 @@ public class NetClient {
                                     JSONArray array = new JSONArray(responseBody);
                                     JSONObject obj = array.getJSONObject(0);
                                     userID = obj.getString("id");
-                                    role = obj.getString("role");
+                                    role   = obj.getString("role");
                                     isSignedUp = true;
                                 } catch (Throwable t) {
                                 }
@@ -188,8 +186,7 @@ public class NetClient {
         thread.start();
     }
 
-    public void addVetProfile(final String name, final String age, final String description, final String address,
-                              final String sex, final String branch, final String rank) {
+    public void addVetProfile(final String name, final String age, final String description, final String address, final String phone, final String email, final String sex, final String branch, final String rank) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -205,6 +202,8 @@ public class NetClient {
                 nameValuePair.add(new BasicNameValuePair("branch", branch));
                 nameValuePair.add(new BasicNameValuePair("rank", rank));
                 nameValuePair.add(new BasicNameValuePair("description", description));
+                nameValuePair.add(new BasicNameValuePair("phone", phone));
+                nameValuePair.add(new BasicNameValuePair("email", email));
                 // Url Encoding the POST parameters
                 try {
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
@@ -240,9 +239,7 @@ public class NetClient {
 
     }
 
-    public void addEmployerProfile(final String name, final String title, final String company,
-                                   final String description, final String address, final String phone,
-                                   final String email) {
+    public void addEmployerProfile(final String name, final String title, final String company, final String description,  final String address, final String phone, final String email) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -290,9 +287,8 @@ public class NetClient {
         thread.start();
     }
 
-    public void addJob(final String id, final String title, final String company, final String description,
-                       final String contact, final String address, final String phone, final String email,
-                       final String deadline) {
+    public void addJob(final String id, final String title, final String company, final String description, final String contact, final String address, final String phone, final String email,
+                       final String url, final String applyMethod, final String deadline){
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -308,7 +304,9 @@ public class NetClient {
                 nameValuePair.add(new BasicNameValuePair("address", address));
                 nameValuePair.add(new BasicNameValuePair("phone", phone));
                 nameValuePair.add(new BasicNameValuePair("email", email));
+                nameValuePair.add(new BasicNameValuePair("url", url));
                 nameValuePair.add(new BasicNameValuePair("deadline", deadline));
+                nameValuePair.add(new BasicNameValuePair("applymethod", applyMethod));
                 // Url Encoding the POST parameters
                 try {
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
@@ -343,7 +341,7 @@ public class NetClient {
     }
 
     public void addJobSkill(final String[] skill, final String months) {
-        Thread thread = new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable(){
             @Override
             public void run() {
                 // Creating HTTP Post
@@ -354,18 +352,17 @@ public class NetClient {
                 nameValuePair.add(new BasicNameValuePair("id", jobID));
                 String key;
                 nameValuePair.add(new BasicNameValuePair("numskills", numSkills.toString()));
-                for (int i = 0; i < numSkills; i++) {
+                for (int i = 0; i < numSkills; i ++) {
                     key = "skill" + i;
                     nameValuePair.add(new BasicNameValuePair(key, skill[i]));
                 }
 
                 // Url Encoding the POST parameters
-                try {
+                try{
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
-                } catch (UnsupportedEncodingException e) {
-                }
+                } catch (UnsupportedEncodingException e) {}
                 // Making HTTP Request
-                try {
+                try{
                     HttpResponse response = httpClient.execute(httpPost);
                     int responseCode = response.getStatusLine().getStatusCode();
                     switch (responseCode) {
@@ -376,8 +373,8 @@ public class NetClient {
                                     String responseBody = EntityUtils.toString(entity);
                                     JSONArray array = new JSONArray(responseBody);
                                     JSONObject obj = array.getJSONObject(0);
-                                } catch (Throwable T) {
                                 }
+                                catch(Throwable T){}
 
                             }
                     }
@@ -393,7 +390,7 @@ public class NetClient {
     }
 
 
-    public void loadVetProfile() {
+    public void loadVetProfile(){
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -435,7 +432,7 @@ public class NetClient {
 
     }
 
-    public void loadEmployerProfile() {
+    public void loadEmployerProfile(){
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -474,13 +471,10 @@ public class NetClient {
             }
         });
         thread.start();
+
     }
 
-    public void loadEmployers() {
-        //Here is where the list of employers shall be loaded
-    }
-
-    public void loadVets() {
+    public void loadVets(){
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -512,7 +506,7 @@ public class NetClient {
         thread.start();
     }
 
-    public void loadJobs() {
+    public void loadJobs(){
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -543,8 +537,7 @@ public class NetClient {
         });
         thread.start();
     }
-
-    public void loadJobsByEmployer() {
+    public void loadJobsByEmployer(){
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -583,16 +576,43 @@ public class NetClient {
         });
         thread.start();
     }
+    public void loadEmployers(){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // Creating HTTP Post
+                HttpPost httpPost = new HttpPost(directory + loadEmployers);
+                // Making HTTP Request
+                try {
+                    HttpResponse response = httpClient.execute(httpPost);
+                    int responseCode = response.getStatusLine().getStatusCode();
+                    switch (responseCode) {
+                        case 200:
+                            HttpEntity entity = response.getEntity();
+                            if (entity != null) {
+                                String responseBody = EntityUtils.toString(entity);
+                                try {
+                                    JSONArray array = new JSONArray(responseBody);
+                                    dataKeeper.setEmployerList(array);
+                                } catch (Throwable t) {
+                                }
+                            }
+                    }
+                } catch (ClientProtocolException e) {
+                    // writing exception to log
+                } catch (IOException e) {
+                    // writing exception to log
+                }
+            }
+        });
+        thread.start();
 
-    public String getUserID() {
+    }
+    public String getUserID(){
         return userID;
     }
-
-    public boolean getSignUp() {
+    public boolean getSignUp(){
         return isSignedUp;
     }
-
-    public String getRole() {
-        return role;
-    }
+    public String getRole() { return role; }
 }
