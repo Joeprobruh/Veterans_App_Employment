@@ -12,6 +12,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Switch;
 
+import java.util.ArrayList;
+
 /**
  * Created by Joe on 10/24/2015.
  */
@@ -67,6 +69,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         (CheckBox) findViewById(R.id.skill_fourth),
         (CheckBox) findViewById(R.id.skill_fifth),
         (CheckBox) findViewById(R.id.skill_sixth)};
+    private static ArrayList<Boolean> CURRENT_SELECTED_SKILLS = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,6 +183,60 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         }
     }
 
+    public void onCheckboxClicked(View view) {
+        boolean isChecked = ((CheckBox) view).isChecked();
+        switch (view.getId()) {
+            case R.id.skill_first:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(0, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(0, false);
+                }
+                break;
+            case R.id.skill_second:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(1, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(1, false);
+                }
+                break;
+            case R.id.skill_third:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(2, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(2, false);
+                }
+                break;
+            case R.id.skill_fourth:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(3, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(3, false);
+                }
+                break;
+            case R.id.skill_fifth:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(4, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(4, false);
+                }
+                break;
+            case R.id.skill_sixth:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(5, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(5, false);
+                }
+                break;
+        }
+    }
+
     public void populateFields() {
         StartPage.client.loadVetProfile();
         SystemClock.sleep(250);
@@ -202,11 +259,11 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             ((EditText) findViewById(R.id.user_editText_address)).setText(address);
         }
         if (sex != null) {
-            if (sex.equals("male")) {
-                ((Switch) findViewById(R.id.user_switch_sex)).setChecked(false);
+            if (sex.equals("Female")) {
+                ((Switch) findViewById(R.id.user_switch_sex)).setChecked(true);
             }
             else {
-                ((Switch) findViewById(R.id.user_switch_sex)).setChecked(true);
+                ((Switch) findViewById(R.id.user_switch_sex)).setChecked(false);
             }
         }
         if (branch != null) {
@@ -215,22 +272,25 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         if (rank != null) {
             ((Button) findViewById(R.id.button_rank)).setText(rank);
         }
+        for (int i = 0; i < SKILL_LIST.length; i++) {
+            SKILL_LIST[i].setChecked(false);
+        }
         if (skills != null) {
             for (int i = 0; i < skills.length; i++) {
-                for (int j = 0; j < SKILL_LIST.length; i++) {
-                    if (skills[i].equals(SKILL_LIST[j].getText())) {
-                        SKILL_LIST[j].setChecked(true);
-                        break;
-                    }
+                for (int j = 0; j < SKILL_LIST.length; j++) {
+                     if (skills[i].equals(SKILL_LIST[j].getText().toString())) {
+                        CURRENT_SELECTED_SKILLS.set(j, true);
+                         SKILL_LIST[j].setChecked(true);
+                         break;
+                     }
                 }
             }
         }
-        if (description != null) {
-            ((EditText) findViewById(R.id.user_editText_description)).setText(description);
+        else {
+            if (description != null) {
+                ((EditText) findViewById(R.id.user_editText_description)).setText(description);
+            }
         }
-        /**
-         *   populate Skill check-boxes
-         */
     }
 
     public void validateAndSubmitInputs() {
@@ -243,6 +303,15 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                 ((Switch) findViewById(R.id.user_switch_sex)).getTextOff().toString().trim(),
             ((Button) findViewById(R.id.button_branch)).getText().toString().trim(),
             ((Button) findViewById(R.id.button_rank)).getText().toString().trim());
+        String[] skillArray = new String[SKILL_LIST.length];
+        int pointer = 0;
+        for(int i = 0; i < SKILL_LIST.length; i++) {
+            if (SKILL_LIST[i].isChecked()) {
+                skillArray[pointer] = SKILL_LIST[i].getText().toString();
+                pointer++;
+            }
+        }
+        StartPage.client.addVetSkill(skillArray, "2");
     }
 
 }

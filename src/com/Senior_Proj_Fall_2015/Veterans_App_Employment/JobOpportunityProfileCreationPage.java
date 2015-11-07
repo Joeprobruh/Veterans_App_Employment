@@ -26,7 +26,7 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
             (Button) findViewById(R.id.button_cancel);
         button_cancel.setOnClickListener(this);
 
-        // populateFields();
+        populateFields();
     }
 
     @Override
@@ -51,7 +51,6 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         finish();
     }
 
-    /*
     public void populateFields() {
         StartPage.client.loadEmployerProfile();
         SystemClock.sleep(250);
@@ -85,7 +84,6 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
             ((EditText) findViewById(R.id.employer_editText_email_address)).setText(emailAddress);
         }
     }
-    */
 
     public void validateAndSubmitInputs() {
         StartPage.client.addJob(
