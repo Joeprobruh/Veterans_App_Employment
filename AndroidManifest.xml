@@ -49,7 +49,6 @@
         <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.JobOpportunityProfilePage"/>
 
         <!-- Search Employer Database activity -->
-        <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.SearchEmployerDatabase"/>
 
     </application>
 

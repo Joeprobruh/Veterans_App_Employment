@@ -470,7 +470,10 @@ public class NetClient {
             }
         });
         thread.start();
+    }
 
+    public void loadEmployers() {
+        //Here is where the list of employers shall be loaded
     }
 
     public void loadVets(){
