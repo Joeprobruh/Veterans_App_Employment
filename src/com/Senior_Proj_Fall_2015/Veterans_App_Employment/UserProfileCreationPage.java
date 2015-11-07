@@ -2,17 +2,14 @@ package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
-import android.widget.TextView;
 
 /**
  * Created by Joe on 10/24/2015.
@@ -67,7 +64,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile_creation);
+        setContentView(R.layout.activity_user_profile_creation_page);
 
         Button button_branch =
             (Button) findViewById(R.id.button_branch);

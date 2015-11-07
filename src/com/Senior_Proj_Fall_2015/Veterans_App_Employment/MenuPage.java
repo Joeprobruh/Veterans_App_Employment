@@ -16,7 +16,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
         String user = getCurrentLoggedInUser();
         super.onCreate(savedInstanceState);
         if (user.equals("veteran")) {
-            setContentView(R.layout.activity_menu_user);
+            setContentView(R.layout.activity_menu_user_page);
             Button button_search_jobs =
                 (Button) findViewById(R.id.button_search_jobs);
             button_search_jobs.setOnClickListener(this);
@@ -31,7 +31,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
             button_resources_page.setOnClickListener(this);
         }
         else {
-            setContentView(R.layout.activity_menu_employer);
+            setContentView(R.layout.activity_menu_employer_page);
             Button button_create_new_job_posting =
                 (Button) findViewById(R.id.button_create_new_job_posting);
             button_create_new_job_posting.setOnClickListener(this);

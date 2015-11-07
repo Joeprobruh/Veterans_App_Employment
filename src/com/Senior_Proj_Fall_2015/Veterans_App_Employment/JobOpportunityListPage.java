@@ -19,7 +19,7 @@ import java.util.HashMap;
  */
 public class JobOpportunityListPage extends Activity {
 
-    ArrayList<HashMap<String, String>> jobList = new ArrayList<HashMap<String, String>>();
+    ArrayList<HashMap<String, String>> jobList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +30,7 @@ public class JobOpportunityListPage extends Activity {
 
     @Override
     public void onBackPressed() {
-        Intent a = new Intent(Intent.ACTION_MAIN);
-        a.addCategory(Intent.CATEGORY_HOME);
-        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);
+        finish();
     }
 
     private class JobListCreation extends AsyncTask<String, String, String> {
@@ -42,7 +39,7 @@ public class JobOpportunityListPage extends Activity {
         protected String doInBackground(String... p) {
             StartPage.client.loadJobs();
             SystemClock.sleep(250);
-            return new String("hi");
+            return new String("");
         }
 
         @Override
@@ -52,7 +49,7 @@ public class JobOpportunityListPage extends Activity {
                 String company = StartPage.dk.getJobDetail("company", i);
                 String description = StartPage.dk.getJobDetail("description", i);
 
-                HashMap<String, String> map = new HashMap<String, String>();
+                HashMap<String, String> map = new HashMap<>();
 
                 map.put("id", id);
                 map.put("company", company);
