@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Switch;
 
@@ -60,6 +61,12 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         "O-3: Lieutenant", "O-4: Lieutenant Commander", "O-5: Commander", "O-6: Captain",
         "O-7: Rear Admiral (Lower Half)", "O-8: Rear Admiral (Upper Half)", "O-9: Vice Admiral",
         "O-10: Admiral Chief of Naval Ops/ Commandant of the CG"};
+    private final CheckBox[] SKILL_LIST = {(CheckBox) findViewById(R.id.skill_first),
+        (CheckBox) findViewById(R.id.skill_second),
+        (CheckBox) findViewById(R.id.skill_third),
+        (CheckBox) findViewById(R.id.skill_fourth),
+        (CheckBox) findViewById(R.id.skill_fifth),
+        (CheckBox) findViewById(R.id.skill_sixth)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -179,11 +186,11 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         String name = StartPage.dk.getVetDetail("name");
         String age = StartPage.dk.getVetDetail("age");
         String address = StartPage.dk.getVetDetail("address");
-        String branch = StartPage.dk.getVetDetail("branch");
         String sex = StartPage.dk.getVetDetail("sex");
+        String branch = StartPage.dk.getVetDetail("branch");
         String rank = StartPage.dk.getVetDetail("rank");
+        String[] skills = StartPage.dk.getVetSkills();
         String description = StartPage.dk.getVetDetail("description");
-        //String[] skills = StartPage.dk.getVetDetail("skills");
 
         if (name != null) {
             ((EditText) findViewById(R.id.user_editText_name)).setText(name);
@@ -194,9 +201,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         if (address != null) {
             ((EditText) findViewById(R.id.user_editText_address)).setText(address);
         }
-        if (branch != null) {
-            ((Button) findViewById(R.id.button_branch)).setText(branch);
-        }
         if (sex != null) {
             if (sex.equals("male")) {
                 ((Switch) findViewById(R.id.user_switch_sex)).setChecked(false);
@@ -205,8 +209,21 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                 ((Switch) findViewById(R.id.user_switch_sex)).setChecked(true);
             }
         }
+        if (branch != null) {
+            ((Button) findViewById(R.id.button_branch)).setText(branch);
+        }
         if (rank != null) {
             ((Button) findViewById(R.id.button_rank)).setText(rank);
+        }
+        if (skills != null) {
+            for (int i = 0; i < skills.length; i++) {
+                for (int j = 0; j < SKILL_LIST.length; i++) {
+                    if (skills[i].equals(SKILL_LIST[j].getText())) {
+                        SKILL_LIST[j].setChecked(true);
+                        break;
+                    }
+                }
+            }
         }
         if (description != null) {
             ((EditText) findViewById(R.id.user_editText_description)).setText(description);
@@ -217,15 +234,15 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     }
 
     public void validateAndSubmitInputs() {
-        StartPage.client.addVetProfile(((EditText) findViewById(R.id.user_editText_name)).getText().toString(),
-            ((EditText) findViewById(R.id.user_editText_age)).getText().toString(),
-            ((EditText) findViewById(R.id.user_editText_description)).getText().toString(),
-            ((EditText) findViewById(R.id.user_editText_address)).getText().toString(),
+        StartPage.client.addVetProfile(((EditText) findViewById(R.id.user_editText_name)).getText().toString().trim(),
+            ((EditText) findViewById(R.id.user_editText_age)).getText().toString().trim(),
+            ((EditText) findViewById(R.id.user_editText_description)).getText().toString().trim(),
+            ((EditText) findViewById(R.id.user_editText_address)).getText().toString().trim(),
             ((Switch) findViewById(R.id.user_switch_sex)).isChecked() ?
-                ((Switch) findViewById(R.id.user_switch_sex)).getTextOn().toString() :
-                ((Switch) findViewById(R.id.user_switch_sex)).getTextOff().toString(),
-            ((Button) findViewById(R.id.button_branch)).getText().toString(),
-            ((Button) findViewById(R.id.button_rank)).getText().toString());
+                ((Switch) findViewById(R.id.user_switch_sex)).getTextOn().toString().trim() :
+                ((Switch) findViewById(R.id.user_switch_sex)).getTextOff().toString().trim(),
+            ((Button) findViewById(R.id.button_branch)).getText().toString().trim(),
+            ((Button) findViewById(R.id.button_rank)).getText().toString().trim());
     }
 
 }

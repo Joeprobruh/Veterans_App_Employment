@@ -45,15 +45,15 @@ public class JobOpportunityListPage extends Activity {
         @Override
         protected void onPostExecute (String string) {
             for (int i = 0; i < StartPage.dk.getJobList().length(); i++) {
-                String id = StartPage.dk.getJobDetail("title", i);
-                String company = StartPage.dk.getJobDetail("description", i);
-                String description = StartPage.dk.getJobDetail("submission date", i);
+                String title = StartPage.dk.getJobDetail("title", i);
+                String description = StartPage.dk.getJobDetail("description", i);
+                String submissionDate = StartPage.dk.getJobDetail("submission date", i);
 
                 HashMap<String, String> map = new HashMap<>();
 
-                map.put("id", id);
-                map.put("company", company);
+                map.put("title", title);
                 map.put("description", description);
+                map.put("submission date", submissionDate);
 
                 jobList.add(map);
 
@@ -71,7 +71,7 @@ public class JobOpportunityListPage extends Activity {
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        StartPage.dk.setJob(position);
+                        StartPage.dk.setJobByIndex(position);
                         Intent j = new Intent(JobOpportunityListPage.this, JobOpportunityProfilePage.class);
                         startActivity(j);
                     }

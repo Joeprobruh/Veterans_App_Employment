@@ -9,7 +9,7 @@ import android.widget.Button;
 /**
  * Created by Joe on 10/31/2015.
  */
-public class JobApplicantsByEmployerPage extends Activity implements View.OnClickListener {
+public class JobApplicantsByEmployerListPage extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class JobApplicantsByEmployerPage extends Activity implements View.OnClic
         switch (v.getId()) {
             case R.id.submit_OK:
                 Intent i = new Intent(
-                    JobApplicantsByEmployerPage.this, UserProfileCreationPage.class);
+                    JobApplicantsByEmployerListPage.this, UserProfileCreationPage.class);
                 startActivity(i);
         }
     }

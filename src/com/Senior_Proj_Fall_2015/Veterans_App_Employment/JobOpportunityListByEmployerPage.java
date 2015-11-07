@@ -22,7 +22,7 @@ public class JobOpportunityListByEmployerPage extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jobs_by_employer_list);
-        new JobListCreation().execute();
+        new JobListByEmployerCreation().execute();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class JobOpportunityListByEmployerPage extends Activity {
         finish();
     }
 
-    private class JobListCreation extends AsyncTask<String, String, String> {
+    private class JobListByEmployerCreation extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... p) {
@@ -42,33 +42,33 @@ public class JobOpportunityListByEmployerPage extends Activity {
         @Override
         protected void onPostExecute (String string) {
             for (int i = 0; i < StartPage.dk.getJobList().length(); i++) {
-                String id = StartPage.dk.getJobDetail("id", i);
-                String company = StartPage.dk.getJobDetail("company", i);
-                String description = StartPage.dk.getJobDetail("description", i);
+                String id = StartPage.dk.getJobDetail("title", i);
+                String company = StartPage.dk.getJobDetail("description", i);
+                String description = StartPage.dk.getJobDetail("submission date", i);
 
                 HashMap<String, String> map = new HashMap<>();
 
-                map.put("id", id);
-                map.put("company", company);
-                map.put("description", description);
+                map.put("title", id);
+                map.put("description", company);
+                map.put("submission date", description);
 
                 jobList.add(map);
 
-                ListView list = (ListView) findViewById(R.id.list_jobs);
+                ListView list = (ListView) findViewById(R.id.list_jobs_by_employer);
 
                 ListAdapter adapter = new SimpleAdapter(JobOpportunityListByEmployerPage.this,
                     jobList,
                     R.layout.activity_job_list_item,
-                    new String[]{"id", "company", "description"},
-                    new int[]{R.id.textView_job_title,
-                        R.id.textView_job_description,
-                        R.id.textView_job_submission_date});
+                    new String[]{"title", "description", "submission date"},
+                    new int[]{R.id.textView_job_list_title,
+                        R.id.textView_job_list_description,
+                        R.id.textView_job_list_submission_date});
 
                 list.setAdapter(adapter);
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        StartPage.dk.setJob(position);
+                        StartPage.dk.setJobByIndex(position);
                         Intent j = new Intent(JobOpportunityListByEmployerPage.this, JobOpportunityProfilePage.class);
                         startActivity(j);
                     }

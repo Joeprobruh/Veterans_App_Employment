@@ -79,7 +79,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:id="@+id/employer_editText_company_name"
+                android:id="@+id/employer_editText_company"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:hint="Company Name"
@@ -105,7 +105,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
-                android:hint="Description"/>
+                android:hint="Description"
+                android:textColor="#ffffffff"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -125,7 +126,8 @@
                 android:hint="Address"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffffff"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,7 +147,8 @@
                 android:hint="Phone Number"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffffff"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -165,7 +168,8 @@
                 android:hint="E-mail Address"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffffff"/>
 
             <RelativeLayout
                 android:layout_width="fill_parent"

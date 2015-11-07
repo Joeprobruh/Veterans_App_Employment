@@ -17,6 +17,7 @@ public class JobOpportunityProfilePage extends Activity {
     protected TextView jobContact;
     protected TextView jobPhoneNumber;
     protected TextView jobEmailAddress;
+    // protected TextView jobSkills;
     protected TextView jobDescription;
     protected TextView jobDeadline;
 
@@ -31,6 +32,7 @@ public class JobOpportunityProfilePage extends Activity {
         jobContact = (TextView) findViewById(R.id.textView_job_contact);
         jobPhoneNumber = (TextView) findViewById(R.id.textView_job_phone_number);
         jobEmailAddress = (TextView) findViewById(R.id.textView_job_email_address);
+        // jobSkills = (TextView) findViewById(R.id.textView_job_skills);
         jobDescription = (TextView) findViewById(R.id.textView_job_description);
         jobDeadline = (TextView) findViewById(R.id.textView_job_deadline);
 
@@ -51,6 +53,15 @@ public class JobOpportunityProfilePage extends Activity {
             jobContact.setText(selection.getString("contact"));
             jobPhoneNumber.setText(selection.getString("phone"));
             jobEmailAddress.setText(selection.getString("email"));
+            /*
+            String skills = "";
+            String[] skillArray = StartPage.dk.getJobSkills();
+            for (int i = 0; i < skillArray.length - 1; i++) {
+                skills += skillArray[i] + " , ";
+            }
+            skills += skillArray[skillArray.length - 1];
+            jobSkills.setText(skills);
+            */
             jobDescription.setText(selection.getString("description"));
             jobDeadline.setText(selection.getString("deadline"));
         } catch (JSONException e) {
