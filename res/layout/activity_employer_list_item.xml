@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Company"
-            android:id="@+id/textView_employer_company"
+            android:id="@+id/textView_employer_list_company"
             android:layout_toRightOf="@+id/textView34"/>
 
     </RelativeLayout>
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Address"
-            android:id="@+id/textView_employer_address"
+            android:id="@+id/textView_employer_list_address"
             android:layout_toRightOf="@+id/textView35"/>
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Phone Number"
-            android:id="@+id/textView_employer_phone_number"
+            android:id="@+id/textView_employer_list_phone_number"
             android:layout_toRightOf="@+id/textView36"/>
 
         <TextView
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="E-mail Address"
-            android:id="@+id/textView_employer_email_address"
+            android:id="@+id/textView_employer_list_email_address"
             android:layout_toRightOf="@+id/textView37"/>
 
         <TextView

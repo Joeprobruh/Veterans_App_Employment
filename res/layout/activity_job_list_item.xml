@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Title"
-            android:id="@+id/textView_job_title"
+            android:id="@+id/textView_job_list_title"
             android:layout_toRightOf="@+id/textView34"/>
 
     </RelativeLayout>
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Description"
-            android:id="@+id/textView_job_description"
+            android:id="@+id/textView_job_list_description"
             android:layout_toRightOf="@+id/textView35"/>
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Submission Date"
-            android:id="@+id/textView_job_submission_date"
+            android:id="@+id/textView_job_list_submission_date"
             android:layout_toRightOf="@+id/textView36"/>
 
         <TextView

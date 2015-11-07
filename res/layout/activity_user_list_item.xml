@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Name"
-            android:id="@+id/textView_user_name"
+            android:id="@+id/textView_user_list_name"
             android:layout_toRightOf="@+id/textView34"/>
 
     </RelativeLayout>
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Age"
-            android:id="@+id/textView_user_age"
+            android:id="@+id/textView_user_list_age"
             android:layout_toRightOf="@+id/textView35"/>
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Branch"
-            android:id="@+id/textView_user_branch"
+            android:id="@+id/textView_user_list_branch"
             android:layout_toRightOf="@+id/textView36"/>
 
         <TextView
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Rank"
-            android:id="@+id/textView_user_rank"
+            android:id="@+id/textView_user_list_rank"
             android:layout_toRightOf="@+id/textView37"/>
 
         <TextView
