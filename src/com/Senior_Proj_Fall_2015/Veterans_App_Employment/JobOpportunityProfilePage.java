@@ -21,7 +21,7 @@ public class JobOpportunityProfilePage extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_job_opportunity_profile);
+        setContentView(R.layout.activity_job_opportunity_profile_page);
 
         jobTitle = (TextView) findViewById(R.id.textView_job_profile_title);
         jobDescription = (TextView) findViewById(R.id.textView_job_profile_description);

@@ -175,7 +175,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
     public void populateFields() {
         StartPage.client.loadVetProfile();
-        SystemClock.sleep(350);
+        SystemClock.sleep(250);
         String name = StartPage.dk.getVetDetail("name");
         String age = StartPage.dk.getVetDetail("age");
         String address = StartPage.dk.getVetDetail("address");

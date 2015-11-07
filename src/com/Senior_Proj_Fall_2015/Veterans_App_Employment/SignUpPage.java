@@ -98,7 +98,7 @@ public class SignUpPage extends Activity implements View.OnClickListener {
         }
         status.setText("About to attempt signUp()");
         StartPage.client.signUp(username, password, role);
-        SystemClock.sleep(200);
+        SystemClock.sleep(250);
         status.setText("signUp finished...");
         return (StartPage.client.getSignUp());
     }

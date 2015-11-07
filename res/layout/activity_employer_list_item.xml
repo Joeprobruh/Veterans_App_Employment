@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Title:  "
+            android:text="Company:  "
             android:id="@+id/textView34"
             android:layout_gravity="center_horizontal"/>
 
@@ -22,8 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Title"
-            android:id="@+id/textView_job_title"
+            android:text="Company"
+            android:id="@+id/textView_employer_company"
             android:layout_toRightOf="@+id/textView34"/>
 
     </RelativeLayout>
@@ -38,15 +38,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Description"
-            android:id="@+id/textView_job_description"
+            android:text="Address"
+            android:id="@+id/textView_employer_address"
             android:layout_toRightOf="@+id/textView35"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Description:  "
+            android:text="Address:  "
             android:id="@+id/textView35"/>
     </RelativeLayout>
 
@@ -60,16 +60,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Submission Date"
-            android:id="@+id/textView_job_submission_date"
+            android:text="Phone Number"
+            android:id="@+id/textView_employer_phone_number"
             android:layout_toRightOf="@+id/textView36"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Submission Date:  "
+            android:text="Phone Number:  "
             android:id="@+id/textView36"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="E-mail Address"
+            android:id="@+id/textView_employer_email_address"
+            android:layout_toRightOf="@+id/textView37"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="E-mail Address:  "
+            android:id="@+id/textView37"
             />
     </RelativeLayout>
 

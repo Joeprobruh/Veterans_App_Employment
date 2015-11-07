@@ -30,18 +30,19 @@
                 android:text="Name"
                 android:id="@+id/textView11"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp" />
+                android:layout_marginTop="20dp" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/user_editText_name"
-                android:textColor="#ff777777"
+                android:textColor="#ffffffff"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:hint="Name" />
+                android:hint="Name"
+                android:layout_marginRight="20dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,15 +54,16 @@
                 android:layout_marginTop="20dp" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/user_editText_age"
-                android:textColor="#ff7a7a7a"
+                android:textColor="#ffffffff"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:hint="Age" />
+                android:hint="Age"
+                android:layout_marginRight="20dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -73,14 +75,15 @@
                 android:layout_marginTop="20dp" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
                 android:ems="10"
                 android:id="@+id/user_editText_address"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:hint="Address" />
+                android:hint="Address"
+                android:layout_marginRight="20dp"/>
 
             <Switch
                 android:layout_width="wrap_content"
@@ -95,7 +98,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:checked="false"
-                />
+                android:layout_gravity="left"
+                android:width="200dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -229,19 +233,22 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
-                android:text="bob"/>
+                android:hint="Description"/>
 
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Submit"
                     android:id="@+id/button_submit"
-                    android:layout_marginLeft="20dp"/>
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignTop="@+id/button_cancel"/>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -249,9 +256,8 @@
                     android:text="Cancel"
                     android:id="@+id/button_cancel"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/button_submit"
-                    android:layout_alignLeft="@+id/button_submit"
-                    android:layout_marginLeft="120dp"/>
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"/>
             </RelativeLayout>
 
         </LinearLayout>

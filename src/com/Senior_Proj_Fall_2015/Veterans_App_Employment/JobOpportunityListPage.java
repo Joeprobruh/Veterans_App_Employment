@@ -57,7 +57,7 @@ public class JobOpportunityListPage extends Activity {
 
                 jobList.add(map);
 
-                ListView list = (ListView) findViewById(R.id.listView_job_list);
+                ListView list = (ListView) findViewById(R.id.list_jobs);
 
                 ListAdapter adapter = new SimpleAdapter(JobOpportunityListPage.this,
                     jobList,
