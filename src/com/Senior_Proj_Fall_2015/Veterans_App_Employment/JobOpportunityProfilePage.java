@@ -21,6 +21,8 @@ public class JobOpportunityProfilePage extends Activity implements View.OnClickL
     protected TextView jobContact;
     protected TextView jobPhoneNumber;
     protected TextView jobEmailAddress;
+    protected TextView jobWebsiteURL;
+    protected TextView jobPreferredContactMethod;
     protected TextView jobDescription;
     protected TextView jobDeadline;
 
@@ -35,7 +37,8 @@ public class JobOpportunityProfilePage extends Activity implements View.OnClickL
         jobContact = (TextView) findViewById(R.id.textView_job_contact);
         jobPhoneNumber = (TextView) findViewById(R.id.textView_job_phone_number);
         jobEmailAddress = (TextView) findViewById(R.id.textView_job_email_address);
-        // jobSkills = (TextView) findViewById(R.id.textView_job_skills);
+        jobPreferredContactMethod = (TextView) findViewById(R.id.textView_job_contact_method);
+        jobWebsiteURL = (TextView) findViewById(R.id.textView_job_website_url);
         jobDescription = (TextView) findViewById(R.id.textView_job_description);
         jobDeadline = (TextView) findViewById(R.id.textView_job_deadline);
 

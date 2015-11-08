@@ -93,11 +93,11 @@ public class DataKeeper {
         }
         return null;
     }
-    public String[] getJobSkills(int index){
+    public String[] getJobSkills(){
         String[] skills;
         try {
 
-            JSONObject obj = jobList.getJSONObject(index);
+            JSONObject obj = jobList.getJSONObject(jobIndex);
             int length = obj.getInt("index");
             if (length == 0)
                 return null;
@@ -131,6 +131,7 @@ public class DataKeeper {
     public void setJob (int index) {
         try {
             job = jobList.getJSONObject(index);
+            jobIndex = index;
         }
         catch (JSONException e) {
             job = null;

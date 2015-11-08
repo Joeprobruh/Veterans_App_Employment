@@ -74,6 +74,95 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Skills Desired"
+        android:id="@+id/textView42"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Skill"
+            android:id="@+id/job_skill_first"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Second Skill"
+            android:id="@+id/job_skill_second"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_toEndOf="@+id/job_skill_first"
+            android:layout_alignLeft="@+id/job_skill_first"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Third Skill"
+            android:id="@+id/job_skill_third"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="false"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fourth Skill"
+            android:id="@+id/job_skill_fourth"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/job_skill_third"
+            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/job_skill_third"
+            android:layout_marginLeft="115dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fifth Skill"
+            android:id="@+id/job_skill_fifth"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sixth Skill"
+            android:id="@+id/job_skill_sixth"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/job_skill_fifth"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="115dp"
+            android:layout_alignLeft="@+id/job_skill_fifth"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Contact"
         android:id="@+id/textView28"
         android:layout_marginLeft="20dp"

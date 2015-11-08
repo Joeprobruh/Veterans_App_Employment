@@ -186,23 +186,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="First Skill"
-                    android:id="@+id/skill_first"
+                    android:id="@+id/user_skill_first"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_alignParentLeft="true"
+                    android:onClick="onCheckboxClicked"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Second Skill"
-                    android:id="@+id/skill_second"
+                    android:id="@+id/user_skill_second"
                     android:layout_marginStart="30dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toEndOf="@+id/skill_first"
-                    android:layout_alignLeft="@+id/skill_first"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignLeft="@+id/user_skill_first"
                     android:layout_marginLeft="115dp"
                     android:layout_marginTop="20dp"
-                    />
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="false"
+                    android:layout_toEndOf="@id/user_skill_first"
+                    android:onClick="onCheckboxClicked"/>
 
             </RelativeLayout>
 
@@ -214,23 +217,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Third Skill"
-                    android:id="@+id/skill_third"
+                    android:id="@+id/user_skill_third"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="false"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="20dp"
+                    android:onClick="onCheckboxClicked"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fourth Skill"
-                    android:id="@+id/skill_fourth"
+                    android:id="@+id/user_skill_fourth"
                     android:layout_marginStart="30dp"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/skill_third"
+                    android:layout_toEndOf="@+id/user_skill_third"
                     android:layout_marginTop="20dp"
-                    android:layout_alignLeft="@+id/skill_third"
-                    android:layout_marginLeft="115dp"/>
+                    android:layout_alignLeft="@+id/user_skill_third"
+                    android:layout_marginLeft="115dp"
+                    android:onClick="onCheckboxClicked"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -241,21 +246,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fifth Skill"
-                    android:id="@+id/skill_fifth"
+                    android:id="@+id/user_skill_fifth"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="20dp"
+                    android:onClick="onCheckboxClicked"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sixth Skill"
-                    android:id="@+id/skill_sixth"
+                    android:id="@+id/user_skill_sixth"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/skill_fifth"
+                    android:layout_toEndOf="@+id/user_skill_fifth"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="115dp"
-                    android:layout_alignLeft="@+id/skill_fifth"/>
+                    android:layout_alignLeft="@+id/user_skill_fifth"
+                    android:onClick="onCheckboxClicked"/>
             </RelativeLayout>
 
             <TextView

@@ -57,7 +57,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                 break;
             case R.id.button_search_employer_list:
                 Intent j = new Intent(
-                    MenuPage.this, SearchEmployerDatabase.class);
+                    MenuPage.this, EmployerListPage.class);
                 startActivity(j);
                 break;
             case R.id.button_edit_profile:
@@ -73,23 +73,24 @@ public class MenuPage extends Activity implements View.OnClickListener{
                 startActivity(l);
                 break;
             case R.id.button_create_new_job_posting:
+                StartPage.dk.setJob(-1);
                 Intent m = new Intent(
-                    MenuPage.this, JobOpportunityProfileCreationLayout.class);
+                    MenuPage.this, JobOpportunityProfileCreationPage.class);
                 startActivity(m);
                 break;
             case R.id.button_current_job_postings:
                 Intent n = new Intent(
-                    MenuPage.this, JobOpportunityListByEmployer.class);
+                    MenuPage.this, JobOpportunityListByEmployerPage.class);
                 startActivity(n);
                 break;
             case R.id.button_review_applicants:
                 Intent p = new Intent(
-                    MenuPage.this, JobApplicantsByEmployer.class);
+                    MenuPage.this, JobApplicantsByEmployerListPage.class);
                 startActivity(p);
                 break;
             case R.id.button_search_users:
                 Intent q = new Intent(
-                    MenuPage.this, SearchUserDatabase.class);
+                    MenuPage.this, UserListPage.class);
                 startActivity(q);
                 break;
         }

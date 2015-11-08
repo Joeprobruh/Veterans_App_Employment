@@ -74,6 +74,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Website URL"
+        android:id="@+id/textView_job_website_url"
+        android:textColor="#ffffffff"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:autoLink="web"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Preferred Contact Method"
+        android:id="@+id/textView_job_contact_method"
+        android:textColor="#ffffffff"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Description"
         android:id="@+id/textView_job_description"
         android:layout_marginLeft="20dp"

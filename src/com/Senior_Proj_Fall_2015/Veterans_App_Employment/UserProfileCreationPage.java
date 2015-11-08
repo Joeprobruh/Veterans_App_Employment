@@ -63,12 +63,12 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         "O-3: Lieutenant", "O-4: Lieutenant Commander", "O-5: Commander", "O-6: Captain",
         "O-7: Rear Admiral (Lower Half)", "O-8: Rear Admiral (Upper Half)", "O-9: Vice Admiral",
         "O-10: Admiral Chief of Naval Ops/ Commandant of the CG"};
-    private final CheckBox[] SKILL_LIST = {(CheckBox) findViewById(R.id.skill_first),
-        (CheckBox) findViewById(R.id.skill_second),
-        (CheckBox) findViewById(R.id.skill_third),
-        (CheckBox) findViewById(R.id.skill_fourth),
-        (CheckBox) findViewById(R.id.skill_fifth),
-        (CheckBox) findViewById(R.id.skill_sixth)};
+    private final CheckBox[] SKILL_LIST = {(CheckBox) findViewById(R.id.user_skill_first),
+        (CheckBox) findViewById(R.id.user_skill_second),
+        (CheckBox) findViewById(R.id.user_skill_third),
+        (CheckBox) findViewById(R.id.user_skill_fourth),
+        (CheckBox) findViewById(R.id.user_skill_fifth),
+        (CheckBox) findViewById(R.id.user_skill_sixth)};
     private static ArrayList<Boolean> CURRENT_SELECTED_SKILLS = new ArrayList<>();
 
     @Override
@@ -186,7 +186,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     public void onCheckboxClicked(View view) {
         boolean isChecked = ((CheckBox) view).isChecked();
         switch (view.getId()) {
-            case R.id.skill_first:
+            case R.id.user_skill_first:
                 if (isChecked) {
                     CURRENT_SELECTED_SKILLS.set(0, true);
                 }
@@ -194,7 +194,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                     CURRENT_SELECTED_SKILLS.set(0, false);
                 }
                 break;
-            case R.id.skill_second:
+            case R.id.user_skill_second:
                 if (isChecked) {
                     CURRENT_SELECTED_SKILLS.set(1, true);
                 }
@@ -202,7 +202,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                     CURRENT_SELECTED_SKILLS.set(1, false);
                 }
                 break;
-            case R.id.skill_third:
+            case R.id.user_skill_third:
                 if (isChecked) {
                     CURRENT_SELECTED_SKILLS.set(2, true);
                 }
@@ -210,7 +210,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                     CURRENT_SELECTED_SKILLS.set(2, false);
                 }
                 break;
-            case R.id.skill_fourth:
+            case R.id.user_skill_fourth:
                 if (isChecked) {
                     CURRENT_SELECTED_SKILLS.set(3, true);
                 }
@@ -218,7 +218,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                     CURRENT_SELECTED_SKILLS.set(3, false);
                 }
                 break;
-            case R.id.skill_fifth:
+            case R.id.user_skill_fifth:
                 if (isChecked) {
                     CURRENT_SELECTED_SKILLS.set(4, true);
                 }
@@ -226,7 +226,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                     CURRENT_SELECTED_SKILLS.set(4, false);
                 }
                 break;
-            case R.id.skill_sixth:
+            case R.id.user_skill_sixth:
                 if (isChecked) {
                     CURRENT_SELECTED_SKILLS.set(5, true);
                 }
@@ -321,7 +321,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                 pointer++;
             }
         }
-        StartPage.client.addVetSkill(skillArray, "2");
+        StartPage.client.addVetSkill(skillArray);
     }
 
 }

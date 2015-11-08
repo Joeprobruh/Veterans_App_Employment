@@ -47,7 +47,7 @@ public class NetClient {
         isSignedUp = false;
     }
 
-    public void addVetSkill(final String[] skill, final String months) {
+    public void addVetSkill(final String[] skill) {
         Thread thread = new Thread(new Runnable(){
             @Override
             public void run() {
@@ -345,7 +345,7 @@ public class NetClient {
         thread.start();
     }
 
-    public void addJobSkill(final String[] skill, final String months) {
+    public void addJobSkill(final String[] skill) {
         Thread thread = new Thread(new Runnable(){
             @Override
             public void run() {

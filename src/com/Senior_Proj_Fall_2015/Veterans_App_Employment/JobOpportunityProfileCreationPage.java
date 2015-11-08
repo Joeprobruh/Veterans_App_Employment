@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+
+import java.util.ArrayList;
 
 /**
  * Created by Joe on 10/31/2015.
@@ -17,6 +20,13 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
 
     private static final String[] CONTACT_METHODS = new String[] {"Phone Number", "E-mail Address", "Website URL",
                                                                     "Snail Mail"};
+    private final CheckBox[] SKILL_LIST = {(CheckBox) findViewById(R.id.job_skill_first),
+        (CheckBox) findViewById(R.id.job_skill_second),
+        (CheckBox) findViewById(R.id.user_skill_third),
+        (CheckBox) findViewById(R.id.job_skill_fourth),
+        (CheckBox) findViewById(R.id.user_skill_fifth),
+        (CheckBox) findViewById(R.id.job_skill_sixth)};
+    private static ArrayList<Boolean> CURRENT_SELECTED_SKILLS = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +45,9 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
             (Button) findViewById(R.id.button_preferred_contact);
         button_preferred_contact.setOnClickListener(this);
 
-        populateFields();
+        if (StartPage.dk.getJob() != null) {
+            populateFields();
+        }
     }
 
     @Override
@@ -64,6 +76,60 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         finish();
     }
 
+    public void onCheckboxClicked(View view) {
+        boolean isChecked = ((CheckBox) view).isChecked();
+        switch (view.getId()) {
+            case R.id.job_skill_first:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(0, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(0, false);
+                }
+                break;
+            case R.id.job_skill_second:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(1, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(1, false);
+                }
+                break;
+            case R.id.job_skill_third:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(2, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(2, false);
+                }
+                break;
+            case R.id.job_skill_fourth:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(3, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(3, false);
+                }
+                break;
+            case R.id.job_skill_fifth:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(4, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(4, false);
+                }
+                break;
+            case R.id.job_skill_sixth:
+                if (isChecked) {
+                    CURRENT_SELECTED_SKILLS.set(5, true);
+                }
+                else {
+                    CURRENT_SELECTED_SKILLS.set(5, false);
+                }
+                break;
+        }
+    }
+
     private void showListPreferredContactMethod(final View view) {
         final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         helpBuilder.setTitle("Select Preferred Contact Method");
@@ -82,6 +148,7 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         String title = StartPage.dk.getJobDetail("title");
         String company = StartPage.dk.getJobDetail("company");
         String description = StartPage.dk.getJobDetail("description");
+        String[] skills = StartPage.dk.getJobSkills();
         String contact = StartPage.dk.getJobDetail("contact");
         String address = StartPage.dk.getJobDetail("address");
         String phoneNumber = StartPage.dk.getJobDetail("phone");
@@ -98,6 +165,17 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         }
         if (description != null) {
             ((EditText) findViewById(R.id.job_editText_description)).setText(description);
+        }
+        if (skills != null) {
+            for (int i = 0; i < skills.length; i++) {
+                for (int j = 0; j < SKILL_LIST.length; j++) {
+                    if (skills[i].equals(SKILL_LIST[j].getText().toString())) {
+                        CURRENT_SELECTED_SKILLS.set(j, true);
+                        SKILL_LIST[j].setChecked(true);
+                        break;
+                    }
+                }
+            }
         }
         if (contact != null) {
             ((EditText) findViewById(R.id.job_editText_contact)).setText(contact);
@@ -124,7 +202,9 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
 
     public void validateAndSubmitInputs() {
         StartPage.client.addJob(
-            "0",
+            (StartPage.dk.getJob() != null) ?
+                StartPage.dk.getJobDetail("jobid") :
+                "0",
             ((EditText) findViewById(R.id.job_editText_title)).getText().toString().trim(),
             ((EditText) findViewById(R.id.job_editText_company)).getText().toString().trim(),
             ((EditText) findViewById(R.id.job_editText_description)).getText().toString().trim(),
@@ -135,6 +215,15 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
             ((EditText) findViewById(R.id.job_editText_website_url)).getText().toString().trim(),
             ((Button) findViewById(R.id.button_preferred_contact)).getText().toString().trim(),
             ((EditText) findViewById(R.id.job_editText_submission_deadline)).getText().toString().trim());
+        String[] skillArray = new String[SKILL_LIST.length];
+        int pointer = 0;
+        for(int i = 0; i < SKILL_LIST.length; i++) {
+            if (SKILL_LIST[i].isChecked()) {
+                skillArray[pointer] = SKILL_LIST[i].getText().toString();
+                pointer++;
+            }
+        }
+        StartPage.client.addJobSkill(skillArray);
     }
 
 }
