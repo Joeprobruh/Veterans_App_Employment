@@ -68,7 +68,7 @@ public class JobOpportunityListByEmployerPage extends Activity {
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        StartPage.dk.setJobByIndex(position);
+                        StartPage.dk.setJob(position);
                         Intent j = new Intent(JobOpportunityListByEmployerPage.this, JobOpportunityProfilePage.class);
                         startActivity(j);
                     }

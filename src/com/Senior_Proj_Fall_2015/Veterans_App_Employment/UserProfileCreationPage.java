@@ -63,13 +63,8 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         "O-3: Lieutenant", "O-4: Lieutenant Commander", "O-5: Commander", "O-6: Captain",
         "O-7: Rear Admiral (Lower Half)", "O-8: Rear Admiral (Upper Half)", "O-9: Vice Admiral",
         "O-10: Admiral Chief of Naval Ops/ Commandant of the CG"};
-    private final CheckBox[] SKILL_LIST = {(CheckBox) findViewById(R.id.user_skill_first),
-        (CheckBox) findViewById(R.id.user_skill_second),
-        (CheckBox) findViewById(R.id.user_skill_third),
-        (CheckBox) findViewById(R.id.user_skill_fourth),
-        (CheckBox) findViewById(R.id.user_skill_fifth),
-        (CheckBox) findViewById(R.id.user_skill_sixth)};
-    private static ArrayList<Boolean> CURRENT_SELECTED_SKILLS = new ArrayList<>();
+    private static CheckBox[] SKILL_LIST;
+    private static Boolean[] CURRENT_SELECTED_SKILLS = new Boolean[] {false, false, false, false, false, false};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +86,13 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         Button button_cancel =
             (Button) findViewById(R.id.button_cancel);
         button_cancel.setOnClickListener(this);
+
+        SKILL_LIST = new CheckBox[] {(CheckBox) findViewById(R.id.user_skill_first),
+            (CheckBox) findViewById(R.id.user_skill_second),
+            (CheckBox) findViewById(R.id.user_skill_third),
+            (CheckBox) findViewById(R.id.user_skill_fourth),
+            (CheckBox) findViewById(R.id.user_skill_fifth),
+            (CheckBox) findViewById(R.id.user_skill_sixth)};
 
         populateFields();
     }
@@ -183,55 +185,55 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         }
     }
 
-    public void onCheckboxClicked(View view) {
+    public void onUserCheckboxClicked(View view) {
         boolean isChecked = ((CheckBox) view).isChecked();
         switch (view.getId()) {
             case R.id.user_skill_first:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(0, true);
+                    CURRENT_SELECTED_SKILLS[0] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(0, false);
+                    CURRENT_SELECTED_SKILLS[0] = false;
                 }
                 break;
             case R.id.user_skill_second:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(1, true);
+                    CURRENT_SELECTED_SKILLS[1] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(1, false);
+                    CURRENT_SELECTED_SKILLS[1] = false;
                 }
                 break;
             case R.id.user_skill_third:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(2, true);
+                    CURRENT_SELECTED_SKILLS[2] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(2, false);
+                    CURRENT_SELECTED_SKILLS[2] = false;
                 }
                 break;
             case R.id.user_skill_fourth:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(3, true);
+                    CURRENT_SELECTED_SKILLS[3] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(3, false);
+                    CURRENT_SELECTED_SKILLS[3] = false;
                 }
                 break;
             case R.id.user_skill_fifth:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(4, true);
+                    CURRENT_SELECTED_SKILLS[4] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(4, false);
+                    CURRENT_SELECTED_SKILLS[4] = false;
                 }
                 break;
             case R.id.user_skill_sixth:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(5, true);
+                    CURRENT_SELECTED_SKILLS[5] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(5, false);
+                    CURRENT_SELECTED_SKILLS[5] = false;
                 }
                 break;
         }
@@ -248,7 +250,13 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         String sex = StartPage.dk.getVetDetail("sex");
         String branch = StartPage.dk.getVetDetail("branch");
         String rank = StartPage.dk.getVetDetail("rank");
-        String[] skills = StartPage.dk.getVetSkills();
+        String[] skills;
+        try {
+            skills = StartPage.dk.getVetSkills();
+        }
+        catch (NullPointerException e) {
+            skills = null;
+        }
         String description = StartPage.dk.getVetDetail("description");
 
         if (name != null) {
@@ -287,7 +295,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             for (int i = 0; i < skills.length; i++) {
                 for (int j = 0; j < SKILL_LIST.length; j++) {
                      if (skills[i].equals(SKILL_LIST[j].getText().toString())) {
-                        CURRENT_SELECTED_SKILLS.set(j, true);
+                        CURRENT_SELECTED_SKILLS[j] = true;
                          SKILL_LIST[j].setChecked(true);
                          break;
                      }
@@ -305,9 +313,9 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         StartPage.client.addVetProfile(((EditText) findViewById(R.id.user_editText_name)).getText().toString().trim(),
             ((EditText) findViewById(R.id.user_editText_age)).getText().toString().trim(),
             ((EditText) findViewById(R.id.user_editText_description)).getText().toString().trim(),
+            ((EditText) findViewById(R.id.user_editText_address)).getText().toString().trim(),
             ((EditText) findViewById(R.id.user_editText_phone_number)).getText().toString().trim(),
             ((EditText) findViewById(R.id.user_editText_email_address)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.user_editText_address)).getText().toString().trim(),
             ((Switch) findViewById(R.id.user_switch_sex)).isChecked() ?
                 ((Switch) findViewById(R.id.user_switch_sex)).getTextOn().toString().trim() :
                 ((Switch) findViewById(R.id.user_switch_sex)).getTextOff().toString().trim(),
@@ -321,7 +329,9 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                 pointer++;
             }
         }
+        SystemClock.sleep(500);
         StartPage.client.addVetSkill(skillArray);
+        SystemClock.sleep(500);
     }
 
 }

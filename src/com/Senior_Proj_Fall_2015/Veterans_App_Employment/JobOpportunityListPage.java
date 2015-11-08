@@ -38,7 +38,7 @@ public class JobOpportunityListPage extends Activity {
         @Override
         protected String doInBackground(String... p) {
             StartPage.client.loadJobs();
-            SystemClock.sleep(250);
+            SystemClock.sleep(500);
             return new String("");
         }
 
@@ -47,13 +47,13 @@ public class JobOpportunityListPage extends Activity {
             for (int i = 0; i < StartPage.dk.getJobList().length(); i++) {
                 String title = StartPage.dk.getJobDetail("title", i);
                 String description = StartPage.dk.getJobDetail("description", i);
-                String submissionDate = StartPage.dk.getJobDetail("submission date", i);
+                String deadline = StartPage.dk.getJobDetail("deadline", i);
 
                 HashMap<String, String> map = new HashMap<>();
 
                 map.put("title", title);
                 map.put("description", description);
-                map.put("submission date", submissionDate);
+                map.put("deadline", deadline);
 
                 jobList.add(map);
 
@@ -62,7 +62,7 @@ public class JobOpportunityListPage extends Activity {
                 ListAdapter adapter = new SimpleAdapter(JobOpportunityListPage.this,
                     jobList,
                     R.layout.activity_job_list_item,
-                    new String[]{"title", "description", "submission date"},
+                    new String[]{"title", "description", "deadline"},
                     new int[]{R.id.textView_job_list_title,
                         R.id.textView_job_list_description,
                         R.id.textView_job_list_submission_date});

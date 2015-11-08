@@ -27,6 +27,7 @@ public class DataKeeper {
         veteranList = null;
         employerProfile = null;
         jobList = null;
+        job = null;
         employerList = null;
     }
 
@@ -74,6 +75,7 @@ public class DataKeeper {
         }
         return null;
     }
+
     public String[] getVetSkills(int index){
         String[] skills;
         try {
@@ -138,6 +140,15 @@ public class DataKeeper {
         }
     }
 
+    public void setVetProfile (int index) {
+        try {
+            vetProfile = veteranList.getJSONObject(index);
+        }
+        catch (JSONException e) {
+            vetProfile = null;
+        }
+    }
+
     public void setEmployerProfile (int index) {
         try {
             employerProfile = employerList.getJSONObject(index);
@@ -179,8 +190,16 @@ public class DataKeeper {
         }
     }
 
+    public void clearJob() {
+        job = null;
+    }
+
     public JSONArray getJobList () {
         return jobList;
+    }
+
+    public JSONArray getVetList () {
+        return veteranList;
     }
 
     public JSONArray getEmployerList() { return employerList; }

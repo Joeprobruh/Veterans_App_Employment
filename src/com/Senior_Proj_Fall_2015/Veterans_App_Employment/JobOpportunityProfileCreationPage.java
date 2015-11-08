@@ -20,13 +20,8 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
 
     private static final String[] CONTACT_METHODS = new String[] {"Phone Number", "E-mail Address", "Website URL",
                                                                     "Snail Mail"};
-    private final CheckBox[] SKILL_LIST = {(CheckBox) findViewById(R.id.job_skill_first),
-        (CheckBox) findViewById(R.id.job_skill_second),
-        (CheckBox) findViewById(R.id.user_skill_third),
-        (CheckBox) findViewById(R.id.job_skill_fourth),
-        (CheckBox) findViewById(R.id.user_skill_fifth),
-        (CheckBox) findViewById(R.id.job_skill_sixth)};
-    private static ArrayList<Boolean> CURRENT_SELECTED_SKILLS = new ArrayList<>();
+    private static CheckBox[] SKILL_LIST;
+    private static Boolean[] CURRENT_SELECTED_SKILLS = new Boolean[] {false, false, false, false, false, false};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +39,13 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         Button button_preferred_contact =
             (Button) findViewById(R.id.button_preferred_contact);
         button_preferred_contact.setOnClickListener(this);
+
+        SKILL_LIST = new CheckBox[] {(CheckBox) findViewById(R.id.job_skill_first),
+            (CheckBox) findViewById(R.id.job_skill_second),
+            (CheckBox) findViewById(R.id.job_skill_third),
+            (CheckBox) findViewById(R.id.job_skill_fourth),
+            (CheckBox) findViewById(R.id.job_skill_fifth),
+            (CheckBox) findViewById(R.id.job_skill_sixth)};
 
         if (StartPage.dk.getJob() != null) {
             populateFields();
@@ -79,52 +81,52 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
     public void onCheckboxClicked(View view) {
         boolean isChecked = ((CheckBox) view).isChecked();
         switch (view.getId()) {
-            case R.id.job_skill_first:
+            case R.id.user_skill_first:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(0, true);
+                    CURRENT_SELECTED_SKILLS[0] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(0, false);
+                    CURRENT_SELECTED_SKILLS[0] = false;
                 }
                 break;
-            case R.id.job_skill_second:
+            case R.id.user_skill_second:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(1, true);
+                    CURRENT_SELECTED_SKILLS[1] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(1, false);
+                    CURRENT_SELECTED_SKILLS[1] = false;
                 }
                 break;
-            case R.id.job_skill_third:
+            case R.id.user_skill_third:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(2, true);
+                    CURRENT_SELECTED_SKILLS[2] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(2, false);
+                    CURRENT_SELECTED_SKILLS[2] = false;
                 }
                 break;
-            case R.id.job_skill_fourth:
+            case R.id.user_skill_fourth:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(3, true);
+                    CURRENT_SELECTED_SKILLS[3] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(3, false);
+                    CURRENT_SELECTED_SKILLS[3] = false;
                 }
                 break;
-            case R.id.job_skill_fifth:
+            case R.id.user_skill_fifth:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(4, true);
+                    CURRENT_SELECTED_SKILLS[4] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(4, false);
+                    CURRENT_SELECTED_SKILLS[4] = false;
                 }
                 break;
-            case R.id.job_skill_sixth:
+            case R.id.user_skill_sixth:
                 if (isChecked) {
-                    CURRENT_SELECTED_SKILLS.set(5, true);
+                    CURRENT_SELECTED_SKILLS[5] = true;
                 }
                 else {
-                    CURRENT_SELECTED_SKILLS.set(5, false);
+                    CURRENT_SELECTED_SKILLS[5] = false;
                 }
                 break;
         }
@@ -143,12 +145,17 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
     }
 
     public void populateFields() {
-        StartPage.dk.getJob();
         SystemClock.sleep(250);
         String title = StartPage.dk.getJobDetail("title");
         String company = StartPage.dk.getJobDetail("company");
         String description = StartPage.dk.getJobDetail("description");
-        String[] skills = StartPage.dk.getJobSkills();
+        String[] skills;
+        try {
+            skills = StartPage.dk.getVetSkills();
+        }
+        catch (NullPointerException e) {
+            skills = null;
+        }
         String contact = StartPage.dk.getJobDetail("contact");
         String address = StartPage.dk.getJobDetail("address");
         String phoneNumber = StartPage.dk.getJobDetail("phone");
@@ -170,7 +177,7 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
             for (int i = 0; i < skills.length; i++) {
                 for (int j = 0; j < SKILL_LIST.length; j++) {
                     if (skills[i].equals(SKILL_LIST[j].getText().toString())) {
-                        CURRENT_SELECTED_SKILLS.set(j, true);
+                        CURRENT_SELECTED_SKILLS[j] = true;
                         SKILL_LIST[j].setChecked(true);
                         break;
                     }

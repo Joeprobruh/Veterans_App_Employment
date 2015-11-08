@@ -3,6 +3,7 @@ package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,6 +16,10 @@ public class MenuPage extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         String user = getCurrentLoggedInUser();
         super.onCreate(savedInstanceState);
+        StartPage.client.loadJobs();
+        StartPage.client.loadVets();
+        StartPage.client.loadEmployers();
+        SystemClock.sleep(500);
         if (user.equals("veteran")) {
             setContentView(R.layout.activity_menu_user_page);
             Button button_search_jobs =
@@ -26,6 +31,9 @@ public class MenuPage extends Activity implements View.OnClickListener{
             Button button_edit_profile =
                 (Button) findViewById(R.id.button_edit_profile);
             button_edit_profile.setOnClickListener(this);
+            Button button_view_profile =
+                (Button) findViewById(R.id.button_view_profile);
+            button_view_profile.setOnClickListener(this);
             Button button_resources_page =
                 (Button) findViewById(R.id.button_resources_page);
             button_resources_page.setOnClickListener(this);
@@ -60,12 +68,15 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     MenuPage.this, EmployerListPage.class);
                 startActivity(j);
                 break;
-            case R.id.button_edit_profile:
+            case R.id.button_view_profile:
                 Intent k = new Intent(
-                    //Moves to the UserProfileCreationPage, but we have to figure out how to populate the fields that
-                    //  have already been filled in by the user
-                    MenuPage.this, UserProfileCreationPage.class);
+                    MenuPage.this, UserProfilePage.class);
                 startActivity(k);
+                break;
+            case R.id.button_edit_profile:
+                Intent r = new Intent(
+                    MenuPage.this, UserProfileCreationPage.class);
+                startActivity(r);
                 break;
             case R.id.button_resources_page:
                 Intent l = new Intent(
@@ -73,7 +84,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                 startActivity(l);
                 break;
             case R.id.button_create_new_job_posting:
-                StartPage.dk.setJob(-1);
+                StartPage.dk.clearJob();
                 Intent m = new Intent(
                     MenuPage.this, JobOpportunityProfileCreationPage.class);
                 startActivity(m);

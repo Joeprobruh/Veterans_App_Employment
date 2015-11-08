@@ -83,11 +83,16 @@ public class UserProfilePage extends Activity implements View.OnClickListener{
             userRank.setText(selection.getString("rank"));
             String skills = "";
             String[] skillArray = StartPage.dk.getVetSkills();
-            for (int i = 0; i < skillArray.length - 1; i++) {
-                skills += skillArray[i] + " , ";
+            try {
+                for (int i = 0; i < skillArray.length - 1; i++) {
+                    skills += skillArray[i] + " , ";
+                }
+                skills += skillArray[skillArray.length - 1];
+                userSkills.setText(skills);
             }
-            skills += skillArray[skillArray.length - 1];
-            userSkills.setText(skills);
+            catch (NullPointerException e) {
+                userSkills.setText("No skills, or failed to load the skills.");
+            }
             userDescription.setText(selection.getString("description"));
         } catch (JSONException e) {
             // No exceptions

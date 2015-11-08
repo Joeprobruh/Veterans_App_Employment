@@ -190,7 +190,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_alignParentLeft="true"
-                    android:onClick="onCheckboxClicked"/>
+                    android:onClick="onUserCheckboxClicked"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="false"
                     android:layout_toEndOf="@id/user_skill_first"
-                    android:onClick="onCheckboxClicked"/>
+                    android:onClick="onUserCheckboxClicked"/>
 
             </RelativeLayout>
 
@@ -222,7 +222,7 @@
                     android:layout_alignParentRight="false"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    android:onClick="onCheckboxClicked"/>
+                    android:onClick="onUserCheckboxClicked"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
@@ -235,7 +235,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_alignLeft="@+id/user_skill_third"
                     android:layout_marginLeft="115dp"
-                    android:onClick="onCheckboxClicked"/>
+                    android:onClick="onUserCheckboxClicked"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -249,7 +249,7 @@
                     android:id="@+id/user_skill_fifth"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    android:onClick="onCheckboxClicked"/>
+                    android:onClick="onUserCheckboxClicked"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
@@ -262,7 +262,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="115dp"
                     android:layout_alignLeft="@+id/user_skill_fifth"
-                    android:onClick="onCheckboxClicked"/>
+                    android:onClick="onUserCheckboxClicked"/>
             </RelativeLayout>
 
             <TextView

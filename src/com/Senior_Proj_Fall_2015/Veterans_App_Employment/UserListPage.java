@@ -39,7 +39,7 @@ public class UserListPage extends Activity {
 
         protected String doInBackground(String... p) {
             StartPage.client.loadVets();
-            SystemClock.sleep(250);
+            SystemClock.sleep(500);
             return new String("");
         }
 
@@ -75,7 +75,7 @@ public class UserListPage extends Activity {
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        StartPage.dk.setVetProfileByIndex(position);
+                        StartPage.dk.setVetProfile(position);
                         Intent j = new Intent(UserListPage.this, UserProfilePage.class);
                         startActivity(j);
                     }

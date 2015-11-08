@@ -36,7 +36,7 @@ public class EmployerListPage extends Activity{
 
         protected String doInBackground(String... p) {
             StartPage.client.loadEmployers();
-            SystemClock.sleep(250);
+            SystemClock.sleep(500);
             return new String("");
         }
 
