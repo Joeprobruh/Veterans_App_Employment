@@ -12,6 +12,7 @@
     <shared>
       <config>
         <devices>
+          <device id="Nexus 5" />
           <device id="LongScroller" />
           <device id="Galaxy S5 1" />
         </devices>
@@ -40,6 +41,11 @@
           <theme>@android:style/Theme.Holo</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/res/layout/activity_user_profile_page.xml">
+        <config>
+          <theme>@android:style/Theme.Holo</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AndroidLogFilters">
@@ -48,14 +54,12 @@
   <component name="ChangeListManager">
     <list default="true" id="38a746ba-4958-497e-b62f-694f232278dd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_employer_profile_creation_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_employer_profile_creation_page.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_creation_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_creation_page.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_user_profile_creation_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_user_profile_creation_page.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_user_profile_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_user_profile_page.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Veterans_App_Employment.iws" />
@@ -82,31 +86,7 @@
     <favorites_list name="Veterans_App_Employment" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="NetClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="317" column="58" selection-start-line="317" selection-start-column="58" selection-end-line="317" selection-end-column="58" />
-              <caret line="318" column="43" selection-start-line="318" selection-start-column="43" selection-end-line="318" selection-end-column="43" />
-              <caret line="319" column="17" selection-start-line="319" selection-start-column="17" selection-end-line="319" selection-end-column="17" />
-              <caret line="320" column="38" selection-start-line="320" selection-start-column="38" selection-end-line="320" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataKeeper.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26086956">
-              <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -159,28 +139,28 @@
         <option value="$PROJECT_DIR$/res/layout/activity_user_list_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_job_list_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_employer_list_item.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_user_profile_page.xml" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityList.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployer.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobApplicantsByEmployerListPage.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_employer_profile_creation_page.xml" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_user_profile_creation_page.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_creation_page.xml" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_user_profile_page.xml" />
       </list>
     </option>
   </component>
@@ -227,8 +207,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -336,6 +314,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -543,7 +523,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -552,11 +532,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939914" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45253164" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -570,7 +551,6 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50536484" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3254565" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32594937" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32725322" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -600,6 +580,29 @@
     <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="317" column="58" selection-start-line="317" selection-start-column="58" selection-end-line="317" selection-end-column="58" />
+          <caret line="318" column="43" selection-start-line="318" selection-start-column="43" selection-end-line="318" selection-end-column="43" />
+          <caret line="319" column="17" selection-start-line="319" selection-start-column="17" selection-end-line="319" selection-end-column="17" />
+          <caret line="320" column="38" selection-start-line="320" selection-start-column="38" selection-end-line="320" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#3822#3823#0" expanded="true" />
+            <element signature="e#3855#3856#0" expanded="true" />
+            <element signature="e#3916#3917#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="568" column="21" selection-start-line="568" selection-start-column="21" selection-end-line="568" selection-end-column="21" />
           <folding />
         </state>
@@ -609,7 +612,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#3822#3823#0" expanded="true" />
+            <element signature="e#3855#3856#0" expanded="true" />
+            <element signature="e#3916#3917#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -617,10 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#2233#2430#0" expanded="true" />
-            <element signature="e#2429#2430#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -628,11 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4323#4324#0" expanded="false" />
-            <element signature="e#4372#4373#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -648,7 +646,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="145" column="12" selection-start-line="2" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#3822#3823#0" expanded="true" />
+            <element signature="e#3855#3856#0" expanded="true" />
+            <element signature="e#3916#3917#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -656,10 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#2233#2430#0" expanded="true" />
-            <element signature="e#2429#2430#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -667,11 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4323#4324#0" expanded="false" />
-            <element signature="e#4372#4373#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -687,7 +680,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#3822#3823#0" expanded="true" />
+            <element signature="e#3855#3856#0" expanded="true" />
+            <element signature="e#3916#3917#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -695,10 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2233#2430#0" expanded="true" />
-            <element signature="e#2429#2430#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -714,7 +707,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="161" column="31" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="e#3822#3823#0" expanded="true" />
+            <element signature="e#3855#3856#0" expanded="true" />
+            <element signature="e#3916#3917#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -737,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.70434785">
           <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,7 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09456522">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,7 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6076087">
           <caret line="100" column="28" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -823,11 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4323#4324#0" expanded="false" />
-            <element signature="e#4372#4373#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -835,7 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.425">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,7 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,25 +855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="317" column="58" selection-start-line="317" selection-start-column="58" selection-end-line="317" selection-end-column="58" />
-          <caret line="318" column="43" selection-start-line="318" selection-start-column="43" selection-end-line="318" selection-end-column="43" />
-          <caret line="319" column="17" selection-start-line="319" selection-start-column="17" selection-end-line="319" selection-end-column="17" />
-          <caret line="320" column="38" selection-start-line="320" selection-start-column="38" selection-end-line="320" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="135" column="95" selection-start-line="135" selection-start-column="95" selection-end-line="135" selection-end-column="95" />
-          <folding>
-            <element signature="e#2233#2430#0" expanded="true" />
-            <element signature="e#2429#2430#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -913,10 +884,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.2847824">
+          <caret line="302" column="0" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72282606">
+          <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0347826">
-          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5728261">
+          <caret line="45" column="66" selection-start-line="45" selection-start-column="66" selection-end-line="45" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -932,26 +937,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.2847824">
-          <caret line="302" column="0" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.09021739">
+          <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72282606">
-          <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_user_profile_page.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26086956">
-          <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+        <state vertical-scroll-proportion="2.4945652">
+          <caret line="152" column="33" selection-start-line="152" selection-start-column="33" selection-end-line="152" selection-end-column="33" />
+          <folding>
+            <element signature="e#3822#3823#0" expanded="true" />
+            <element signature="e#3855#3856#0" expanded="true" />
+            <element signature="e#3916#3917#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="317" column="58" selection-start-line="317" selection-start-column="58" selection-end-line="317" selection-end-column="58" />
+          <caret line="318" column="43" selection-start-line="318" selection-start-column="43" selection-end-line="318" selection-end-column="43" />
+          <caret line="319" column="17" selection-start-line="319" selection-start-column="17" selection-end-line="319" selection-end-column="17" />
+          <caret line="320" column="38" selection-start-line="320" selection-start-column="38" selection-end-line="320" selection-end-column="38" />
           <folding />
         </state>
       </provider>

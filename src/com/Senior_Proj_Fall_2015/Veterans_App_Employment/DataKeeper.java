@@ -146,6 +146,10 @@ public class DataKeeper {
         }
     }
 
+    public JSONObject getVetProfile () {
+        return vetProfile;
+    }
+
     public JSONObject getJob () {
         return job;
     }

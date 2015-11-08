@@ -1,15 +1,19 @@
 package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
  * Created by Joe on 10/31/2015.
  */
-public class JobOpportunityProfilePage extends Activity {
+public class JobOpportunityProfilePage extends Activity implements View.OnClickListener {
 
     protected TextView jobTitle;
     protected TextView jobCompany;
@@ -17,7 +21,6 @@ public class JobOpportunityProfilePage extends Activity {
     protected TextView jobContact;
     protected TextView jobPhoneNumber;
     protected TextView jobEmailAddress;
-    // protected TextView jobSkills;
     protected TextView jobDescription;
     protected TextView jobDeadline;
 
@@ -42,6 +45,29 @@ public class JobOpportunityProfilePage extends Activity {
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.textView_job_email_address:
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:" + jobEmailAddress.getText().toString()));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "My email's subject");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "My email's body");
+                try {
+                    startActivity(Intent.createChooser(emailIntent, "Send email using..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(JobOpportunityProfilePage.this, "No email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.textView_job_phone_number:
+                String phoneNumber = jobPhoneNumber.getText().toString().trim();
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + phoneNumber));
+                startActivity(callIntent);
+                break;
+        }
     }
 
     private void updateProfile() {

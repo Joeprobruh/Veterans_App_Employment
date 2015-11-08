@@ -1,15 +1,19 @@
 package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
  * Created by Joe on 11/7/2015.
  */
-public class EmployerProfilePage extends Activity {
+public class EmployerProfilePage extends Activity implements View.OnClickListener{
 
     protected TextView employerCompany;
     protected TextView employerName;
@@ -22,7 +26,6 @@ public class EmployerProfilePage extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employer_profile_page);
 
         employerCompany = (TextView) findViewById(R.id.textView_employer_company);
         employerName = (TextView) findViewById(R.id.textView_employer_name);
@@ -33,6 +36,29 @@ public class EmployerProfilePage extends Activity {
         employerDescription = (TextView) findViewById(R.id.textView_employer_description);
 
         updateProfile();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.textView_employer_email_address:
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:" + employerEmailAddress.getText().toString()));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "My email's subject");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "My email's body");
+                try {
+                    startActivity(Intent.createChooser(emailIntent, "Send email using..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(EmployerProfilePage.this, "No email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.textView_employer_phone_number:
+                String phoneNumber = employerPhoneNumber.getText().toString().trim();
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + phoneNumber));
+                startActivity(callIntent);
+                break;
+        }
     }
 
     @Override

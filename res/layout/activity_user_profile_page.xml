@@ -37,6 +37,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Phone Number"
+        android:id="@+id/textView_user_phone_number"
+        android:textColor="#ffffffff"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:autoLink="phone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="E-mail Address"
+        android:id="@+id/textView_user_email_address"
+        android:textColor="#ffffffff"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:autoLink="email"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Branch"
         android:id="@+id/textView_user_branch"
         android:layout_marginLeft="20dp"
