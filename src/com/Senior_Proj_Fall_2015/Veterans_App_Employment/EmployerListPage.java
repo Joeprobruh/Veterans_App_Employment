@@ -6,10 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
+import android.widget.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,7 +72,7 @@ public class EmployerListPage extends Activity{
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        StartPage.dk.setEmployerProfileByIndex(position);
+                        StartPage.dk.setEmployerProfile(position);
                         Intent j = new Intent(EmployerListPage.this, EmployerProfilePage.class);
                         startActivity(j);
                     }

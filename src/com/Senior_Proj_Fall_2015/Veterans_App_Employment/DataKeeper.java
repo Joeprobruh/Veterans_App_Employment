@@ -131,15 +131,31 @@ public class DataKeeper {
     public void setJob (int index) {
         try {
             job = jobList.getJSONObject(index);
-            jobIndex = index;
         }
         catch (JSONException e) {
             job = null;
         }
     }
 
+    public void setEmployerProfile (int index) {
+        try {
+            employerProfile = employerList.getJSONObject(index);
+        }
+        catch (JSONException e) {
+            employerProfile = null;
+        }
+    }
+
     public JSONObject getJob () {
         return job;
+    }
+
+    public String getJobDetail(String detail){
+        try{
+            return job.getString(detail);
+        } catch(Throwable t){
+            return null;
+        }
     }
 
     public String getJobDetail(String detail, int index){
@@ -149,6 +165,7 @@ public class DataKeeper {
             return null;
         }
     }
+
     public String getEmployerDetail(String detail, int index){
         try{
             return employerList.getJSONObject(index).getString(detail);
@@ -156,10 +173,12 @@ public class DataKeeper {
             return null;
         }
     }
+
     public JSONArray getJobList () {
         return jobList;
     }
 
+    public JSONArray getEmployerList() { return employerList; }
 }
 
 

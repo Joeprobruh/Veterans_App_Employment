@@ -243,6 +243,8 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         String name = StartPage.dk.getVetDetail("name");
         String age = StartPage.dk.getVetDetail("age");
         String address = StartPage.dk.getVetDetail("address");
+        String phone = StartPage.dk.getVetDetail("phone");
+        String email = StartPage.dk.getVetDetail("email");
         String sex = StartPage.dk.getVetDetail("sex");
         String branch = StartPage.dk.getVetDetail("branch");
         String rank = StartPage.dk.getVetDetail("rank");
@@ -257,6 +259,12 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         }
         if (address != null) {
             ((EditText) findViewById(R.id.user_editText_address)).setText(address);
+        }
+        if (phone != null) {
+            ((EditText) findViewById(R.id.user_editText_phone_number)).setText(phone);
+        }
+        if (email != null) {
+            ((EditText) findViewById(R.id.user_editText_email_address)).setText(email);
         }
         if (sex != null) {
             if (sex.equals("Female")) {
@@ -297,6 +305,8 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         StartPage.client.addVetProfile(((EditText) findViewById(R.id.user_editText_name)).getText().toString().trim(),
             ((EditText) findViewById(R.id.user_editText_age)).getText().toString().trim(),
             ((EditText) findViewById(R.id.user_editText_description)).getText().toString().trim(),
+            ((EditText) findViewById(R.id.user_editText_phone_number)).getText().toString().trim(),
+            ((EditText) findViewById(R.id.user_editText_email_address)).getText().toString().trim(),
             ((EditText) findViewById(R.id.user_editText_address)).getText().toString().trim(),
             ((Switch) findViewById(R.id.user_switch_sex)).isChecked() ?
                 ((Switch) findViewById(R.id.user_switch_sex)).getTextOn().toString().trim() :
