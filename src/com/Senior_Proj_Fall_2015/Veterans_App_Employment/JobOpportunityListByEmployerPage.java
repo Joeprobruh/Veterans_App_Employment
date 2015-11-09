@@ -42,15 +42,15 @@ public class JobOpportunityListByEmployerPage extends Activity {
         @Override
         protected void onPostExecute (String string) {
             for (int i = 0; i < StartPage.dk.getJobList().length(); i++) {
-                String id = StartPage.dk.getJobDetail("title", i);
-                String company = StartPage.dk.getJobDetail("description", i);
-                String description = StartPage.dk.getJobDetail("submission date", i);
+                String title = StartPage.dk.getJobDetail("title", i);
+                String description = StartPage.dk.getJobDetail("description", i);
+                String deadline = StartPage.dk.getJobDetail("deadline", i);
 
                 HashMap<String, String> map = new HashMap<>();
 
-                map.put("title", id);
-                map.put("description", company);
-                map.put("submission date", description);
+                map.put("title", title);
+                map.put("description", description);
+                map.put("deadline", deadline);
 
                 jobList.add(map);
 

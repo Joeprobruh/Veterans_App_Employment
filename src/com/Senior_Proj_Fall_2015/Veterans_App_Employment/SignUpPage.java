@@ -20,6 +20,7 @@ public class SignUpPage extends Activity implements View.OnClickListener {
 
     private static final String regExp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,20}$";
     private Pattern pattern;
+    private String role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +78,14 @@ public class SignUpPage extends Activity implements View.OnClickListener {
              * Idea: Store user/pass combo in local memory to be used in future login attempts??? POSSIBLE?????
              */
             status.setText("Set up correctly. Continue...");
-            Intent intent = new Intent(SignUpPage.this, MenuPage.class);
-            startActivity(intent);
+            if (role.equals("veteran")) {
+                Intent intent = new Intent(SignUpPage.this, UserProfileCreationPage.class);
+                startActivity(intent);
+            }
+            else {
+                Intent intent = new Intent(SignUpPage.this, EmployerProfileCreationPage.class);
+                startActivity(intent);
+            }
         }
         else {
             // Username is taken, must
@@ -89,7 +96,6 @@ public class SignUpPage extends Activity implements View.OnClickListener {
 
     private boolean verify(final String username, final String password) {
         TextView status = (TextView) findViewById(R.id.attempt_status);
-        final String role;
         if (((RadioButton) findViewById(R.id.radio_user)).isChecked()) {
             role = "veteran";
         }

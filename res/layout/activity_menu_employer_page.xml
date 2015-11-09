@@ -36,16 +36,6 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Review Applicants"
-        android:id="@+id/button_review_applicants"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
         android:text="Search for Possible Future Employees"
         android:id="@+id/button_search_users"
         android:layout_gravity="center_horizontal"

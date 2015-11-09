@@ -46,9 +46,6 @@ public class MenuPage extends Activity implements View.OnClickListener{
             Button button_current_job_postings =
                 (Button) findViewById(R.id.button_current_job_postings);
             button_current_job_postings.setOnClickListener(this);
-            Button button_review_applicants =
-                (Button) findViewById(R.id.button_review_applicants);
-            button_review_applicants.setOnClickListener(this);
             Button button_search_users =
                 (Button) findViewById(R.id.button_search_users);
             button_search_users.setOnClickListener(this);
@@ -93,11 +90,6 @@ public class MenuPage extends Activity implements View.OnClickListener{
                 Intent n = new Intent(
                     MenuPage.this, JobOpportunityListByEmployerPage.class);
                 startActivity(n);
-                break;
-            case R.id.button_review_applicants:
-                Intent p = new Intent(
-                    MenuPage.this, JobApplicantsByEmployerListPage.class);
-                startActivity(p);
                 break;
             case R.id.button_search_users:
                 Intent q = new Intent(

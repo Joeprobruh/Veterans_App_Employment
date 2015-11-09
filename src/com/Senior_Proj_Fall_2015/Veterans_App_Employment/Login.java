@@ -14,20 +14,6 @@ import android.widget.TextView;
  */
 public class Login extends Activity implements View.OnClickListener {
 
-    /*
-    All users must login to the app before use, either as a user or as an employer
-
-    Two fields, and two buttons
-        -Username field
-        -Password field
-        -Back button
-        -Submit button
-
-    Accesses off-device database for verification
-    Incorrect login fails right there, no activity change
-    Correct login changes activity to Menu
-     */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +30,9 @@ public class Login extends Activity implements View.OnClickListener {
             case R.id.submit_OK:
 
                 StartPage.client.login(
-
                     ((EditText) findViewById(R.id.login_username)).getText().toString(),
                     ((EditText) findViewById(R.id.login_password)).getText().toString());
+
                 SystemClock.sleep(250);
 
                 if (StartPage.client.getUserID() == null) {
@@ -68,6 +54,7 @@ public class Login extends Activity implements View.OnClickListener {
     @Override
     public void onBackPressed() {
         finish();
+
     }
 
 }
