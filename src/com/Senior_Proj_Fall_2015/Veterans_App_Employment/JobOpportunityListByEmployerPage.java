@@ -35,7 +35,7 @@ public class JobOpportunityListByEmployerPage extends Activity {
         @Override
         protected String doInBackground(String... p) {
             StartPage.client.loadJobsByEmployer();
-            SystemClock.sleep(250);
+            SystemClock.sleep(500);
             return new String("");
         }
 

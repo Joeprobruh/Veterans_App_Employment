@@ -33,7 +33,7 @@ public class Login extends Activity implements View.OnClickListener {
                     ((EditText) findViewById(R.id.login_username)).getText().toString(),
                     ((EditText) findViewById(R.id.login_password)).getText().toString());
 
-                SystemClock.sleep(250);
+                SystemClock.sleep(500);
 
                 if (StartPage.client.getUserID() == null) {
                     ((TextView) findViewById(R.id.login_status)).setText("Username or Password incorrect, try again.");

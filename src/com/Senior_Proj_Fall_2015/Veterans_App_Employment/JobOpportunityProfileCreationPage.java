@@ -230,7 +230,7 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
                 pointer++;
             }
         }
-        StartPage.client.addJobSkill(skillArray);
+        StartPage.client.addJobSkill(skillArray);int i = 0;
     }
 
 }

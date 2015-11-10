@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,12 +47,36 @@ public class UserListPage extends Activity {
 
         @Override
         protected void onPostExecute (String string) {
-            for (int i = 0; i < StartPage.dk.getVetList().length(); i++) {
-                String name = StartPage.dk.getVetDetail("name");
-                String age = StartPage.dk.getVetDetail("age");
-                String branch = StartPage.dk.getVetDetail("branch");
-                String rank = StartPage.dk.getVetDetail("rank");
-
+            JSONArray vetList = StartPage.dk.getVetList();
+            for (int i = 0; i < vetList.length(); i++) {
+                String name;
+                String age;
+                String branch;
+                String rank;
+                try {
+                    name = vetList.getJSONObject(i).getString("name");
+                }
+                catch (JSONException e) {
+                    name = "Not found";
+                }
+                try {
+                    age = vetList.getJSONObject(i).getString("age");
+                }
+                catch (JSONException e) {
+                    age = "Not found";
+                }
+                try {
+                    branch = vetList.getJSONObject(i).getString("branch");
+                }
+                catch (JSONException e) {
+                    branch = "Not found";
+                }
+                try {
+                    rank = vetList.getJSONObject(i).getString("rank");
+                }
+                catch (JSONException e) {
+                    rank = "Not found";
+                }
                 HashMap<String, String> map = new HashMap<>();
 
                 map.put("name", name);
