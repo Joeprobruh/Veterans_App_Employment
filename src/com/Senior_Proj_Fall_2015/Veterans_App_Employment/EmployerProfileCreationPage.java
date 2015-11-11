@@ -3,6 +3,8 @@ package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
@@ -36,13 +38,25 @@ public class EmployerProfileCreationPage extends Activity implements View.OnClic
 
             case R.id.button_submit:
                 validateAndSubmitInputs();
-                finish();
+                if (StartPage.isLogIn) {
+                    finish();
+                }
+                else {
+                    Intent j = new Intent(
+                        EmployerProfileCreationPage.this, MenuPage.class);
+                    startActivity(j);
+                }
                 break;
 
             case R.id.button_cancel:
-                Intent j = new Intent(
-                    EmployerProfileCreationPage.this, MenuPage.class);
-                startActivity(j);
+                if (StartPage.isLogIn) {
+                    finish();
+                }
+                else {
+                    Intent j = new Intent(
+                        EmployerProfileCreationPage.this, MenuPage.class);
+                    startActivity(j);
+                }
                 break;
         }
     }
@@ -53,48 +67,70 @@ public class EmployerProfileCreationPage extends Activity implements View.OnClic
     }
 
     public void populateFields() {
-        StartPage.client.loadEmployerProfile();
-        SystemClock.sleep(250);
-        String name = StartPage.dk.getEmployerDetail("name");
-        String title = StartPage.dk.getEmployerDetail("title");
-        String company = StartPage.dk.getEmployerDetail("company");
-        String description = StartPage.dk.getEmployerDetail("description");
-        String address = StartPage.dk.getEmployerDetail("address");
-        String phoneNumber = StartPage.dk.getEmployerDetail("phone");
-        String emailAddress = StartPage.dk.getEmployerDetail("email");
 
-        if (name != null) {
-            ((EditText) findViewById(R.id.employer_editText_name)).setText(name);
-        }
-        if (title != null) {
-            ((EditText) findViewById(R.id.employer_editText_title)).setText(title);
-        }
-        if (company != null) {
-            ((EditText) findViewById(R.id.employer_editText_company)).setText(company);
-        }
-        if (description != null) {
-            ((EditText) findViewById(R.id.employer_editText_description)).setText(description);
-        }
-        if (address != null) {
-            ((EditText) findViewById(R.id.employer_editText_address)).setText(address);
-        }
-        if (phoneNumber != null) {
-            ((EditText) findViewById(R.id.employer_editText_phone_number)).setText(phoneNumber);
-        }
-        if (emailAddress != null) {
-            ((EditText) findViewById(R.id.employer_editText_email_address)).setText(emailAddress);
-        }
+        final Handler h = new Handler(){
+            @Override
+            public void handleMessage(Message msg){
+                String name = StartPage.dk.getEmployerDetail("name");
+                String title = StartPage.dk.getEmployerDetail("title");
+                String company = StartPage.dk.getEmployerDetail("company");
+                String description = StartPage.dk.getEmployerDetail("description");
+                String address = StartPage.dk.getEmployerDetail("address");
+                String phoneNumber = StartPage.dk.getEmployerDetail("phone");
+                String emailAddress = StartPage.dk.getEmployerDetail("email");
+
+                if (name != null) {
+                    ((EditText) findViewById(R.id.employer_editText_name)).setText(name);
+                }
+                if (title != null) {
+                    ((EditText) findViewById(R.id.employer_editText_title)).setText(title);
+                }
+                if (company != null) {
+                    ((EditText) findViewById(R.id.employer_editText_company)).setText(company);
+                }
+                if (description != null) {
+                    ((EditText) findViewById(R.id.employer_editText_description)).setText(description);
+                }
+                if (address != null) {
+                    ((EditText) findViewById(R.id.employer_editText_address)).setText(address);
+                }
+                if (phoneNumber != null) {
+                    ((EditText) findViewById(R.id.employer_editText_phone_number)).setText(phoneNumber);
+                }
+                if (emailAddress != null) {
+                    ((EditText) findViewById(R.id.employer_editText_email_address)).setText(emailAddress);
+                }
+            }
+        };
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                StartPage.client.loadEmployerProfile();
+                while (!StartPage.client.getIsTaskDone()){
+                    SystemClock.sleep(50);
+                }
+                h.sendEmptyMessage(0);
+
+            }
+        });
+        thread.start();
     }
 
     public void validateAndSubmitInputs() {
-        StartPage.client.addEmployerProfile(
-            ((EditText) findViewById(R.id.employer_editText_name)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.employer_editText_title)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.employer_editText_company)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.employer_editText_description)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.employer_editText_address)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.employer_editText_phone_number)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.employer_editText_email_address)).getText().toString().trim());
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                StartPage.client.addEmployerProfile(
+                    ((EditText) findViewById(R.id.employer_editText_name)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.employer_editText_title)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.employer_editText_company)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.employer_editText_description)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.employer_editText_address)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.employer_editText_phone_number)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.employer_editText_email_address)).getText().toString().trim());
+            }
+        });
+        thread.start();
     }
 
 }

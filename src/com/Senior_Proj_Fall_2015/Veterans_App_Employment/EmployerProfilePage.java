@@ -26,6 +26,7 @@ public class EmployerProfilePage extends Activity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_employer_profile_page);
 
         employerCompany = (TextView) findViewById(R.id.textView_employer_company);
         employerName = (TextView) findViewById(R.id.textView_employer_name);
@@ -67,7 +68,7 @@ public class EmployerProfilePage extends Activity implements View.OnClickListene
     }
 
     private void updateProfile() {
-        JSONObject selection = StartPage.dk.getJob();
+        JSONObject selection = StartPage.dk.getEmployerProfile();
         try {
             employerCompany.setText(selection.getString("company"));
             employerName.setText(selection.getString("name"));

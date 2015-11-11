@@ -110,13 +110,25 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
             case R.id.button_submit:
                 validateAndSubmitInputs();
-                finish();
+                if (StartPage.isLogIn) {
+                    finish();
+                }
+                else {
+                    Intent j = new Intent(
+                        UserProfileCreationPage.this, MenuPage.class);
+                    startActivity(j);
+                }
                 break;
 
             case R.id.button_cancel:
-                Intent j = new Intent(
-                    UserProfileCreationPage.this, MenuPage.class);
-                startActivity(j);
+                if (StartPage.isLogIn) {
+                    finish();
+                }
+                else {
+                    Intent j = new Intent(
+                        UserProfileCreationPage.this, MenuPage.class);
+                    startActivity(j);
+                }
                 break;
         }
     }
@@ -144,6 +156,11 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         if (militaryBranch == null) {
             AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
             helpBuilder.setTitle("Choose Branch First!");
+            helpBuilder.setPositiveButton("Okay",new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int id) {
+                    dialog.cancel();
+                }
+            });
             AlertDialog helpDialog = helpBuilder.create();
             helpDialog.show();
         } else {
@@ -307,6 +324,41 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     }
 
     public void validateAndSubmitInputs() {
+        SystemClock.sleep(500);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                StartPage.client.addVetProfile(((EditText) findViewById(R.id.user_editText_name)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.user_editText_age)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.user_editText_description)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.user_editText_address)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.user_editText_phone_number)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.user_editText_email_address)).getText().toString().trim(),
+                    ((Switch) findViewById(R.id.user_switch_sex)).isChecked() ?
+                        ((Switch) findViewById(R.id.user_switch_sex)).getTextOn().toString().trim() :
+                        ((Switch) findViewById(R.id.user_switch_sex)).getTextOff().toString().trim(),
+                    ((Button) findViewById(R.id.button_branch)).getText().toString().trim(),
+                    ((Button) findViewById(R.id.button_rank)).getText().toString().trim());
+                while (!StartPage.client.getIsTaskDone()){
+                    SystemClock.sleep(50);
+                }
+                String[] skillArray = new String[SKILL_LIST.length];
+                int pointer = 0;
+                for(int i = 0; i < SKILL_LIST.length; i++) {
+                    if (SKILL_LIST[i].isChecked()) {
+                        skillArray[pointer] = SKILL_LIST[i].getText().toString();
+                        pointer++;
+                    }
+                }
+                StartPage.client.addVetSkill(skillArray);
+            }
+        });
+        thread.start();
+        SystemClock.sleep(500);
+    }
+
+    /*
+    public void validateAndSubmitInputs() {
         StartPage.client.addVetProfile(((EditText) findViewById(R.id.user_editText_name)).getText().toString().trim(),
             ((EditText) findViewById(R.id.user_editText_age)).getText().toString().trim(),
             ((EditText) findViewById(R.id.user_editText_description)).getText().toString().trim(),
@@ -330,5 +382,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         StartPage.client.addVetSkill(skillArray);
         SystemClock.sleep(500);
     }
+    */
 
 }

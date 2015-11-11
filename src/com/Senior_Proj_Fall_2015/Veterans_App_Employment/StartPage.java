@@ -13,6 +13,7 @@ public class StartPage extends Activity implements View.OnClickListener {
 
     protected static DataKeeper dk;
     protected static NetClient client;
+    public static boolean isLogIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class StartPage extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.login_OK:
+                isLogIn = true;
                 Intent i = new Intent(
                     StartPage.this, Login.class);
                 startActivity(i);
@@ -42,6 +44,7 @@ public class StartPage extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.sign_up_OK:
+                isLogIn = false;
                 Intent j = new Intent(
                     StartPage.this, SignUpPage.class);
                 startActivity(j);

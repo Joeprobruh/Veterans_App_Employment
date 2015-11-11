@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class JobOpportunityProfileCreationPage extends Activity implements View.OnClickListener {
 
     private static final String[] CONTACT_METHODS = new String[] {"Phone Number", "E-mail Address", "Website URL",
-                                                                    "Snail Mail"};
+        "Snail Mail"};
     private static CheckBox[] SKILL_LIST;
     private static Boolean[] CURRENT_SELECTED_SKILLS = new Boolean[] {false, false, false, false, false, false};
 
@@ -208,29 +208,43 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
     }
 
     public void validateAndSubmitInputs() {
-        StartPage.client.addJob(
-            (StartPage.dk.getJob() != null) ?
-                StartPage.dk.getJobDetail("jobid") :
-                "0",
-            ((EditText) findViewById(R.id.job_editText_title)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.job_editText_company)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.job_editText_description)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.job_editText_contact)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.job_editText_address)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.job_editText_phone_number)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.job_editText_email_address)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.job_editText_website_url)).getText().toString().trim(),
-            ((Button) findViewById(R.id.button_preferred_contact)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.job_editText_submission_deadline)).getText().toString().trim());
-        String[] skillArray = new String[SKILL_LIST.length];
-        int pointer = 0;
-        for(int i = 0; i < SKILL_LIST.length; i++) {
-            if (SKILL_LIST[i].isChecked()) {
-                skillArray[pointer] = SKILL_LIST[i].getText().toString();
-                pointer++;
+
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                StartPage.client.addJob(
+                    (StartPage.dk.getJob() != null) ?
+                        StartPage.dk.getJobDetail("jobid") :
+                        "0",
+                    ((EditText) findViewById(R.id.job_editText_title)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.job_editText_company)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.job_editText_description)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.job_editText_contact)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.job_editText_address)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.job_editText_phone_number)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.job_editText_email_address)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.job_editText_website_url)).getText().toString().trim(),
+                    ((Button) findViewById(R.id.button_preferred_contact)).getText().toString().trim(),
+                    ((EditText) findViewById(R.id.job_editText_submission_deadline)).getText().toString().trim());
+                String[] skillArray = new String[SKILL_LIST.length];
+                int pointer = 0;
+                for(int i = 0; i < SKILL_LIST.length; i++) {
+                    if (SKILL_LIST[i].isChecked()) {
+                        skillArray[pointer] = SKILL_LIST[i].getText().toString();
+                        pointer++;
+                    }
+                }
+                while (!StartPage.client.getIsTaskDone()){
+                    SystemClock.sleep(50);
+                }
+                StartPage.client.addJobSkill(skillArray);int i = 0;
+
+                //   h.sendEmptyMessage(0);
+
             }
-        }
-        StartPage.client.addJobSkill(skillArray);int i = 0;
+        });
+        thread.start();
     }
 
 }

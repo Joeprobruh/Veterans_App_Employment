@@ -16,11 +16,25 @@ public class MenuPage extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         String user = getCurrentLoggedInUser();
         super.onCreate(savedInstanceState);
-        StartPage.client.loadJobs();
-        StartPage.client.loadVets();
-        StartPage.client.loadEmployers();
-        SystemClock.sleep(500);
         if (user.equals("veteran")) {
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    StartPage.client.loadJobs();
+                    while (!StartPage.client.getIsTaskDone()){
+                        SystemClock.sleep(500);
+                    }
+                    StartPage.client.loadVetProfile();
+                    while (!StartPage.client.getIsTaskDone()){
+                        SystemClock.sleep(500);
+                    }
+                    StartPage.client.loadEmployers();
+                    while (!StartPage.client.getIsTaskDone()){
+                        SystemClock.sleep(500);
+                    }
+                }
+            });
+            thread.start();
             setContentView(R.layout.activity_menu_user_page);
             Button button_search_jobs =
                 (Button) findViewById(R.id.button_search_jobs);
@@ -39,6 +53,24 @@ public class MenuPage extends Activity implements View.OnClickListener{
             button_resources_page.setOnClickListener(this);
         }
         else {
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    StartPage.client.loadJobsByEmployer();
+                    while (!StartPage.client.getIsTaskDone()){
+                        SystemClock.sleep(500);
+                    }
+                    StartPage.client.loadVets();
+                    while (!StartPage.client.getIsTaskDone()){
+                        SystemClock.sleep(500);
+                    }
+                    StartPage.client.loadEmployerProfile();
+                    while (!StartPage.client.getIsTaskDone()){
+                        SystemClock.sleep(500);
+                    }
+                }
+            });
+            thread.start();
             setContentView(R.layout.activity_menu_employer_page);
             Button button_create_new_job_posting =
                 (Button) findViewById(R.id.button_create_new_job_posting);

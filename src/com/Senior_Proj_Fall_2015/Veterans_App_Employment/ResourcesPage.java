@@ -18,20 +18,32 @@ public class ResourcesPage extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_page);
+        setContentView(R.layout.activity_resources_page);
 
-        Button submit_OK =
-            (Button) findViewById(R.id.submit_OK);
-        submit_OK.setOnClickListener(this);
+        Button resource_1 =
+            (Button) findViewById(R.id.resource_1);
+        resource_1.setOnClickListener(this);
+        Button resource_2 =
+            (Button) findViewById(R.id.resource_2);
+        resource_2.setOnClickListener(this);
+        Button resource_3 =
+            (Button) findViewById(R.id.resource_3);
+        resource_3.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.submit_OK:
-                Intent i = new Intent(
-                    ResourcesPage.this, UserProfileCreationPage.class);
-                startActivity(i);
+            case R.id.resource_1:
+
+                break;
+
+            case R.id.resource_2:
+
+                break;
+
+            case R.id.resource_3:
+
                 break;
         }
     }

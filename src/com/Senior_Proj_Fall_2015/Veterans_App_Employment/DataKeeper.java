@@ -203,6 +203,8 @@ public class DataKeeper {
     }
 
     public JSONArray getEmployerList() { return employerList; }
+
+    public JSONObject getEmployerProfile() { return employerProfile; }
 }
 
 

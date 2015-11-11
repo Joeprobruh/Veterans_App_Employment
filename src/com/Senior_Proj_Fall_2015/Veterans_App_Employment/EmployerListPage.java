@@ -35,14 +35,23 @@ public class EmployerListPage extends Activity{
         @Override
 
         protected String doInBackground(String... p) {
-            StartPage.client.loadEmployers();
-            SystemClock.sleep(500);
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    StartPage.client.loadEmployers();
+                    while (!StartPage.client.getIsTaskDone()){
+                        SystemClock.sleep(500);
+                    }
+                }
+            });
+            thread.start();
             return new String("");
         }
 
         @Override
         protected void onPostExecute (String string) {
             for (int i = 0; i < StartPage.dk.getEmployerList().length(); i++) {
+                StartPage.dk.setEmployerProfile(i);
                 String company = StartPage.dk.getEmployerDetail("company");
                 String address = StartPage.dk.getEmployerDetail("address");
                 String phone = StartPage.dk.getEmployerDetail("phone");

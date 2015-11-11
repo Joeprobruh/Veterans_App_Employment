@@ -2,9 +2,7 @@ package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.StrictMode;
-import android.os.SystemClock;
+import android.os.*;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,12 +49,12 @@ public class SignUpPage extends Activity implements View.OnClickListener {
     public void sendUserInfo(View view) {
 
         //collect user entered name and password values
-        TextView status = (TextView) findViewById(R.id.attempt_status);
+        final TextView status = (TextView) findViewById(R.id.attempt_status);
         EditText userName = (EditText) findViewById(R.id.username_text_field);
         EditText password = (EditText) findViewById(R.id.password_text_field);
         EditText passwordConfirm = (EditText) findViewById(R.id.confirm_password_text_field);
-        String user = userName.getText().toString();
-        String pass = password.getText().toString();
+        final String user = userName.getText().toString();
+        final String pass = password.getText().toString();
         String passConf = passwordConfirm.getText().toString();
 
         if (!pass.equals(passConf)) {
@@ -88,9 +86,53 @@ public class SignUpPage extends Activity implements View.OnClickListener {
             }
         }
         else {
+            /**
+             * Idea: Store user/pass combo in local memory to be used in future login attempts??? POSSIBLE?????
+             */
+            status.setText("About to attempt signUp()");
+            status.setText("Set up correctly. Continue...");
+
+            final Handler h = new Handler(){
+                @Override
+                public void handleMessage(Message msg){
+                    if (StartPage.client.getSignUp()) {
+                        TextView status = (TextView) findViewById(R.id.attempt_status);
+
+                        if (role.equals("veteran")) {
+                            Intent intent = new Intent(SignUpPage.this, UserProfileCreationPage.class);
+                            startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(SignUpPage.this, EmployerProfileCreationPage.class);
+                            startActivity(intent);
+                        }
+                    } else {
+                        // Username is taken, must
+                        status.setText("That username is already taken. Try again.");
+                        ((EditText) findViewById(R.id.username_text_field)).getText().clear();
+                    }
+                }};
+            if (((RadioButton) findViewById(R.id.radio_user)).isChecked()) {
+                role = "veteran";
+            } else {
+                role = "employer";
+            }
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    StartPage.client.signUp(user, pass, role);
+                    while (!StartPage.client.getIsTaskDone()){
+                        SystemClock.sleep(50);
+                    }
+                    h.sendEmptyMessage(0);
+
+                }
+            });
+            thread.start();
+            /*
             // Username is taken, must
             status.setText("That username is already taken. Try again.");
             ((EditText) findViewById(R.id.username_text_field)).getText().clear();
+            */
         }
     }
 
