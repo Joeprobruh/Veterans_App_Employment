@@ -162,7 +162,7 @@ public class DataKeeper {
         try {
             job = jobList.getJSONObject(index);
             jobIndex = index;
-        } catch (JSONException e) {
+        } catch (Throwable t) {
             job = null;
         }
     }
@@ -170,7 +170,7 @@ public class DataKeeper {
     public void setVetProfile(int index) {
         try {
             vetProfile = veteranList.getJSONObject(index);
-        } catch (JSONException e) {
+        } catch (Throwable t) {
             vetProfile = null;
         }
     }
@@ -178,7 +178,7 @@ public class DataKeeper {
     public void setEmployerProfile(int index) {
         try {
             employerProfile = employerList.getJSONObject(index);
-        } catch (JSONException e) {
+        } catch (Throwable t) {
             employerProfile = null;
         }
     }
