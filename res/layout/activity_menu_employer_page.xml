@@ -4,42 +4,65 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Where to, boss?"
-        android:id="@+id/textView16"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"/>
-
-    <Button
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Create New Job Posting"
-        android:id="@+id/button_create_new_job_posting"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView5">
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Examine Your Current Postings"
-        android:id="@+id/button_current_job_postings"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Search for Possible Future Employees"
-        android:id="@+id/button_search_users"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Where to, boss?"
+                android:id="@+id/textView16"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Create New Job Posting"
+                android:id="@+id/button_create_new_job_posting"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Examine Your Current Postings"
+                android:id="@+id/button_current_job_postings"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:id="@+id/button_edit_employer_profile"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Search for Possible Future Employees"
+                android:id="@+id/button_search_users"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="100dp"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

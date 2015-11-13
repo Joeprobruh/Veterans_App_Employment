@@ -20,14 +20,17 @@ public class MenuPage extends Activity implements View.OnClickListener{
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadJobs();
                     while (!StartPage.client.getIsTaskDone()){
                         SystemClock.sleep(500);
                     }
+                    StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadVetProfile();
                     while (!StartPage.client.getIsTaskDone()){
                         SystemClock.sleep(500);
                     }
+                    StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadEmployers();
                     while (!StartPage.client.getIsTaskDone()){
                         SystemClock.sleep(500);
@@ -56,14 +59,17 @@ public class MenuPage extends Activity implements View.OnClickListener{
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadJobsByEmployer();
                     while (!StartPage.client.getIsTaskDone()){
                         SystemClock.sleep(500);
                     }
+                    StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadVets();
                     while (!StartPage.client.getIsTaskDone()){
                         SystemClock.sleep(500);
                     }
+                    StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadEmployerProfile();
                     while (!StartPage.client.getIsTaskDone()){
                         SystemClock.sleep(500);
@@ -78,6 +84,9 @@ public class MenuPage extends Activity implements View.OnClickListener{
             Button button_current_job_postings =
                 (Button) findViewById(R.id.button_current_job_postings);
             button_current_job_postings.setOnClickListener(this);
+            Button button_edit_employer_profile =
+                (Button) findViewById(R.id.button_edit_employer_profile);
+            button_edit_employer_profile.setOnClickListener(this);
             Button button_search_users =
                 (Button) findViewById(R.id.button_search_users);
             button_search_users.setOnClickListener(this);
@@ -88,42 +97,132 @@ public class MenuPage extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.button_search_jobs:
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        StartPage.client.setIsTaskDone(false);
+                        StartPage.client.loadJobs();
+                        while (!StartPage.client.getIsTaskDone()) {
+                            SystemClock.sleep(500);
+                        }
+                    }
+                });
+                thread.start();
                 Intent i = new Intent(
                     MenuPage.this, JobOpportunityListPage.class);
                 startActivity(i);
                 break;
+
             case R.id.button_search_employer_list:
+                Thread thread1 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        StartPage.client.setIsTaskDone(false);
+                        StartPage.client.loadEmployers();
+                        while (!StartPage.client.getIsTaskDone()) {
+                            SystemClock.sleep(500);
+                        }
+                    }
+                });
+                thread1.start();
                 Intent j = new Intent(
                     MenuPage.this, EmployerListPage.class);
                 startActivity(j);
                 break;
+
             case R.id.button_view_profile:
+                Thread thread2 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        StartPage.client.setIsTaskDone(false);
+                        StartPage.client.loadVetProfile();
+                        while (!StartPage.client.getIsTaskDone()) {
+                            SystemClock.sleep(500);
+                        }
+                    }
+                });
+                thread2.start();
                 Intent k = new Intent(
                     MenuPage.this, UserProfilePage.class);
                 startActivity(k);
                 break;
+
             case R.id.button_edit_profile:
+                Thread thread3 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        StartPage.client.setIsTaskDone(false);
+                        StartPage.client.loadVetProfile();
+                        while (!StartPage.client.getIsTaskDone()) {
+                            SystemClock.sleep(500);
+                        }
+                    }
+                });
+                thread3.start();
                 Intent r = new Intent(
                     MenuPage.this, UserProfileCreationPage.class);
                 startActivity(r);
                 break;
+
+            case R.id.button_edit_employer_profile:
+                Thread thread4 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        StartPage.client.setIsTaskDone(false);
+                        StartPage.client.loadEmployerProfile();
+                        while (!StartPage.client.getIsTaskDone()) {
+                            SystemClock.sleep(500);
+                        }
+                    }
+                });
+                thread4.start();
+                Intent s = new Intent(
+                    MenuPage.this, EmployerProfileCreationPage.class);
+                startActivity(s);
+                break;
+
             case R.id.button_resources_page:
                 Intent l = new Intent(
                     MenuPage.this, ResourcesPage.class);
                 startActivity(l);
                 break;
+
             case R.id.button_create_new_job_posting:
                 StartPage.dk.clearJob();
                 Intent m = new Intent(
                     MenuPage.this, JobOpportunityProfileCreationPage.class);
                 startActivity(m);
                 break;
+
             case R.id.button_current_job_postings:
+                Thread thread5 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        StartPage.client.setIsTaskDone(false);
+                        StartPage.client.loadJobs();
+                        while (!StartPage.client.getIsTaskDone()) {
+                            SystemClock.sleep(500);
+                        }
+                    }
+                });
+                thread5.start();
                 Intent n = new Intent(
                     MenuPage.this, JobOpportunityListByEmployerPage.class);
                 startActivity(n);
                 break;
+
             case R.id.button_search_users:
+                Thread thread6 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        StartPage.client.setIsTaskDone(false);
+                        StartPage.client.loadVets();
+                        while (!StartPage.client.getIsTaskDone()) {
+                            SystemClock.sleep(500);
+                        }
+                    }
+                });
+                thread6.start();
                 Intent q = new Intent(
                     MenuPage.this, UserListPage.class);
                 startActivity(q);

@@ -33,6 +33,7 @@ public class NetClient {
     private static final String loadEmployerProfile = "getaboss.php";
     private static final String loadJobsByEmployer = "getjobsbyemployer.php";
     private static final String loadEmployers = "getbosses.php";
+    private static final String loadSkills = "getskills.php";
 
     private HttpClient httpClient = null;
     DataKeeper dataKeeper;
@@ -52,6 +53,8 @@ public class NetClient {
     }
 
     public void addVetSkill(final String[] skill) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         Integer numSkills = skill.length;
@@ -72,8 +75,6 @@ public class NetClient {
             isTaskDone = true;
         }
         try{
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -103,6 +104,8 @@ public class NetClient {
 
     }
     public void login (final String username, final String password) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + login);
@@ -118,8 +121,6 @@ public class NetClient {
         }
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -151,6 +152,8 @@ public class NetClient {
 
 
     public void signUp(final String username, final String password, final String roleParam) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + signUp);
@@ -167,8 +170,6 @@ public class NetClient {
         }
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -204,6 +205,8 @@ public class NetClient {
     public void addVetProfile(final String name, final String age, final String description, final String address,
                               final String phone, final String email, final String sex, final String branch,
                               final String rank) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + addVetProfile);
@@ -228,8 +231,6 @@ public class NetClient {
         }
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -262,6 +263,8 @@ public class NetClient {
     public void addEmployerProfile(final String name, final String title, final String company,
                                    final String description,  final String address, final String phone,
                                    final String email) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + addEmployerProfile);
@@ -283,8 +286,6 @@ public class NetClient {
         }
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -315,6 +316,8 @@ public class NetClient {
     public void addJob(final String id, final String title, final String company, final String description,
                        final String contact, final String address, final String phone, final String email,
                        final String url, final String applyMethod, final String deadline){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + addJob);
@@ -340,8 +343,6 @@ public class NetClient {
         }
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -370,6 +371,8 @@ public class NetClient {
     }
 
     public void addJobSkill(final String[] skill) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         Integer numSkills = skill.length;
@@ -392,8 +395,6 @@ public class NetClient {
         }
         // Making HTTP Request
         try{
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -425,6 +426,8 @@ public class NetClient {
 
 
     public void loadVetProfile(){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + loadVetProfile);
@@ -439,8 +442,6 @@ public class NetClient {
         }
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -470,6 +471,8 @@ public class NetClient {
     }
 
     public void loadEmployerProfile(){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + loadEmployerProfile);
@@ -484,8 +487,6 @@ public class NetClient {
         }
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -516,13 +517,13 @@ public class NetClient {
     }
 
     public void loadVets(){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + loadVets);
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -552,13 +553,13 @@ public class NetClient {
     }
 
     public void loadJobs(){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + loadJobs);
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -585,6 +586,8 @@ public class NetClient {
         isTaskDone = true;
     }
     public void loadJobsByEmployer(){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + loadJobsByEmployer);
@@ -599,8 +602,6 @@ public class NetClient {
         }
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -627,13 +628,13 @@ public class NetClient {
         isTaskDone = true;
     }
     public void loadEmployers(){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
         // Creating HTTP Post
         HttpPost httpPost = new HttpPost(directory + loadEmployers);
         // Making HTTP Request
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -660,8 +661,47 @@ public class NetClient {
         }
         isTaskDone = true;
     }
+
+    public void loadSkills(){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        isTaskDone = false;
+        // Creating HTTP Post
+        HttpPost httpPost = new HttpPost(directory + loadSkills);
+        // Making HTTP Request
+        try {
+            HttpResponse response = httpClient.execute(httpPost);
+            int responseCode = response.getStatusLine().getStatusCode();
+            switch (responseCode) {
+                case 200:
+                    HttpEntity entity = response.getEntity();
+                    if (entity != null) {
+                        String responseBody = EntityUtils.toString(entity);
+                        try {
+
+                            JSONArray array = new JSONArray(responseBody);
+                            dataKeeper.setSkills(array);
+                            isTaskDone = true;
+                        } catch (Throwable t) {
+                            isTaskDone = true;
+                        }
+                    }
+            }
+        } catch (ClientProtocolException e) {
+            isTaskDone = true;
+            // writing exception to log
+        } catch (IOException e) {
+            isTaskDone = true;
+            // writing exception to log
+        }
+        isTaskDone = true;
+    }
+
     public String getUserID(){return userID;}
     public boolean getSignUp(){return isSignedUp;}
     public String getRole() { return role; }
     public boolean getIsTaskDone(){return isTaskDone;}
+    public void setIsTaskDone (boolean bool) {
+        isTaskDone = bool;
+    }
 }

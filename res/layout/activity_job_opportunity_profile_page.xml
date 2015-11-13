@@ -4,129 +4,141 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Title"
-        android:id="@+id/textView_job_title"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp"/>
+        android:id="@+id/scrollView10">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Company"
-        android:id="@+id/textView_job_company"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="20dp"
-        android:textColor="#ffffffff"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Address"
-        android:id="@+id/textView_job_address"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="#ffffffff"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Title"
+                android:id="@+id/textView_job_title"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Contact"
-        android:id="@+id/textView_job_contact"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="#ffffffff"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Company"
+                android:id="@+id/textView_job_company"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffffff"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Phone"
-        android:id="@+id/textView_job_phone_number"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="20dp"
-        android:textColor="#ffffffff"
-        android:autoLink="phone"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Address"
+                android:id="@+id/textView_job_address"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffffff"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="E-mail  Address"
-        android:id="@+id/textView_job_email_address"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="20dp"
-        android:textColor="#ffffffff"
-        android:autoLink="email"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Contact"
+                android:id="@+id/textView_job_contact"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffffff"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Website URL"
-        android:id="@+id/textView_job_website_url"
-        android:textColor="#ffffffff"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:autoLink="web"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Phone"
+                android:id="@+id/textView_job_phone_number"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffffff"
+                android:autoLink="phone"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Preferred Contact Method"
-        android:id="@+id/textView_job_contact_method"
-        android:textColor="#ffffffff"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="E-mail  Address"
+                android:id="@+id/textView_job_email_address"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffffff"
+                android:autoLink="email"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Description"
-        android:id="@+id/textView_job_description"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="#ffffffff"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Website URL"
+                android:id="@+id/textView_job_website_url"
+                android:textColor="#ffffffff"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:autoLink="web"/>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Preferred Contact Method"
+                android:id="@+id/textView_job_contact_method"
+                android:textColor="#ffffffff"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Submission Deadline:  "
-            android:id="@+id/textView38"
-            android:textColor="#ffff0000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Description"
+                android:id="@+id/textView_job_description"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffffff"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Deadline"
-            android:id="@+id/textView_job_deadline"
-            android:textColor="#ffff0000"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/textView38"/>
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Submission Deadline:  "
+                    android:id="@+id/textView38"
+                    android:textColor="#ffff0000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Deadline"
+                    android:id="@+id/textView_job_deadline"
+                    android:textColor="#ffff0000"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/textView38"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

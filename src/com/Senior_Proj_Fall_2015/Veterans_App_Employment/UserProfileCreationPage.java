@@ -1,18 +1,16 @@
 package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.SystemClock;
+import android.os.*;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.Switch;
-
-import java.util.ArrayList;
+import android.widget.*;
 
 /**
  * Created by Joe on 10/24/2015.
@@ -63,8 +61,10 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         "O-3: Lieutenant", "O-4: Lieutenant Commander", "O-5: Commander", "O-6: Captain",
         "O-7: Rear Admiral (Lower Half)", "O-8: Rear Admiral (Upper Half)", "O-9: Vice Admiral",
         "O-10: Admiral Chief of Naval Ops/ Commandant of the CG"};
-    private static CheckBox[] SKILL_LIST;
-    private static Boolean[] CURRENT_SELECTED_SKILLS = new Boolean[] {false, false, false, false, false, false};
+    private static CharSequence[] listOfSkills;
+    private static boolean[] checkedSkills = null;
+    private static String[] vetSkills;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +79,10 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             (Button) findViewById(R.id.button_rank);
         button_rank.setOnClickListener(this);
 
+        Button button_skills =
+            (Button) findViewById(R.id.button_skills);
+        button_skills.setOnClickListener(this);
+
         Button button_submit =
             (Button) findViewById(R.id.button_submit);
         button_submit.setOnClickListener(this);
@@ -87,33 +91,76 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             (Button) findViewById(R.id.button_cancel);
         button_cancel.setOnClickListener(this);
 
-        SKILL_LIST = new CheckBox[] {(CheckBox) findViewById(R.id.user_skill_first),
-            (CheckBox) findViewById(R.id.user_skill_second),
-            (CheckBox) findViewById(R.id.user_skill_third),
-            (CheckBox) findViewById(R.id.user_skill_fourth),
-            (CheckBox) findViewById(R.id.user_skill_fifth),
-            (CheckBox) findViewById(R.id.user_skill_sixth)};
+        final Handler h = new Handler(){
+            @Override
+            public void handleMessage(Message msg){
+                listOfSkills = StartPage.dk.getSkills();
+                checkedSkills = new boolean[listOfSkills.length];
+                for (int i = 0; i < checkedSkills.length; i++) {
+                    checkedSkills[i] = false;
+                }
+            }
+        };
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                StartPage.client.loadSkills();
+                while (!StartPage.client.getIsTaskDone()){
+                    SystemClock.sleep(50);
+                }
+                h.sendEmptyMessage(0);
+
+            }
+        });
+        thread.start();
+
+        final Handler h1 = new Handler(){
+            @Override
+            public void handleMessage(Message msg){
+                vetSkills = StartPage.dk.getVetSkills();
+            }
+        };
+
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                StartPage.client.loadVetProfile();
+                while (!StartPage.client.getIsTaskDone()) {
+                    SystemClock.sleep(50);
+                }
+                h1.sendEmptyMessage(0);
+            }
+        });
+        thread1.start();
 
         populateFields();
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.button_branch:
-                showListMilitaryBranch(v);
+                showListMilitaryBranch(view);
                 break;
 
             case R.id.button_rank:
-                showListMilitaryRank(v);
+                showListMilitaryRank(view);
+                break;
+
+            case R.id.button_skills:
+                try {
+                    listOfSkills = StartPage.dk.getSkills();
+                } catch (NullPointerException e) {
+                }
+                showListSkills(view);
                 break;
 
             case R.id.button_submit:
                 validateAndSubmitInputs();
                 if (StartPage.isLogIn) {
                     finish();
-                }
-                else {
+                } else {
                     Intent j = new Intent(
                         UserProfileCreationPage.this, MenuPage.class);
                     startActivity(j);
@@ -123,12 +170,25 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             case R.id.button_cancel:
                 if (StartPage.isLogIn) {
                     finish();
-                }
-                else {
-                    Intent j = new Intent(
+                } else {
+                    Intent k = new Intent(
                         UserProfileCreationPage.this, MenuPage.class);
-                    startActivity(j);
+                    startActivity(k);
                 }
+                break;
+        }
+    }
+
+    public void onRadioButtonClick(View view) {
+        switch (view.getId()) {
+            case R.id.radio_female:
+                ((RadioButton) view).setChecked(true);
+                ((RadioButton) findViewById(R.id.radio_male)).setChecked(false);
+                break;
+
+            case R.id.radio_male:
+                ((RadioButton) view).setChecked(true);
+                ((RadioButton) findViewById(R.id.radio_female)).setChecked(false);
                 break;
         }
     }
@@ -136,7 +196,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     @Override
     public void onBackPressed() {
         finish();
-
     }
 
     private void showListMilitaryBranch(final View view) {
@@ -156,8 +215,8 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         if (militaryBranch == null) {
             AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
             helpBuilder.setTitle("Choose Branch First!");
-            helpBuilder.setPositiveButton("Okay",new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog,int id) {
+            helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
                     dialog.cancel();
                 }
             });
@@ -199,63 +258,66 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         }
     }
 
-    public void onUserCheckboxClicked(View view) {
-        boolean isChecked = ((CheckBox) view).isChecked();
-        switch (view.getId()) {
-            case R.id.user_skill_first:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[0] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[0] = false;
-                }
-                break;
-            case R.id.user_skill_second:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[1] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[1] = false;
-                }
-                break;
-            case R.id.user_skill_third:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[2] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[2] = false;
-                }
-                break;
-            case R.id.user_skill_fourth:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[3] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[3] = false;
-                }
-                break;
-            case R.id.user_skill_fifth:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[4] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[4] = false;
-                }
-                break;
-            case R.id.user_skill_sixth:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[5] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[5] = false;
-                }
-                break;
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void showListSkills(final View view) {
+        final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View popupLayout = inflater.inflate(R.layout.activity_skill_search_dialog, null);
+        helpBuilder.setView(popupLayout);
+        EditText searchBar = (EditText) popupLayout.findViewById(R.id.editText_job_skill_search);
+        searchBar.addTextChangedListener(filterTextWatcher);
+        ListView skillList = (ListView) popupLayout.findViewById(R.id.listView_skill_list);
+        adapter = new ArrayAdapter<String>(this,
+                                            android.R.layout.simple_list_item_multiple_choice,
+                                            (String[]) listOfSkills);
+        for (int i = 0; i < checkedSkills.length; i++) {
+            CheckedTextView text = ((CheckedTextView) adapter.getView(i, null, null));
+            text.toggle();
+            text.setVisibility(View.VISIBLE);
         }
+        skillList.setAdapter(adapter);
+        skillList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        skillList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                boolean test = ((CheckedTextView) view).isChecked();
+                checkedSkills[position] = test;
+            }
+        });
+        helpBuilder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                int count = 0;
+                for (int i = 0; i < checkedSkills.length; i++) {
+                    if (checkedSkills[i]) {
+                        count++;
+                    }
+                }
+                if (count == 1) {
+                    ((Button) view).setText(count + " Skill Chosen");
+                } else {
+                    ((Button) view).setText(count + " Skills Chosen");
+                }
+            }
+        });
+        AlertDialog dialog = helpBuilder.create();
+        dialog.show();
     }
 
+    private TextWatcher filterTextWatcher = new TextWatcher() {
+
+        public void afterTextChanged(Editable s) {
+        }
+
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            adapter.getFilter().filter(s);
+        }
+    };
+
     public void populateFields() {
-        StartPage.client.loadVetProfile();
-        SystemClock.sleep(250);
         String name = StartPage.dk.getVetDetail("name");
         String age = StartPage.dk.getVetDetail("age");
         String address = StartPage.dk.getVetDetail("address");
@@ -264,15 +326,13 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         String sex = StartPage.dk.getVetDetail("sex");
         String branch = StartPage.dk.getVetDetail("branch");
         String rank = StartPage.dk.getVetDetail("rank");
+        String description = StartPage.dk.getVetDetail("description");
         String[] skills;
         try {
             skills = StartPage.dk.getVetSkills();
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             skills = null;
         }
-        String description = StartPage.dk.getVetDetail("description");
-
         if (name != null) {
             ((EditText) findViewById(R.id.user_editText_name)).setText(name);
         }
@@ -290,10 +350,9 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         }
         if (sex != null) {
             if (sex.equals("Female")) {
-                ((Switch) findViewById(R.id.user_switch_sex)).setChecked(true);
-            }
-            else {
-                ((Switch) findViewById(R.id.user_switch_sex)).setChecked(false);
+                ((RadioButton) findViewById(R.id.radio_female)).setChecked(true);
+            } else {
+                ((RadioButton) findViewById(R.id.radio_male)).setChecked(true);
             }
         }
         if (branch != null) {
@@ -302,21 +361,16 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         if (rank != null) {
             ((Button) findViewById(R.id.button_rank)).setText(rank);
         }
-        for (int i = 0; i < SKILL_LIST.length; i++) {
-            SKILL_LIST[i].setChecked(false);
-        }
         if (skills != null) {
             for (int i = 0; i < skills.length; i++) {
-                for (int j = 0; j < SKILL_LIST.length; j++) {
-                     if (skills[i].equals(SKILL_LIST[j].getText().toString())) {
-                        CURRENT_SELECTED_SKILLS[j] = true;
-                         SKILL_LIST[j].setChecked(true);
-                         break;
-                     }
+                for (int j = 0; j < listOfSkills.length; j++) {
+                    if (skills[i].equals(listOfSkills[j])) {
+                        checkedSkills[j] = true;
+                        break;
+                    }
                 }
             }
-        }
-        else {
+        } else {
             if (description != null) {
                 ((EditText) findViewById(R.id.user_editText_description)).setText(description);
             }
@@ -324,7 +378,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     }
 
     public void validateAndSubmitInputs() {
-        SystemClock.sleep(500);
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -334,54 +387,34 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                     ((EditText) findViewById(R.id.user_editText_address)).getText().toString().trim(),
                     ((EditText) findViewById(R.id.user_editText_phone_number)).getText().toString().trim(),
                     ((EditText) findViewById(R.id.user_editText_email_address)).getText().toString().trim(),
-                    ((Switch) findViewById(R.id.user_switch_sex)).isChecked() ?
-                        ((Switch) findViewById(R.id.user_switch_sex)).getTextOn().toString().trim() :
-                        ((Switch) findViewById(R.id.user_switch_sex)).getTextOff().toString().trim(),
+                    ((RadioButton) findViewById(R.id.radio_female)).isChecked() ?
+                        ((RadioButton) findViewById(R.id.radio_female)).getText().toString().trim() :
+                        ((RadioButton) findViewById(R.id.radio_female)).getText().toString().trim(),
                     ((Button) findViewById(R.id.button_branch)).getText().toString().trim(),
                     ((Button) findViewById(R.id.button_rank)).getText().toString().trim());
-                while (!StartPage.client.getIsTaskDone()){
-                    SystemClock.sleep(50);
+                while (!StartPage.client.getIsTaskDone()) {
+                    SystemClock.sleep(500);
                 }
-                String[] skillArray = new String[SKILL_LIST.length];
-                int pointer = 0;
-                for(int i = 0; i < SKILL_LIST.length; i++) {
-                    if (SKILL_LIST[i].isChecked()) {
-                        skillArray[pointer] = SKILL_LIST[i].getText().toString();
-                        pointer++;
-                    }
-                }
-                StartPage.client.addVetSkill(skillArray);
             }
         });
         thread.start();
-        SystemClock.sleep(500);
-    }
-
-    /*
-    public void validateAndSubmitInputs() {
-        StartPage.client.addVetProfile(((EditText) findViewById(R.id.user_editText_name)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.user_editText_age)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.user_editText_description)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.user_editText_address)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.user_editText_phone_number)).getText().toString().trim(),
-            ((EditText) findViewById(R.id.user_editText_email_address)).getText().toString().trim(),
-            ((Switch) findViewById(R.id.user_switch_sex)).isChecked() ?
-                ((Switch) findViewById(R.id.user_switch_sex)).getTextOn().toString().trim() :
-                ((Switch) findViewById(R.id.user_switch_sex)).getTextOff().toString().trim(),
-            ((Button) findViewById(R.id.button_branch)).getText().toString().trim(),
-            ((Button) findViewById(R.id.button_rank)).getText().toString().trim());
-        String[] skillArray = new String[SKILL_LIST.length];
-        int pointer = 0;
-        for(int i = 0; i < SKILL_LIST.length; i++) {
-            if (SKILL_LIST[i].isChecked()) {
-                skillArray[pointer] = SKILL_LIST[i].getText().toString();
-                pointer++;
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String[] skillArray = new String[listOfSkills.length];
+                int pointer = 0;
+                for (int i = 0; i < checkedSkills.length; i++) {
+                    if (checkedSkills[i]) {
+                        skillArray[pointer++] = listOfSkills[i].toString();
+                    }
+                }
+                StartPage.client.addVetSkill(skillArray);
+                while (!StartPage.client.getIsTaskDone()) {
+                    SystemClock.sleep(500);
+                }
             }
-        }
-        SystemClock.sleep(500);
-        StartPage.client.addVetSkill(skillArray);
-        SystemClock.sleep(500);
+        });
+        thread1.start();
     }
-    */
 
 }

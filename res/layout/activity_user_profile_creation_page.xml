@@ -128,21 +128,39 @@
                 android:textColor="#ffffffff"
                 android:hint="E-mail Address"/>
 
-            <Switch
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sex:"
-                android:textOff="Male"
-                android:textOn="Female"
-                android:id="@+id/user_switch_sex"
-                android:enabled="true"
-                android:showText="true"
-                android:nestedScrollingEnabled="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Sex"
+                android:id="@+id/textView43"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:checked="false"
-                android:layout_gravity="left"
-                android:width="200dp"/>
+                android:layout_marginTop="20dp"/>
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:id="@+id/radio_female"
+                    android:checked="false"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:onClick="onRadioButtonClick"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:id="@+id/radio_male"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+                    android:layout_marginLeft="20dp"
+                    android:onClick="onRadioButtonClick"/>
+            </RadioGroup>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -169,101 +187,13 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"/>
 
-            <TextView
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Skills"
-                android:id="@+id/textView13"
+                android:text="Skills..."
+                android:id="@+id/button_skills"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="First Skill"
-                    android:id="@+id/user_skill_first"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_alignParentLeft="true"
-                    android:onClick="onUserCheckboxClicked"/>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Second Skill"
-                    android:id="@+id/user_skill_second"
-                    android:layout_marginStart="30dp"
-                    android:layout_alignParentBottom="false"
-                    android:layout_alignLeft="@+id/user_skill_first"
-                    android:layout_marginLeft="115dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="false"
-                    android:layout_toEndOf="@id/user_skill_first"
-                    android:onClick="onUserCheckboxClicked"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Third Skill"
-                    android:id="@+id/user_skill_third"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="false"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:onClick="onUserCheckboxClicked"/>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fourth Skill"
-                    android:id="@+id/user_skill_fourth"
-                    android:layout_marginStart="30dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/user_skill_third"
-                    android:layout_marginTop="20dp"
-                    android:layout_alignLeft="@+id/user_skill_third"
-                    android:layout_marginLeft="115dp"
-                    android:onClick="onUserCheckboxClicked"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fifth Skill"
-                    android:id="@+id/user_skill_fifth"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:onClick="onUserCheckboxClicked"/>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sixth Skill"
-                    android:id="@+id/user_skill_sixth"
-                    android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/user_skill_fifth"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="115dp"
-                    android:layout_alignLeft="@+id/user_skill_fifth"
-                    android:onClick="onUserCheckboxClicked"/>
-            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"

@@ -23,6 +23,8 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
     private static CheckBox[] SKILL_LIST;
     private static Boolean[] CURRENT_SELECTED_SKILLS = new Boolean[] {false, false, false, false, false, false};
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,59 +80,7 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         finish();
     }
 
-    public void onCheckboxClicked(View view) {
-        boolean isChecked = ((CheckBox) view).isChecked();
-        switch (view.getId()) {
-            case R.id.user_skill_first:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[0] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[0] = false;
-                }
-                break;
-            case R.id.user_skill_second:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[1] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[1] = false;
-                }
-                break;
-            case R.id.user_skill_third:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[2] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[2] = false;
-                }
-                break;
-            case R.id.user_skill_fourth:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[3] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[3] = false;
-                }
-                break;
-            case R.id.user_skill_fifth:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[4] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[4] = false;
-                }
-                break;
-            case R.id.user_skill_sixth:
-                if (isChecked) {
-                    CURRENT_SELECTED_SKILLS[5] = true;
-                }
-                else {
-                    CURRENT_SELECTED_SKILLS[5] = false;
-                }
-                break;
-        }
-    }
+
 
     private void showListPreferredContactMethod(final View view) {
         final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
@@ -208,7 +158,6 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
     }
 
     public void validateAndSubmitInputs() {
-
 
         Thread thread = new Thread(new Runnable() {
             @Override
