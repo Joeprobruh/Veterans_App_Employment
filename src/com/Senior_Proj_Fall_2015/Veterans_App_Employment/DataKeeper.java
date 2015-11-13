@@ -69,8 +69,8 @@ public class DataKeeper {
     public String[] getVetSkills() {
         String[] skills;
         try {
-            int length = vetProfile.getInt("index");
-            if (length == 0) {
+           int length = vetProfile.getInt("index");
+           if (length == 0) {
                 return null;
             }
             JSONArray skillJSON = vetProfile.getJSONArray("skills");
@@ -79,9 +79,10 @@ public class DataKeeper {
                 skills[i] = (String) skillJSON.get(i);
             }
             return skills;
-        } catch (JSONException e) {
+        } catch (Throwable t) {
+            return null;
+
         }
-        return null;
     }
 
     public String[] getVetSkills(int index) {
@@ -98,10 +99,10 @@ public class DataKeeper {
                 skills[i] = (String) skillJSON.get(i);
             }
             return skills;
-        } catch (JSONException e) {
+        } catch (Throwable t) {
+            return null;
 
         }
-        return null;
     }
 
     public String[] getJobSkills() {
@@ -118,10 +119,10 @@ public class DataKeeper {
                 skills[i] = (String) skillJSON.get(i);
             }
             return skills;
-        } catch (JSONException e) {
+        } catch (Throwable t) {
+            return null;
 
         }
-        return null;
     }
 
     public String[] getSkills() {
@@ -135,10 +136,10 @@ public class DataKeeper {
                 skills[i] = (String) allSkills.get(i);
             }
             return skills;
-        } catch (JSONException e) {
+        } catch (Throwable t) {
+            return null;
 
         }
-        return null;
     }
 
     public String getVetDetail(String detail, int index) {

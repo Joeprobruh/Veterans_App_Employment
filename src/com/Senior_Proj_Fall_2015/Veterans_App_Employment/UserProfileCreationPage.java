@@ -93,29 +93,37 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
         final Handler h = new Handler(){
             @Override
-            public void handleMessage(Message msg){
+            public void handleMessage(Message msg) {
+                vetSkills = StartPage.dk.getVetSkills();
                 listOfSkills = StartPage.dk.getSkills();
                 checkedSkills = new boolean[listOfSkills.length];
-                for (int i = 0; i < checkedSkills.length; i++) {
-                    checkedSkills[i] = false;
+                if (checkedSkills != null) {
+                    for (int i = 0; i < checkedSkills.length; i++) {
+                        checkedSkills[i] = false;
+                    }
                 }
+                populateFields();
+
             }
         };
-
         Thread thread = new Thread(new Runnable() {
-            @Override
+             @Override
             public void run() {
                 StartPage.client.loadSkills();
                 while (!StartPage.client.getIsTaskDone()){
                     SystemClock.sleep(50);
                 }
-                h.sendEmptyMessage(0);
+                StartPage.client.loadVetProfile();
+                while (!StartPage.client.getIsTaskDone()) {
+                    SystemClock.sleep(50);
+                }
+                 h.sendEmptyMessage(0);
 
             }
         });
         thread.start();
 
-        final Handler h1 = new Handler(){
+ /*       final Handler h1 = new Handler(){
             @Override
             public void handleMessage(Message msg){
                 vetSkills = StartPage.dk.getVetSkills();
@@ -133,8 +141,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             }
         });
         thread1.start();
-
-        populateFields();
+*/
     }
 
     @Override
@@ -270,10 +277,12 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         adapter = new ArrayAdapter<String>(this,
                                             android.R.layout.simple_list_item_multiple_choice,
                                             (String[]) listOfSkills);
-        for (int i = 0; i < checkedSkills.length; i++) {
-            CheckedTextView text = ((CheckedTextView) adapter.getView(i, null, null));
-            text.toggle();
-            text.setVisibility(View.VISIBLE);
+        if(checkedSkills != null){
+            for (int i = 0; i < checkedSkills.length; i++) {
+                CheckedTextView text = ((CheckedTextView) adapter.getView(i, null, null));
+                text.toggle();
+                text.setVisibility(View.VISIBLE);
+            }
         }
         skillList.setAdapter(adapter);
         skillList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
