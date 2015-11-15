@@ -91,33 +91,30 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             (Button) findViewById(R.id.button_cancel);
         button_cancel.setOnClickListener(this);
 
-        final Handler h = new Handler(){
+        final Handler h = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 vetSkills = StartPage.dk.getVetSkills();
                 listOfSkills = StartPage.dk.getSkills();
                 checkedSkills = new boolean[listOfSkills.length];
-                if (checkedSkills != null) {
-                    for (int i = 0; i < checkedSkills.length; i++) {
-                        checkedSkills[i] = false;
-                    }
+                for (int i = 0; i < checkedSkills.length; i++) {
+                    checkedSkills[i] = false;
                 }
                 populateFields();
             }
         };
         Thread thread = new Thread(new Runnable() {
-             @Override
+            @Override
             public void run() {
                 StartPage.client.loadSkills();
-                while (!StartPage.client.getIsTaskDone()){
+                while (!StartPage.client.getIsTaskDone()) {
                     SystemClock.sleep(50);
                 }
                 StartPage.client.loadVetProfile();
                 while (!StartPage.client.getIsTaskDone()) {
                     SystemClock.sleep(50);
                 }
-                 h.sendEmptyMessage(0);
-
+                h.sendEmptyMessage(0);
             }
         });
         thread.start();
@@ -199,7 +196,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
     private void showListMilitaryRank(final View view) {
         if (militaryBranch == null) {
-            boolean[] skills = checkedSkills;
             AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
             helpBuilder.setTitle("Choose Branch First!");
             helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
@@ -263,10 +259,10 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             }
         });
         adapter = new ArrayAdapter<String>(this,
-                                            android.R.layout.simple_list_item_multiple_choice,
-                                            (String[]) listOfSkills);
+            android.R.layout.simple_list_item_multiple_choice,
+            (String[]) listOfSkills);
         skillList.setAdapter(adapter);
-        if(checkedSkills != null){
+        if (checkedSkills != null) {
             for (int i = 0; i < checkedSkills.length; i++) {
                 if (checkedSkills[i]) {
                     skillList.setItemChecked(i, true);
@@ -359,10 +355,15 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                     }
                 }
             }
-        } else {
-            if (description != null) {
-                ((EditText) findViewById(R.id.user_editText_description)).setText(description);
+            if (skills.length - 1 == 1) {
+                ((Button) findViewById(R.id.button_skills)).setText("1 Skill Chosen");
             }
+            else {
+                ((Button) findViewById(R.id.button_skills)).setText((skills.length - 1) + " Skills Chosen");
+            }
+        }
+        if (description != null) {
+            ((EditText) findViewById(R.id.user_editText_description)).setText(description);
         }
     }
 
@@ -378,19 +379,13 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                     ((EditText) findViewById(R.id.user_editText_email_address)).getText().toString().trim(),
                     ((RadioButton) findViewById(R.id.radio_female)).isChecked() ?
                         ((RadioButton) findViewById(R.id.radio_female)).getText().toString().trim() :
-                        ((RadioButton) findViewById(R.id.radio_female)).getText().toString().trim(),
+                        ((RadioButton) findViewById(R.id.radio_male)).getText().toString().trim(),
                     ((Button) findViewById(R.id.button_branch)).getText().toString().trim(),
                     ((Button) findViewById(R.id.button_rank)).getText().toString().trim());
                 while (!StartPage.client.getIsTaskDone()) {
-                    SystemClock.sleep(500);
+                    SystemClock.sleep(50);
                 }
-            }
-        });
-        thread.start();
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String[] skillArray = new String[listOfSkills.length];
+                final String[] skillArray = new String[listOfSkills.length];
                 int pointer = 0;
                 for (int i = 0; i < checkedSkills.length; i++) {
                     if (checkedSkills[i]) {
@@ -399,11 +394,11 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                 }
                 StartPage.client.addVetSkill(skillArray);
                 while (!StartPage.client.getIsTaskDone()) {
-                    SystemClock.sleep(500);
+                    SystemClock.sleep(50);
                 }
             }
         });
-        thread1.start();
+        thread.start();
     }
 
 }

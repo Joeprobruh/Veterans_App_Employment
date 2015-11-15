@@ -1,15 +1,16 @@
 package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.SystemClock;
+import android.os.*;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
+import android.widget.*;
 
 import java.util.ArrayList;
 
@@ -20,10 +21,10 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
 
     private static final String[] CONTACT_METHODS = new String[] {"Phone Number", "E-mail Address", "Website URL",
         "Snail Mail"};
-    private static CheckBox[] SKILL_LIST;
-    private static Boolean[] CURRENT_SELECTED_SKILLS = new Boolean[] {false, false, false, false, false, false};
-
-
+    private static CharSequence[] listOfSkills;
+    private static boolean[] checkedSkills = null;
+    private static String[] vetSkills;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +43,32 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
             (Button) findViewById(R.id.button_preferred_contact);
         button_preferred_contact.setOnClickListener(this);
 
-        SKILL_LIST = new CheckBox[] {(CheckBox) findViewById(R.id.job_skill_first),
-            (CheckBox) findViewById(R.id.job_skill_second),
-            (CheckBox) findViewById(R.id.job_skill_third),
-            (CheckBox) findViewById(R.id.job_skill_fourth),
-            (CheckBox) findViewById(R.id.job_skill_fifth),
-            (CheckBox) findViewById(R.id.job_skill_sixth)};
+        Button button_skills =
+            (Button) findViewById(R.id.button_skills);
+        button_skills.setOnClickListener(this);
+
+        final Handler h = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                listOfSkills = StartPage.dk.getSkills();
+                checkedSkills = new boolean[listOfSkills.length];
+                for (int i = 0; i < checkedSkills.length; i++) {
+                    checkedSkills[i] = false;
+                }
+                populateFields();
+            }
+        };
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                StartPage.client.loadSkills();
+                while (!StartPage.client.getIsTaskDone()) {
+                    SystemClock.sleep(50);
+                }
+                h.sendEmptyMessage(0);
+            }
+        });
+        thread.start();
 
         if (StartPage.dk.getJob() != null) {
             populateFields();
@@ -72,6 +93,10 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
             case R.id.button_preferred_contact:
                 showListPreferredContactMethod(v);
                 break;
+
+            case R.id.button_skills:
+                showListSkills(v);
+                break;
         }
     }
 
@@ -94,6 +119,67 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         helpDialog.show();
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void showListSkills(final View view) {
+        final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View popupLayout = inflater.inflate(R.layout.activity_skill_search_dialog, null);
+        helpBuilder.setView(popupLayout);
+        EditText searchBar = (EditText) popupLayout.findViewById(R.id.editText_job_skill_search);
+        searchBar.addTextChangedListener(filterTextWatcher);
+        ListView skillList = (ListView) popupLayout.findViewById(R.id.listView_skill_list);
+        skillList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        skillList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                boolean test = ((CheckedTextView) view).isChecked();
+                checkedSkills[position] = test;
+            }
+        });
+        adapter = new ArrayAdapter<String>(this,
+            android.R.layout.simple_list_item_multiple_choice,
+            (String[]) listOfSkills);
+        skillList.setAdapter(adapter);
+        if (checkedSkills != null) {
+            for (int i = 0; i < checkedSkills.length; i++) {
+                if (checkedSkills[i]) {
+                    skillList.setItemChecked(i, true);
+                }
+            }
+        }
+        helpBuilder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                int count = 0;
+                for (int i = 0; i < checkedSkills.length; i++) {
+                    if (checkedSkills[i]) {
+                        count++;
+                    }
+                }
+                if (count == 1) {
+                    ((Button) view).setText(count + " Skill Chosen");
+                } else {
+                    ((Button) view).setText(count + " Skills Chosen");
+                }
+            }
+        });
+        AlertDialog dialog = helpBuilder.create();
+        dialog.show();
+    }
+
+    private TextWatcher filterTextWatcher = new TextWatcher() {
+
+        public void afterTextChanged(Editable s) {
+        }
+
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            adapter.getFilter().filter(s);
+        }
+    };
+
     public void populateFields() {
         SystemClock.sleep(250);
         String title = StartPage.dk.getJobDetail("title");
@@ -101,7 +187,7 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         String description = StartPage.dk.getJobDetail("description");
         String[] skills;
         try {
-            skills = StartPage.dk.getVetSkills();
+            skills = StartPage.dk.getJobSkills();
         }
         catch (NullPointerException e) {
             skills = null;
@@ -113,7 +199,6 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         String websiteURL = StartPage.dk.getJobDetail("url");
         String submissionDeadline = StartPage.dk.getJobDetail("deadline");
         String preferredContactMethod = StartPage.dk.getJobDetail("applymethod");
-
         if (title != null) {
             ((EditText) findViewById(R.id.job_editText_title)).setText(title);
         }
@@ -125,10 +210,9 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         }
         if (skills != null) {
             for (int i = 0; i < skills.length; i++) {
-                for (int j = 0; j < SKILL_LIST.length; j++) {
-                    if (skills[i].equals(SKILL_LIST[j].getText().toString())) {
-                        CURRENT_SELECTED_SKILLS[j] = true;
-                        SKILL_LIST[j].setChecked(true);
+                for (int j = 0; j < listOfSkills.length; j++) {
+                    if (skills[i].equals(listOfSkills[j])) {
+                        checkedSkills[j] = true;
                         break;
                     }
                 }
@@ -176,21 +260,20 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
                     ((EditText) findViewById(R.id.job_editText_website_url)).getText().toString().trim(),
                     ((Button) findViewById(R.id.button_preferred_contact)).getText().toString().trim(),
                     ((EditText) findViewById(R.id.job_editText_submission_deadline)).getText().toString().trim());
-                String[] skillArray = new String[SKILL_LIST.length];
-                int pointer = 0;
-                for(int i = 0; i < SKILL_LIST.length; i++) {
-                    if (SKILL_LIST[i].isChecked()) {
-                        skillArray[pointer] = SKILL_LIST[i].getText().toString();
-                        pointer++;
-                    }
-                }
                 while (!StartPage.client.getIsTaskDone()){
                     SystemClock.sleep(50);
                 }
-                StartPage.client.addJobSkill(skillArray);int i = 0;
-
-                //   h.sendEmptyMessage(0);
-
+                final String[] skillArray = new String[listOfSkills.length];
+                int pointer = 0;
+                for (int i = 0; i < checkedSkills.length; i++) {
+                    if (checkedSkills[i]) {
+                        skillArray[pointer++] = listOfSkills[i].toString();
+                    }
+                }
+                StartPage.client.addJobSkill(skillArray);
+                while (!StartPage.client.getIsTaskDone()) {
+                    SystemClock.sleep(50);
+                }
             }
         });
         thread.start();

@@ -40,7 +40,6 @@ public class StartPage extends Activity implements View.OnClickListener {
                 Intent i = new Intent(
                     StartPage.this, Login.class);
                 startActivity(i);
-                finish();
                 break;
 
             case R.id.sign_up_OK:
@@ -48,18 +47,13 @@ public class StartPage extends Activity implements View.OnClickListener {
                 Intent j = new Intent(
                     StartPage.this, SignUpPage.class);
                 startActivity(j);
-                finish();
                 break;
         }
     }
 
     @Override
     public void onBackPressed(){
-        Intent a = new Intent(Intent.ACTION_MAIN);
-        a.addCategory(Intent.CATEGORY_HOME);
-        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);
-
+        finish();
     }
 
 }

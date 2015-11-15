@@ -1,6 +1,8 @@
 package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -23,17 +25,17 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadJobs();
                     while (!StartPage.client.getIsTaskDone()){
-                        SystemClock.sleep(500);
+                        SystemClock.sleep(50);
                     }
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadVetProfile();
                     while (!StartPage.client.getIsTaskDone()){
-                        SystemClock.sleep(500);
+                        SystemClock.sleep(50);
                     }
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadEmployers();
                     while (!StartPage.client.getIsTaskDone()){
-                        SystemClock.sleep(500);
+                        SystemClock.sleep(50);
                     }
                 }
             });
@@ -62,17 +64,17 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadJobsByEmployer();
                     while (!StartPage.client.getIsTaskDone()){
-                        SystemClock.sleep(500);
+                        SystemClock.sleep(50);
                     }
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadVets();
                     while (!StartPage.client.getIsTaskDone()){
-                        SystemClock.sleep(500);
+                        SystemClock.sleep(50);
                     }
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadEmployerProfile();
                     while (!StartPage.client.getIsTaskDone()){
-                        SystemClock.sleep(500);
+                        SystemClock.sleep(50);
                     }
                 }
             });
@@ -103,7 +105,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                         StartPage.client.setIsTaskDone(false);
                         StartPage.client.loadJobs();
                         while (!StartPage.client.getIsTaskDone()) {
-                            SystemClock.sleep(500);
+                            SystemClock.sleep(50);
                         }
                     }
                 });
@@ -120,7 +122,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                         StartPage.client.setIsTaskDone(false);
                         StartPage.client.loadEmployers();
                         while (!StartPage.client.getIsTaskDone()) {
-                            SystemClock.sleep(500);
+                            SystemClock.sleep(50);
                         }
                     }
                 });
@@ -137,14 +139,27 @@ public class MenuPage extends Activity implements View.OnClickListener{
                         StartPage.client.setIsTaskDone(false);
                         StartPage.client.loadVetProfile();
                         while (!StartPage.client.getIsTaskDone()) {
-                            SystemClock.sleep(500);
+                            SystemClock.sleep(50);
                         }
                     }
                 });
                 thread2.start();
-                Intent k = new Intent(
-                    MenuPage.this, UserProfilePage.class);
-                startActivity(k);
+                if (StartPage.dk.getVetProfile() == null) {
+                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+                    helpBuilder.setTitle("Error: Profile has not been created.");
+                    helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog helpDialog = helpBuilder.create();
+                    helpDialog.show();
+                }
+                else {
+                    Intent k = new Intent(
+                        MenuPage.this, UserProfilePage.class);
+                    startActivity(k);
+                }
                 break;
 
             case R.id.button_edit_profile:
@@ -154,7 +169,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                         StartPage.client.setIsTaskDone(false);
                         StartPage.client.loadVetProfile();
                         while (!StartPage.client.getIsTaskDone()) {
-                            SystemClock.sleep(500);
+                            SystemClock.sleep(50);
                         }
                     }
                 });
@@ -171,7 +186,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                         StartPage.client.setIsTaskDone(false);
                         StartPage.client.loadEmployerProfile();
                         while (!StartPage.client.getIsTaskDone()) {
-                            SystemClock.sleep(500);
+                            SystemClock.sleep(50);
                         }
                     }
                 });
@@ -199,9 +214,9 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     @Override
                     public void run() {
                         StartPage.client.setIsTaskDone(false);
-                        StartPage.client.loadJobs();
+                        StartPage.client.loadJobsByEmployer();
                         while (!StartPage.client.getIsTaskDone()) {
-                            SystemClock.sleep(500);
+                            SystemClock.sleep(50);
                         }
                     }
                 });
@@ -218,7 +233,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                         StartPage.client.setIsTaskDone(false);
                         StartPage.client.loadVets();
                         while (!StartPage.client.getIsTaskDone()) {
-                            SystemClock.sleep(500);
+                            SystemClock.sleep(50);
                         }
                     }
                 });

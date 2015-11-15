@@ -13,8 +13,8 @@
       <config>
         <devices>
           <device id="Nexus 5" />
-          <device id="Galaxy S5 1" />
           <device id="LongScroller" />
+          <device id="Galaxy S5 1" />
         </devices>
         <pickBest>false</pickBest>
         <target>android-21</target>
@@ -68,10 +68,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38a746ba-4958-497e-b62f-694f232278dd" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Joe\IdeaProjects\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\UserProfileCreationPage$11.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Joe\IdeaProjects\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\UserProfileCreationPage$12.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Joe\IdeaProjects\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\JobApplicantsByEmployerListPage$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Joe\IdeaProjects\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\JobApplicantsByEmployerListPage$ApplicantListCreation$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Joe\IdeaProjects\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\JobApplicantsByEmployerListPage$ApplicantListCreation.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Joe\IdeaProjects\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\JobApplicantsByEmployerListPage.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Joe\IdeaProjects\Veterans_App_Employment\out\production\Veterans_App_Employment\com\Senior_Proj_Fall_2015\Veterans_App_Employment\UserProfileCreationPage$10.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Joe\IdeaProjects\Veterans_App_Employment\res\layout\activity_applicant_by_employer_list.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Joe\IdeaProjects\Veterans_App_Employment\src\com\Senior_Proj_Fall_2015\Veterans_App_Employment\JobApplicantsByEmployerListPage.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage$EmployerListCreation$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage$EmployerListCreation$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage$EmployerListCreation$2.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage$EmployerListCreation$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage$EmployerListCreation.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage$EmployerListCreation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage$3.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage$JobListByEmployerCreation$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage$JobListByEmployerCreation$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage$JobListByEmployerCreation.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage$JobListByEmployerCreation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage$JobListCreation$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage$JobListCreation$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage$JobListCreation.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage$JobListCreation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage$2.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/LoadScreen.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/LoadScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login$2.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$2.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$3.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$4.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$5.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$6.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$7.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$8.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$9.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/R$id.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/R$layout.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/R$string.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/ResourcesPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/ResourcesPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage$2.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage$UserListCreation$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage$UserListCreation$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage$UserListCreation.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage$UserListCreation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$1.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$10.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$2.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$3.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$4.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$4.class" />
@@ -81,10 +129,29 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$8.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$8.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$9.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.class" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/Veterans_App_Employment.apk" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/Veterans_App_Employment.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Veterans_App_Employment/Veterans_App_Employment.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/Veterans_App_Employment/Veterans_App_Employment.unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java" afterPath="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_creation_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_creation_page.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_user_profile_page.xml" afterPath="$PROJECT_DIR$/res/layout/activity_user_profile_page.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Veterans_App_Employment.iws" />
@@ -112,17 +179,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserProfileCreationPage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserProfileCreationPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21413043">
-              <caret line="263" column="11" selection-start-line="263" selection-start-column="11" selection-end-line="263" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="397" column="17" selection-start-line="387" selection-start-column="16" selection-end-line="397" selection-end-column="17" />
               <folding>
-                <element signature="e#12144#12445#0" expanded="true" />
-                <element signature="e#12444#12445#0" expanded="true" />
-                <element signature="e#12975#13553#0" expanded="true" />
-                <element signature="e#13552#13553#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JobOpportunityProfileCreationPage.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3805668">
+              <caret line="263" column="42" selection-start-line="263" selection-start-column="42" selection-end-line="263" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="216" column="62" selection-start-line="216" selection-start-column="62" selection-end-line="216" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -164,44 +248,44 @@
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityList.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployer.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_employer_profile_creation_page.xml" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_creation_page.xml" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobApplicantsByEmployerListPage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/LoadScreen.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_resources_page.xml" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/ResourcesPage.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.java" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_load_screen.xml" />
         <option value="$PROJECT_DIR$/res/layout/test.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_menu_user_page.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_start_page.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_login_page.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_user_profile_page.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_sign_up_page.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_menu_employer_page.xml" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/layout/acxtivity_skill_lsit.xml" />
         <option value="$PROJECT_DIR$/res/layout/acxtivity_skill_list.xml" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_user_profile_creation_page.xml" />
-        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_skill_search_dialog.xml" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SearchSkillsDialog.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_skill_list_item.xml" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobApplicantsByEmployerListPage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java" />
         <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_creation_page.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_user_profile_page.xml" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java" />
+        <option value="$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.java" />
       </list>
     </option>
   </component>
@@ -332,7 +416,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_23" />
     <property name="FullScreen" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -541,13 +625,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32172996" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44936708" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44936708" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23802084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700422" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -559,8 +645,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700422" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -576,21 +660,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java</url>
-          <line>73</line>
-          <properties />
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java</url>
-          <line>76</line>
-          <properties />
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="119" />
+      <option name="time" value="124" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -603,6 +673,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -611,10 +682,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#12144#12445#0" expanded="true" />
-            <element signature="e#12444#12445#0" expanded="true" />
-            <element signature="e#12975#13553#0" expanded="true" />
-            <element signature="e#13552#13553#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -623,6 +691,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -644,13 +713,6 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobApplicantsByEmployerListPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.034623217">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-21/android.jar!/java/lang/Runnable.class">
@@ -706,31 +768,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7576087">
-          <caret line="78" column="17" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_creation_page.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="339" column="0" selection-start-line="339" selection-start-column="0" selection-end-line="339" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_load_screen.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3815937">
@@ -740,13 +777,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07608695">
-          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_menu_user_page.xml">
@@ -771,62 +801,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_login_page.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_user_profile_page.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_job_opportunity_list.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_applicant_by_employer_list.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -859,29 +834,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_menu_employer_page.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3747495">
           <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49891305">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -893,50 +849,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-21/android.jar!/android/os/StrictMode.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.851851">
           <caret line="194" column="43" selection-start-line="194" selection-start-column="43" selection-end-line="194" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.09021739">
-          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_user_profile_creation_page.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="189" column="12" selection-start-line="189" selection-start-column="12" selection-end-line="189" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -968,55 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="25" selection-start-line="155" selection-start-column="24" selection-end-line="157" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09456522">
-          <caret line="107" column="28" selection-start-line="107" selection-start-column="28" selection-end-line="107" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6652174">
-          <caret line="207" column="5" selection-start-line="207" selection-start-column="5" selection-end-line="207" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8706522">
-          <caret line="705" column="5" selection-start-line="705" selection-start-column="5" selection-end-line="705" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_skill_search_dialog.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1028,16 +895,218 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListByEmployerPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_login_page.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/StartPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65587044">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+          <folding>
+            <element signature="e#1487#1488#0" expanded="false" />
+            <element signature="e#1511#1512#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65587044">
+          <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+          <folding>
+            <element signature="e#2348#2349#0" expanded="false" />
+            <element signature="e#2372#2373#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/SignUpPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8947369">
+          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfileCreationPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5891304">
+          <caret line="99" column="43" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/NetClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1478261">
+          <caret line="380" column="40" selection-start-line="380" selection-start-column="40" selection-end-line="380" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_menu_employer_page.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/DataKeeper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9291498">
+          <caret line="117" column="13" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityListPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="17" selection-start-line="53" selection-start-column="16" selection-end-line="58" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerListPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31413043">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserListPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5543478">
+          <caret line="76" column="62" selection-start-line="76" selection-start-column="62" selection-end-line="76" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_user_profile_creation_page.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="189" column="12" selection-start-line="189" selection-start-column="12" selection-end-line="189" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_creation_page.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="251" column="0" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/EmployerProfilePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13967611">
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfilePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65587044">
+          <caret line="144" column="9" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_job_opportunity_profile_page.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.6139169">
+          <caret line="137" column="56" selection-start-line="137" selection-start-column="56" selection-end-line="137" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfilePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3728261">
+          <caret line="124" column="41" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_user_profile_page.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80920315">
+          <caret line="113" column="49" selection-start-line="113" selection-start-column="49" selection-end-line="113" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_employer_profile_page.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/MenuPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="216" column="62" selection-start-line="216" selection-start-column="62" selection-end-line="216" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/UserProfileCreationPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21413043">
-          <caret line="263" column="11" selection-start-line="263" selection-start-column="11" selection-end-line="263" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="397" column="17" selection-start-line="387" selection-start-column="16" selection-end-line="397" selection-end-column="17" />
           <folding>
-            <element signature="e#12144#12445#0" expanded="true" />
-            <element signature="e#12444#12445#0" expanded="true" />
-            <element signature="e#12975#13553#0" expanded="true" />
-            <element signature="e#13552#13553#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Senior_Proj_Fall_2015/Veterans_App_Employment/JobOpportunityProfileCreationPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3805668">
+          <caret line="263" column="42" selection-start-line="263" selection-start-column="42" selection-end-line="263" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

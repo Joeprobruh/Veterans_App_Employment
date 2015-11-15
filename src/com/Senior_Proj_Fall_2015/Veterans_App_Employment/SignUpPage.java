@@ -72,9 +72,11 @@ public class SignUpPage extends Activity implements View.OnClickListener {
             ((EditText) findViewById(R.id.confirm_password_text_field)).getText().clear();
         }
         else if (verify(user, pass)) {
+
             /**
              * Idea: Store user/pass combo in local memory to be used in future login attempts??? POSSIBLE?????
              */
+
             status.setText("Set up correctly. Continue...");
             if (role.equals("veteran")) {
                 Intent intent = new Intent(SignUpPage.this, UserProfileCreationPage.class);
@@ -86,10 +88,6 @@ public class SignUpPage extends Activity implements View.OnClickListener {
             }
         }
         else {
-            /**
-             * Idea: Store user/pass combo in local memory to be used in future login attempts??? POSSIBLE?????
-             */
-            status.setText("About to attempt signUp()");
             status.setText("Set up correctly. Continue...");
 
             final Handler h = new Handler(){
@@ -128,11 +126,6 @@ public class SignUpPage extends Activity implements View.OnClickListener {
                 }
             });
             thread.start();
-            /*
-            // Username is taken, must
-            status.setText("That username is already taken. Try again.");
-            ((EditText) findViewById(R.id.username_text_field)).getText().clear();
-            */
         }
     }
 

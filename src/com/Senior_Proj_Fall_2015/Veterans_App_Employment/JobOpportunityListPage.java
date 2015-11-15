@@ -38,7 +38,7 @@ public class JobOpportunityListPage extends Activity {
         @Override
         protected String doInBackground(String... p) {
             StartPage.client.loadJobs();
-            SystemClock.sleep(500);
+            SystemClock.sleep(50);
             return new String("");
         }
 
@@ -51,9 +51,24 @@ public class JobOpportunityListPage extends Activity {
 
                 HashMap<String, String> map = new HashMap<>();
 
-                map.put("title", title);
-                map.put("description", description);
-                map.put("deadline", deadline);
+                if (!title.equals("null")) {
+                    map.put("title", title);
+                }
+                else {
+                    map.put("title", "No title entered.");
+                }
+                if (!description.equals("null")) {
+                    map.put("description", description);
+                }
+                else {
+                    map.put("description", "No description entered.");
+                }
+                if (!deadline.equals("null")) {
+                    map.put("deadline", deadline);
+                }
+                else {
+                    map.put("deadline", "No deadline entered.");
+                }
 
                 jobList.add(map);
 

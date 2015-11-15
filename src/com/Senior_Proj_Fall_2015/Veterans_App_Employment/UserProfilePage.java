@@ -1,6 +1,8 @@
 package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -74,26 +76,70 @@ public class UserProfilePage extends Activity implements View.OnClickListener{
     private void updateProfile() {
         JSONObject selection = StartPage.dk.getVetProfile();
         try {
-            userName.setText(selection.getString("name"));
-            userAge.setText(selection.getString("age"));
-            userAddress.setText(selection.getString("address"));
-            userPhoneNumber.setText(selection.getString("phone"));
-            userEmailAddress.setText(selection.getString("email"));
-            userBranch.setText(selection.getString("branch"));
-            userRank.setText(selection.getString("rank"));
-            String skills = "";
-            String[] skillArray = StartPage.dk.getVetSkills();
+            if (!selection.getString("name").equals("null")) {
+                userName.setText(selection.getString("name"));
+            }
+            else {
+                userName.setText("No name entered.");
+            }
+            if (!selection.getString("age").equals("null")) {
+                userAge.setText(selection.getString("age"));
+            }
+            else {
+                userAge.setText("No age entered.");
+            }
+            if (!selection.getString("address").equals("null")) {
+                userAddress.setText(selection.getString("address"));
+            }
+            else {
+                userAddress.setText("No address entered.");
+            }
+            if (!selection.getString("phone").equals("null")) {
+                userPhoneNumber.setText(selection.getString("phone"));
+            }
+            else {
+                userPhoneNumber.setText("No phone number entered.");
+            }
+            if (!selection.getString("email").equals("null")) {
+                userEmailAddress.setText(selection.getString("email"));
+            }
+            else {
+                userEmailAddress.setText("No e-mail address entered.");
+            }
             try {
-                for (int i = 0; i < skillArray.length - 1; i++) {
-                    skills += skillArray[i] + " , ";
+                String skills = "";
+                String[] skillArray = StartPage.dk.getVetSkills();
+                if (skillArray != null) {
+                    for (int i = 0; i < skillArray.length - 1; i++) {
+                        skills += skillArray[i] + "\r\n";
+                    }
+                    skills += skillArray[skillArray.length - 1];
+                    userSkills.setText(skills);
+                } else {
+                    userSkills.setText("No skills chosen, or failed to load list of skills.");
                 }
-                skills += skillArray[skillArray.length - 1];
-                userSkills.setText(skills);
             }
             catch (NullPointerException e) {
-                userSkills.setText("No skills, or failed to load the skills.");
+                userSkills.setText("No skills chosen, or failed to load list of skills.");
             }
-            userDescription.setText(selection.getString("description"));
+            if (!selection.getString("branch").equals("null")) {
+                userBranch.setText(selection.getString("branch"));
+            }
+            else {
+                userBranch.setText("No branch selected.");
+            }
+            if (!selection.getString("rank").equals("null")) {
+                userRank.setText(selection.getString("rank"));
+            }
+            else {
+                userRank.setText("No rank selected.");
+            }
+            if (!selection.getString("description").equals("null")) {
+                userDescription.setText(selection.getString("description"));
+            }
+            else {
+                userDescription.setText("No description entered.");
+            }
         } catch (JSONException e) {
             // No exceptions
         }

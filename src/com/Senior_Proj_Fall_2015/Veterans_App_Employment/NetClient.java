@@ -12,8 +12,11 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -45,7 +48,7 @@ public class NetClient {
 
     public NetClient(DataKeeper dk) {
         dataKeeper = dk;
-        httpClient = new DefaultHttpClient();
+        httpClient = getThreadSafeClient();
         jobID = null;
         userID = null;
         isSignedUp = false;
@@ -695,6 +698,16 @@ public class NetClient {
             // writing exception to log
         }
         isTaskDone = true;
+    }
+
+    public static DefaultHttpClient getThreadSafeClient() {
+        DefaultHttpClient client = new DefaultHttpClient();
+        ClientConnectionManager mgr = client.getConnectionManager();
+        HttpParams params = client.getParams();
+        client = new DefaultHttpClient(new ThreadSafeClientConnManager(params,
+            mgr.getSchemeRegistry()), params);
+        return client;
+
     }
 
     public String getUserID(){return userID;}

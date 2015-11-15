@@ -40,7 +40,7 @@ public class EmployerListPage extends Activity{
                 public void run() {
                     StartPage.client.loadEmployers();
                     while (!StartPage.client.getIsTaskDone()){
-                        SystemClock.sleep(500);
+                        SystemClock.sleep(50);
                     }
                 }
             });
@@ -59,10 +59,30 @@ public class EmployerListPage extends Activity{
 
                 HashMap<String, String> map = new HashMap<>();
 
-                map.put("company", company);
-                map.put("address", address);
-                map.put("phone", phone);
-                map.put("email", email);
+                if (!company.equals("null")) {
+                    map.put("company", company);
+                }
+                else {
+                    map.put("company", "No company entered.");
+                }
+                if (!address.equals("null")) {
+                    map.put("address", address);
+                }
+                else {
+                    map.put("address", "No address entered.");
+                }
+                if (!phone.equals("null")) {
+                    map.put("phone", phone);
+                }
+                else {
+                    map.put("phone", "No phone number entered.");
+                }
+                if (!email.equals("null")) {
+                    map.put("email", email);
+                }
+                else {
+                    map.put("email", "No e-mail address entered.");
+                }
 
                 employerList.add(map);
 

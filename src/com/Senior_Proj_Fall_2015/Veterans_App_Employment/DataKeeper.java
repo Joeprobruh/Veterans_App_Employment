@@ -81,7 +81,6 @@ public class DataKeeper {
             return skills;
         } catch (Throwable t) {
             return null;
-
         }
     }
 
@@ -101,7 +100,6 @@ public class DataKeeper {
             return skills;
         } catch (Throwable t) {
             return null;
-
         }
     }
 

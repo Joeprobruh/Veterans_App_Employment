@@ -59,7 +59,6 @@
         <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.EmployerProfilePage"/>
 
         <!-- Job Applicants by Employer activity -->
-        <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.JobApplicantsByEmployerListPage"/>
 
         <!-- Job List by Employer activity -->
         <activity android:name="com.Senior_Proj_Fall_2015.Veterans_App_Employment.JobOpportunityListByEmployerPage"/>

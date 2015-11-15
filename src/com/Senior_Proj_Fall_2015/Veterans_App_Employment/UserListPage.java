@@ -41,7 +41,7 @@ public class UserListPage extends Activity {
 
         protected String doInBackground(String... p) {
             StartPage.client.loadVets();
-            SystemClock.sleep(500);
+            SystemClock.sleep(50);
             return new String("");
         }
 
@@ -49,40 +49,37 @@ public class UserListPage extends Activity {
         protected void onPostExecute (String string) {
             JSONArray vetList = StartPage.dk.getVetList();
             for (int i = 0; i < vetList.length(); i++) {
-                String name;
-                String age;
-                String branch;
-                String rank;
-                try {
-                    name = vetList.getJSONObject(i).getString("name");
-                }
-                catch (JSONException e) {
-                    name = "Not found";
-                }
-                try {
-                    age = vetList.getJSONObject(i).getString("age");
-                }
-                catch (JSONException e) {
-                    age = "Not found";
-                }
-                try {
-                    branch = vetList.getJSONObject(i).getString("branch");
-                }
-                catch (JSONException e) {
-                    branch = "Not found";
-                }
-                try {
-                    rank = vetList.getJSONObject(i).getString("rank");
-                }
-                catch (JSONException e) {
-                    rank = "Not found";
-                }
+                String name = StartPage.dk.getVetDetail("name", i);
+                String age = StartPage.dk.getVetDetail("age", i);
+                String branch = StartPage.dk.getVetDetail("branch", i);
+                String rank = StartPage.dk.getVetDetail("rank", i);
+
                 HashMap<String, String> map = new HashMap<>();
 
-                map.put("name", name);
-                map.put("age", age);
-                map.put("branch", branch);
-                map.put("rank", rank);
+                if (!name.equals("null")) {
+                    map.put("name", name);
+                }
+                else {
+                    map.put("name", "No name entered.");
+                }
+                if (!age.equals("null")) {
+                    map.put("age", age);
+                }
+                else {
+                    map.put("age", "No age entered.");
+                }
+                if (!branch.equals("null") && !branch.equals("Branch...")) {
+                    map.put("branch", branch);
+                }
+                else {
+                    map.put("branch", "No branch entered.");
+                }
+                if (!rank.equals("null") && !rank.equals("Rank...")) {
+                    map.put("rank", rank);
+                }
+                else {
+                    map.put("rank", "No rank entered.");
+                }
 
                 userList.add(map);
 

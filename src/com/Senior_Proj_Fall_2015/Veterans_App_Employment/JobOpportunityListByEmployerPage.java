@@ -41,7 +41,7 @@ public class JobOpportunityListByEmployerPage extends Activity {
                 public void run() {
                     StartPage.client.loadJobsByEmployer();
                     while (!StartPage.client.getIsTaskDone()) {
-                        SystemClock.sleep(500);
+                        SystemClock.sleep(50);
                     }
                 }
             });

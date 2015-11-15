@@ -1,6 +1,8 @@
 package com.Senior_Proj_Fall_2015.Veterans_App_Employment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -70,15 +72,61 @@ public class EmployerProfilePage extends Activity implements View.OnClickListene
     private void updateProfile() {
         JSONObject selection = StartPage.dk.getEmployerProfile();
         try {
-            employerCompany.setText(selection.getString("company"));
-            employerName.setText(selection.getString("name"));
-            employerTitle.setText(selection.getString("title"));
-            employerAddress.setText(selection.getString("address"));
-            employerPhoneNumber.setText(selection.getString("phone"));
-            employerEmailAddress.setText(selection.getString("email"));
-            employerDescription.setText(selection.getString("description"));
+            if (!selection.getString("title").equals("null")) {
+                employerTitle.setText(selection.getString("title"));
+            }
+            else {
+                employerTitle.setText("No title entered.");
+            }
+            if (!selection.getString("company").equals("null")) {
+                employerCompany.setText(selection.getString("company"));
+            }
+            else {
+                employerCompany.setText("No company name entered.");
+            }
+            if (!selection.getString("name").equals("null")) {
+                employerName.setText(selection.getString("name"));
+            }
+            else {
+                employerName.setText("No name entered.");
+            }
+            if (!selection.getString("address").equals("null")) {
+                employerAddress.setText(selection.getString("address"));
+            }
+            else {
+                employerAddress.setText("No address entered.");
+            }
+            if (!selection.getString("phone").equals("null")) {
+                employerPhoneNumber.setText(selection.getString("phone"));
+            }
+            else {
+                employerPhoneNumber.setText("No phone number entered.");
+            }
+            if (!selection.getString("email").equals("null")) {
+                employerEmailAddress.setText(selection.getString("email"));
+            }
+            else {
+                employerEmailAddress.setText("No e-mail address entered.");
+            }
+            if (!selection.getString("description").equals("null")) {
+                employerDescription.setText(selection.getString("description"));
+            }
+            else {
+                employerDescription.setText("No description entered.");
+            }
         } catch (JSONException e) {
             // No exceptions
+        }
+        catch (NullPointerException e) {
+            AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+            helpBuilder.setTitle("Error: Profile has not been created.");
+            helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
+                }
+            });
+            AlertDialog helpDialog = helpBuilder.create();
+            helpDialog.show();
         }
     }
 
