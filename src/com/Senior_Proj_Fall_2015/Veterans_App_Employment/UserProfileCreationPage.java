@@ -103,7 +103,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                     }
                 }
                 populateFields();
-
             }
         };
         Thread thread = new Thread(new Runnable() {
@@ -122,26 +121,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             }
         });
         thread.start();
-
- /*       final Handler h1 = new Handler(){
-            @Override
-            public void handleMessage(Message msg){
-                vetSkills = StartPage.dk.getVetSkills();
-            }
-        };
-
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                StartPage.client.loadVetProfile();
-                while (!StartPage.client.getIsTaskDone()) {
-                    SystemClock.sleep(50);
-                }
-                h1.sendEmptyMessage(0);
-            }
-        });
-        thread1.start();
-*/
     }
 
     @Override
@@ -220,6 +199,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
 
     private void showListMilitaryRank(final View view) {
         if (militaryBranch == null) {
+            boolean[] skills = checkedSkills;
             AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
             helpBuilder.setTitle("Choose Branch First!");
             helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
@@ -274,17 +254,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         EditText searchBar = (EditText) popupLayout.findViewById(R.id.editText_job_skill_search);
         searchBar.addTextChangedListener(filterTextWatcher);
         ListView skillList = (ListView) popupLayout.findViewById(R.id.listView_skill_list);
-        adapter = new ArrayAdapter<String>(this,
-                                            android.R.layout.simple_list_item_multiple_choice,
-                                            (String[]) listOfSkills);
-        if(checkedSkills != null){
-            for (int i = 0; i < checkedSkills.length; i++) {
-                CheckedTextView text = ((CheckedTextView) adapter.getView(i, null, null));
-                text.toggle();
-                text.setVisibility(View.VISIBLE);
-            }
-        }
-        skillList.setAdapter(adapter);
         skillList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         skillList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -293,6 +262,17 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
                 checkedSkills[position] = test;
             }
         });
+        adapter = new ArrayAdapter<String>(this,
+                                            android.R.layout.simple_list_item_multiple_choice,
+                                            (String[]) listOfSkills);
+        skillList.setAdapter(adapter);
+        if(checkedSkills != null){
+            for (int i = 0; i < checkedSkills.length; i++) {
+                if (checkedSkills[i]) {
+                    skillList.setItemChecked(i, true);
+                }
+            }
+        }
         helpBuilder.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
@@ -338,7 +318,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         String description = StartPage.dk.getVetDetail("description");
         String[] skills;
         try {
-            skills = StartPage.dk.getVetSkills();
+            skills = vetSkills;
         } catch (NullPointerException e) {
             skills = null;
         }
