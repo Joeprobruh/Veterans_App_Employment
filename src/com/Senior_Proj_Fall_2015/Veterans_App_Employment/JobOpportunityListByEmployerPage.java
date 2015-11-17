@@ -23,7 +23,7 @@ public class JobOpportunityListByEmployerPage extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_jobs_by_employer_list);
         new JobListByEmployerCreation().execute();
     }
 
@@ -51,59 +51,53 @@ public class JobOpportunityListByEmployerPage extends Activity {
 
         @Override
         protected void onPostExecute(String string) {
-            int length = 0;
-            try {
-                length = StartPage.dk.getJobList().length();
-            } catch (NullPointerException e) {
-                length = 0;
-                AlertDialog.Builder helpBuilder = new AlertDialog.Builder(JobOpportunityListByEmployerPage.this);
-                helpBuilder.setTitle("No jobs currently posted.");
-                helpBuilder.setPositiveButton("Okay",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        finish();
+            for (int i = 0; i < StartPage.dk.getJobList().length(); i++) {
+                String title = StartPage.dk.getJobDetail("title", i);
+                String description = StartPage.dk.getJobDetail("description", i);
+                String deadline = StartPage.dk.getJobDetail("deadline", i);
+
+                HashMap<String, String> map = new HashMap<>();
+
+                if (!title.equals("null")) {
+                    map.put("title", title);
+                }
+                else {
+                    map.put("title", "No title entered.");
+                }
+                if (!description.equals("null")) {
+                    map.put("description", description);
+                }
+                else {
+                    map.put("description", "No description entered.");
+                }
+                if (!deadline.equals("null")) {
+                    map.put("deadline", deadline);
+                }
+                else {
+                    map.put("deadline", "No deadline entered.");
+                }
+
+                jobList.add(map);
+
+                ListView list = (ListView) findViewById(R.id.list_jobs_by_employer);
+
+                ListAdapter adapter = new SimpleAdapter(JobOpportunityListByEmployerPage.this,
+                    jobList,
+                    R.layout.activity_job_list_item,
+                    new String[]{"title", "description", "deadline"},
+                    new int[]{R.id.textView_job_list_title,
+                        R.id.textView_job_list_description,
+                        R.id.textView_job_list_submission_date});
+
+                list.setAdapter(adapter);
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        StartPage.dk.setJob(position);
+                        Intent j = new Intent(JobOpportunityListByEmployerPage.this, JobOpportunityProfilePage.class);
+                        startActivity(j);
                     }
                 });
-                AlertDialog helpDialog = helpBuilder.create();
-                helpDialog.show();
-            }
-            if (length > 0) {
-                setContentView(R.layout.activity_jobs_by_employer_list);
-                for (int i = 0; i < length; i++) {
-                    String title = StartPage.dk.getJobDetail("title", i);
-                    String description = StartPage.dk.getJobDetail("description", i);
-                    String deadline = StartPage.dk.getJobDetail("deadline", i);
-
-                    HashMap<String, String> map = new HashMap<>();
-
-                    map.put("title", title);
-                    map.put("description", description);
-                    map.put("deadline", deadline);
-
-                    jobList.add(map);
-
-                    ListView list = (ListView) findViewById(R.id.list_jobs_by_employer);
-
-                    ListAdapter adapter = new SimpleAdapter(JobOpportunityListByEmployerPage.this,
-                        jobList,
-                        R.layout.activity_job_list_item,
-                        new String[]{"title", "description", "submission date"},
-                        new int[]{R.id.textView_job_list_title,
-                            R.id.textView_job_list_description,
-                            R.id.textView_job_list_submission_date});
-
-                    list.setAdapter(adapter);
-                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            StartPage.dk.setJob(position);
-                            Intent j = new Intent(JobOpportunityListByEmployerPage.this, JobOpportunityProfilePage.class);
-                            startActivity(j);
-                        }
-                    });
-                }
-            }
-            else {
-                ;
             }
         }
     }

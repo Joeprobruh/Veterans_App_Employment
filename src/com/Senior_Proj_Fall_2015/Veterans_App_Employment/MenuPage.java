@@ -110,9 +110,22 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     }
                 });
                 thread.start();
-                Intent i = new Intent(
-                    MenuPage.this, JobOpportunityListPage.class);
-                startActivity(i);
+                if (StartPage.dk.getJobList() == null) {
+                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+                    helpBuilder.setTitle("No jobs available.");
+                    helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog helpDialog = helpBuilder.create();
+                    helpDialog.show();
+                }
+                else {
+                    Intent i = new Intent(
+                        MenuPage.this, JobOpportunityListPage.class);
+                    startActivity(i);
+                }
                 break;
 
             case R.id.button_search_employer_list:
@@ -127,9 +140,22 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     }
                 });
                 thread1.start();
-                Intent j = new Intent(
-                    MenuPage.this, EmployerListPage.class);
-                startActivity(j);
+                if (StartPage.dk.getEmployerList() == null) {
+                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+                    helpBuilder.setTitle("No employers available.");
+                    helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog helpDialog = helpBuilder.create();
+                    helpDialog.show();
+                }
+                else {
+                    Intent j = new Intent(
+                        MenuPage.this, EmployerListPage.class);
+                    startActivity(j);
+                }
                 break;
 
             case R.id.button_view_profile:
@@ -221,9 +247,22 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     }
                 });
                 thread5.start();
-                Intent n = new Intent(
-                    MenuPage.this, JobOpportunityListByEmployerPage.class);
-                startActivity(n);
+                if (StartPage.dk.getJobList() == null) {
+                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+                    helpBuilder.setTitle("Error: No job postings entered.");
+                    helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog helpDialog = helpBuilder.create();
+                    helpDialog.show();
+                }
+                else {
+                    Intent n = new Intent(
+                        MenuPage.this, JobOpportunityListByEmployerPage.class);
+                    startActivity(n);
+                }
                 break;
 
             case R.id.button_search_users:
@@ -238,9 +277,22 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     }
                 });
                 thread6.start();
-                Intent q = new Intent(
-                    MenuPage.this, UserListPage.class);
-                startActivity(q);
+                if (StartPage.dk.getVetProfile() == null) {
+                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+                    helpBuilder.setTitle("Error: No user profiles entered.");
+                    helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog helpDialog = helpBuilder.create();
+                    helpDialog.show();
+                }
+                else {
+                    Intent q = new Intent(
+                        MenuPage.this, UserListPage.class);
+                    startActivity(q);
+                }
                 break;
         }
     }
