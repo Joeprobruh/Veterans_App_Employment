@@ -47,7 +47,6 @@ public class SignUpPage extends Activity implements View.OnClickListener {
     }
 
     public void sendUserInfo(View view) {
-
         //collect user entered name and password values
         final TextView status = (TextView) findViewById(R.id.attempt_status);
         EditText userName = (EditText) findViewById(R.id.username_text_field);
@@ -58,14 +57,12 @@ public class SignUpPage extends Activity implements View.OnClickListener {
         String passConf = passwordConfirm.getText().toString();
 
         if (!pass.equals(passConf)) {
-
             // Passwords do not match
             status.setText("Passwords do not match, try again.");
             ((EditText) findViewById(R.id.password_text_field)).getText().clear();
             ((EditText) findViewById(R.id.confirm_password_text_field)).getText().clear();
         }
         else if (!pattern.matcher(pass).matches()) {
-
             // Password contains an illegal character
             status.setText("Password does not contain necessary characters. Try again.");
             ((EditText) findViewById(R.id.password_text_field)).getText().clear();
@@ -122,7 +119,6 @@ public class SignUpPage extends Activity implements View.OnClickListener {
                         SystemClock.sleep(50);
                     }
                     h.sendEmptyMessage(0);
-
                 }
             });
             thread.start();

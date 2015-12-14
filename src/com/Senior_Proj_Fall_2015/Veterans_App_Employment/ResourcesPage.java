@@ -13,6 +13,8 @@ public class ResourcesPage extends Activity implements View.OnClickListener {
 
     /*
     Where we put all of our resource links
+
+    NOT FINISHED, no actual resources added.
      */
 
     @Override

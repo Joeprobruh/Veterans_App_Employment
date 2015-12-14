@@ -277,7 +277,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     }
                 });
                 thread6.start();
-                if (StartPage.dk.getVetProfile() == null) {
+                if (StartPage.dk.getVetList() == null) {
                     AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
                     helpBuilder.setTitle("Error: No user profiles entered.");
                     helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {

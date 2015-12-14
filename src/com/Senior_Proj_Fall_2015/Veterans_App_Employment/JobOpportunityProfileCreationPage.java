@@ -23,7 +23,6 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         "Snail Mail"};
     private static CharSequence[] listOfSkills;
     private static boolean[] checkedSkills = null;
-    private static String[] vetSkills;
     ArrayAdapter<String> adapter;
 
     @Override

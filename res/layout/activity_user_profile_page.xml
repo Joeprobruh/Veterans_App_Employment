@@ -92,16 +92,31 @@
                 android:layout_marginRight="20dp"
                 android:textColor="#ffffffff"/>
 
-            <TextView
-                android:layout_width="fill_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Skills"
-                android:id="@+id/textView_user_skills"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:textColor="#ffffffff"/>
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Skills:   "
+                    android:id="@+id/textView13"
+                    android:textColor="#ffffffff"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Skills"
+                    android:id="@+id/textView_user_skills"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/textView13"
+                    android:textColor="#ffffffff"/>
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="fill_parent"

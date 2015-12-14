@@ -82,9 +82,7 @@ public class UserListPage extends Activity {
                 }
 
                 userList.add(map);
-
                 ListView list = (ListView) findViewById(R.id.list_users);
-
                 ListAdapter adapter = new SimpleAdapter(UserListPage.this,
                     userList,
                     R.layout.activity_user_list_item,
