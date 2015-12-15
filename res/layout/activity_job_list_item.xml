@@ -25,7 +25,6 @@
             android:text="Title"
             android:id="@+id/textView_job_list_title"
             android:layout_toRightOf="@+id/textView34"/>
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -69,8 +68,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Deadline:  "
-            android:id="@+id/textView36"
-            />
+            android:id="@+id/textView36"/>
     </RelativeLayout>
 
 </LinearLayout>

@@ -9,7 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView" >
+        android:id="@+id/scrollView">
 
         <LinearLayout
             android:orientation="vertical"
@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Create a profile for other users and employers to see. Don&apos;t add any information you don&apos;t want to be seen by the public!!!"
-                android:id="@+id/textView10" />
+                android:id="@+id/textView10"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
                 android:text="Name"
                 android:id="@+id/textView11"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"/>
 
             <EditText
                 android:layout_width="fill_parent"
@@ -51,7 +51,7 @@
                 android:text="Age"
                 android:id="@+id/textView8"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"/>
 
             <EditText
                 android:layout_width="fill_parent"
@@ -72,7 +72,7 @@
                 android:text="Address"
                 android:id="@+id/textView9"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"/>
 
             <EditText
                 android:layout_width="fill_parent"
@@ -169,7 +169,7 @@
                 android:text="Military Credentials"
                 android:id="@+id/textView12"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -242,6 +242,7 @@
             </RelativeLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

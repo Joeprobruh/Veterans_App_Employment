@@ -18,6 +18,8 @@ import java.util.HashMap;
 
 /**
  * Created by Joe on 11/7/2015.
+ * <p/>
+ * Generates the list of Users currently in the database.
  */
 public class UserListPage extends Activity {
 
@@ -38,15 +40,19 @@ public class UserListPage extends Activity {
     private class UserListCreation extends AsyncTask<String, String, String> {
 
         @Override
-
         protected String doInBackground(String... p) {
             StartPage.client.loadVets();
             SystemClock.sleep(50);
             return new String("");
         }
 
+        /**
+         * Generates the lsit of Users, and populates the list item fields.
+         *
+         * @param string
+         */
         @Override
-        protected void onPostExecute (String string) {
+        protected void onPostExecute(String string) {
             JSONArray vetList = StartPage.dk.getVetList();
             for (int i = 0; i < vetList.length(); i++) {
                 String name = StartPage.dk.getVetDetail("name", i);
@@ -58,26 +64,22 @@ public class UserListPage extends Activity {
 
                 if (!name.equals("null")) {
                     map.put("name", name);
-                }
-                else {
+                } else {
                     map.put("name", "No name entered.");
                 }
                 if (!age.equals("null")) {
                     map.put("age", age);
-                }
-                else {
+                } else {
                     map.put("age", "No age entered.");
                 }
                 if (!branch.equals("null") && !branch.equals("Branch...")) {
                     map.put("branch", branch);
-                }
-                else {
+                } else {
                     map.put("branch", "No branch entered.");
                 }
                 if (!rank.equals("null") && !rank.equals("Rank...")) {
                     map.put("rank", rank);
-                }
-                else {
+                } else {
                     map.put("rank", "No rank entered.");
                 }
 
@@ -91,7 +93,6 @@ public class UserListPage extends Activity {
                         R.id.textView_user_list_age,
                         R.id.textView_user_list_branch,
                         R.id.textView_user_list_rank});
-
                 list.setAdapter(adapter);
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
@@ -104,5 +105,4 @@ public class UserListPage extends Activity {
             }
         }
     }
-
 }

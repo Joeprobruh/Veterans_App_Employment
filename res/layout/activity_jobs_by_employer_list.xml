@@ -20,4 +20,5 @@
         android:id="@+id/list_jobs_by_employer"
         android:layout_gravity="center_horizontal"
         android:headerDividersEnabled="false"/>
+
 </LinearLayout>

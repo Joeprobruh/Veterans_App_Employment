@@ -21,7 +21,7 @@
                 android:text="Username:"
                 android:id="@+id/textView2"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="120dp" />
+                android:layout_marginTop="120dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                android:hint="Username" />
+                android:hint="Username"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
                 android:text="Password:"
                 android:id="@+id/textView3"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp" />
+                android:layout_marginTop="40dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                android:hint="Password" />
+                android:hint="Password"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,6 +68,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="100dp"/>
+
         </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>

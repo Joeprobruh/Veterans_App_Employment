@@ -11,30 +11,34 @@ import android.widget.Button;
 
 /**
  * Created by Joe on 10/31/2015.
+ * <p/>
+ * The main Menu page. Every action is performed mainly from this page.
  */
-public class MenuPage extends Activity implements View.OnClickListener{
+public class MenuPage extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String user = getCurrentLoggedInUser();
         super.onCreate(savedInstanceState);
         if (user.equals("veteran")) {
+            // These extra threaded lines are most likely not necessary, but the threaded lines within the switch
+            // statement do not configure the correct MainPage for the current logged-in user.
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadJobs();
-                    while (!StartPage.client.getIsTaskDone()){
+                    while (!StartPage.client.getIsTaskDone()) {
                         SystemClock.sleep(50);
                     }
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadVetProfile();
-                    while (!StartPage.client.getIsTaskDone()){
+                    while (!StartPage.client.getIsTaskDone()) {
                         SystemClock.sleep(50);
                     }
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadEmployers();
-                    while (!StartPage.client.getIsTaskDone()){
+                    while (!StartPage.client.getIsTaskDone()) {
                         SystemClock.sleep(50);
                     }
                 }
@@ -56,24 +60,25 @@ public class MenuPage extends Activity implements View.OnClickListener{
             Button button_resources_page =
                 (Button) findViewById(R.id.button_resources_page);
             button_resources_page.setOnClickListener(this);
-        }
-        else {
+        } else {
+            // These extra threaded lines are most likely not necessary, but the threaded lines within the switch
+            // statement do not configure the correct MainPage for the current logged-in user.
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadJobsByEmployer();
-                    while (!StartPage.client.getIsTaskDone()){
+                    while (!StartPage.client.getIsTaskDone()) {
                         SystemClock.sleep(50);
                     }
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadVets();
-                    while (!StartPage.client.getIsTaskDone()){
+                    while (!StartPage.client.getIsTaskDone()) {
                         SystemClock.sleep(50);
                     }
                     StartPage.client.setIsTaskDone(false);
                     StartPage.client.loadEmployerProfile();
-                    while (!StartPage.client.getIsTaskDone()){
+                    while (!StartPage.client.getIsTaskDone()) {
                         SystemClock.sleep(50);
                     }
                 }
@@ -97,7 +102,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        switch (v.getId()) {
             case R.id.button_search_jobs:
                 Thread thread = new Thread(new Runnable() {
                     @Override
@@ -120,8 +125,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     });
                     AlertDialog helpDialog = helpBuilder.create();
                     helpDialog.show();
-                }
-                else {
+                } else {
                     Intent i = new Intent(
                         MenuPage.this, JobOpportunityListPage.class);
                     startActivity(i);
@@ -150,8 +154,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     });
                     AlertDialog helpDialog = helpBuilder.create();
                     helpDialog.show();
-                }
-                else {
+                } else {
                     Intent j = new Intent(
                         MenuPage.this, EmployerListPage.class);
                     startActivity(j);
@@ -180,8 +183,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     });
                     AlertDialog helpDialog = helpBuilder.create();
                     helpDialog.show();
-                }
-                else {
+                } else {
                     Intent k = new Intent(
                         MenuPage.this, UserProfilePage.class);
                     startActivity(k);
@@ -257,8 +259,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     });
                     AlertDialog helpDialog = helpBuilder.create();
                     helpDialog.show();
-                }
-                else {
+                } else {
                     Intent n = new Intent(
                         MenuPage.this, JobOpportunityListByEmployerPage.class);
                     startActivity(n);
@@ -287,8 +288,7 @@ public class MenuPage extends Activity implements View.OnClickListener{
                     });
                     AlertDialog helpDialog = helpBuilder.create();
                     helpDialog.show();
-                }
-                else {
+                } else {
                     Intent q = new Intent(
                         MenuPage.this, UserListPage.class);
                     startActivity(q);
@@ -298,15 +298,14 @@ public class MenuPage extends Activity implements View.OnClickListener{
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         Intent a = new Intent(Intent.ACTION_MAIN);
         a.addCategory(Intent.CATEGORY_HOME);
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(a);
-
     }
 
-    public String getCurrentLoggedInUser () {
+    public String getCurrentLoggedInUser() {
         return StartPage.client.getRole();
     }
 

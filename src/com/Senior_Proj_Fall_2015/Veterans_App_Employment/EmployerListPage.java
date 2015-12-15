@@ -13,8 +13,10 @@ import java.util.HashMap;
 
 /**
  * Created by Joe on 11/7/2015.
+ * <p/>
+ * Populates list of all employers registered in the database.
  */
-public class EmployerListPage extends Activity{
+public class EmployerListPage extends Activity {
 
     ArrayList<HashMap<String, String>> employerList = new ArrayList<>();
 
@@ -33,13 +35,12 @@ public class EmployerListPage extends Activity{
     private class EmployerListCreation extends AsyncTask<String, String, String> {
 
         @Override
-
         protected String doInBackground(String... p) {
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     StartPage.client.loadEmployers();
-                    while (!StartPage.client.getIsTaskDone()){
+                    while (!StartPage.client.getIsTaskDone()) {
                         SystemClock.sleep(50);
                     }
                 }
@@ -48,8 +49,13 @@ public class EmployerListPage extends Activity{
             return new String("");
         }
 
+        /**
+         * Where the list is generated, populated, and shown on-screen.
+         *
+         * @param string
+         */
         @Override
-        protected void onPostExecute (String string) {
+        protected void onPostExecute(String string) {
             for (int i = 0; i < StartPage.dk.getEmployerList().length(); i++) {
                 StartPage.dk.setEmployerProfile(i);
                 String company = StartPage.dk.getEmployerDetail("company");
@@ -61,33 +67,27 @@ public class EmployerListPage extends Activity{
 
                 if (!company.equals("null")) {
                     map.put("company", company);
-                }
-                else {
+                } else {
                     map.put("company", "No company entered.");
                 }
                 if (!address.equals("null")) {
                     map.put("address", address);
-                }
-                else {
+                } else {
                     map.put("address", "No address entered.");
                 }
                 if (!phone.equals("null")) {
                     map.put("phone", phone);
-                }
-                else {
+                } else {
                     map.put("phone", "No phone number entered.");
                 }
                 if (!email.equals("null")) {
                     map.put("email", email);
-                }
-                else {
+                } else {
                     map.put("email", "No e-mail address entered.");
                 }
 
                 employerList.add(map);
-
                 ListView list = (ListView) findViewById(R.id.list_employers);
-
                 ListAdapter adapter = new SimpleAdapter(EmployerListPage.this,
                     employerList,
                     R.layout.activity_employer_list_item,
@@ -109,5 +109,4 @@ public class EmployerListPage extends Activity{
             }
         }
     }
-
 }

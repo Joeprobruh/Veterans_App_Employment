@@ -21,13 +21,12 @@
                 android:text="Resources Page"
                 android:id="@+id/textView33"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                />
+                android:layout_marginTop="20dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Resource 1"
+                android:text="Veteran&apos;s Affairs"
                 android:id="@+id/resource_1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"/>
@@ -35,7 +34,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Resource 2"
+                android:text="Heroes To Heroes Foundation"
                 android:id="@+id/resource_2"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"/>
@@ -43,11 +42,13 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Resource 3"
+                android:text="Vets4Warriors"
                 android:id="@+id/resource_3"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"/>
+
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

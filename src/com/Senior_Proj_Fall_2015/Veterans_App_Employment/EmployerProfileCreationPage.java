@@ -13,6 +13,9 @@ import android.widget.Switch;
 
 /**
  * Created by Joe on 11/7/2015.
+ * <p/>
+ * Generates the profile page creator/editor. If profile is to be edited, populates fields which have been previously
+ * filled and stored in the database for that particular profile.
  */
 public class EmployerProfileCreationPage extends Activity implements View.OnClickListener {
 
@@ -40,8 +43,7 @@ public class EmployerProfileCreationPage extends Activity implements View.OnClic
                 validateAndSubmitInputs();
                 if (StartPage.isLogIn) {
                     finish();
-                }
-                else {
+                } else {
                     Intent j = new Intent(
                         EmployerProfileCreationPage.this, MenuPage.class);
                     startActivity(j);
@@ -51,8 +53,7 @@ public class EmployerProfileCreationPage extends Activity implements View.OnClic
             case R.id.button_cancel:
                 if (StartPage.isLogIn) {
                     finish();
-                }
-                else {
+                } else {
                     Intent j = new Intent(
                         EmployerProfileCreationPage.this, MenuPage.class);
                     startActivity(j);
@@ -66,11 +67,14 @@ public class EmployerProfileCreationPage extends Activity implements View.OnClic
         finish();
     }
 
+    /**
+     * Populates previously filled fields.
+     */
     public void populateFields() {
 
-        final Handler h = new Handler(){
+        final Handler h = new Handler() {
             @Override
-            public void handleMessage(Message msg){
+            public void handleMessage(Message msg) {
                 String name = StartPage.dk.getEmployerDetail("name");
                 String title = StartPage.dk.getEmployerDetail("title");
                 String company = StartPage.dk.getEmployerDetail("company");
@@ -106,16 +110,18 @@ public class EmployerProfileCreationPage extends Activity implements View.OnClic
             @Override
             public void run() {
                 StartPage.client.loadEmployerProfile();
-                while (!StartPage.client.getIsTaskDone()){
+                while (!StartPage.client.getIsTaskDone()) {
                     SystemClock.sleep(50);
                 }
                 h.sendEmptyMessage(0);
-
             }
         });
         thread.start();
     }
 
+    /**
+     * When the user presses submit, submits the new values to the database.
+     */
     public void validateAndSubmitInputs() {
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -132,5 +138,4 @@ public class EmployerProfileCreationPage extends Activity implements View.OnClic
         });
         thread.start();
     }
-
 }

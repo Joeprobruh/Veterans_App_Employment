@@ -91,6 +91,9 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="30dp"
                 android:textColor="#ffffffff"/>
+
         </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>

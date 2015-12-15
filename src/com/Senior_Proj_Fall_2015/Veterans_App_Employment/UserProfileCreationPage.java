@@ -14,6 +14,8 @@ import android.widget.*;
 
 /**
  * Created by Joe on 10/24/2015.
+ * <p/>
+ * Creates the User profile creation/editing page.
  */
 public class UserProfileCreationPage extends Activity implements View.OnClickListener {
 
@@ -181,6 +183,12 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         finish();
     }
 
+    /**
+     * Generates a pop-up window to choose from the five branches of the military. On close, changes the button text
+     * to the chosen branch of the military.
+     *
+     * @param view
+     */
     private void showListMilitaryBranch(final View view) {
         final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         helpBuilder.setTitle("Military Branch");
@@ -194,6 +202,12 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         helpDialog.show();
     }
 
+    /**
+     * Generates a pop-up window to choose from the military ranks of the chosen branch of the military. On close,
+     * changes the button text to the chosen rank.
+     *
+     * @param view
+     */
     private void showListMilitaryRank(final View view) {
         if (militaryBranch == null) {
             AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
@@ -241,6 +255,12 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         }
     }
 
+    /**
+     * Generates a pop-up window with the list of possible skill choices, with a search bar to narrow down the skills by
+     * name.
+     *
+     * @param view
+     */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void showListSkills(final View view) {
         final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
@@ -290,7 +310,6 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
     }
 
     private TextWatcher filterTextWatcher = new TextWatcher() {
-
         public void afterTextChanged(Editable s) {
         }
 
@@ -302,6 +321,9 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         }
     };
 
+    /**
+     * If the User profile is to be edited, populates the fields with the existing information in the database.
+     */
     public void populateFields() {
         String name = StartPage.dk.getVetDetail("name");
         String age = StartPage.dk.getVetDetail("age");
@@ -357,8 +379,7 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
             }
             if (skills.length - 1 == 1) {
                 ((Button) findViewById(R.id.button_skills)).setText("1 Skill Chosen");
-            }
-            else {
+            } else {
                 ((Button) findViewById(R.id.button_skills)).setText((skills.length - 1) + " Skills Chosen");
             }
         }
@@ -367,6 +388,9 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         }
     }
 
+    /**
+     * Submits data from the page's fields to the database, then submits the skills as a separately linked set.
+     */
     public void validateAndSubmitInputs() {
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -400,5 +424,4 @@ public class UserProfileCreationPage extends Activity implements View.OnClickLis
         });
         thread.start();
     }
-
 }

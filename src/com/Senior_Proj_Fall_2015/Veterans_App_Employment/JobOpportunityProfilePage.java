@@ -16,6 +16,8 @@ import org.json.JSONObject;
 
 /**
  * Created by Joe on 10/31/2015.
+ * <p/>
+ * Generates the Job profile page chosen in JobOpportunityListPage or JobOpportunityListByEmployerPage.
  */
 public class JobOpportunityProfilePage extends Activity implements View.OnClickListener {
 
@@ -56,9 +58,15 @@ public class JobOpportunityProfilePage extends Activity implements View.OnClickL
         finish();
     }
 
+    /**
+     * When the e-mail address or phone number are clicked, activates the corresponding response to either send an
+     * email or make a phone call.
+     *
+     * @param view
+     */
     @Override
     public void onClick(View view) {
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.textView_job_email_address:
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
                 emailIntent.setData(Uri.parse("mailto:" + jobEmailAddress.getText().toString()));
@@ -79,44 +87,42 @@ public class JobOpportunityProfilePage extends Activity implements View.OnClickL
         }
     }
 
+    /**
+     * Fills in the Job profile with data from the database. If data is missing, fills in the space with the
+     * corresponding message.
+     */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void updateProfile() {
         JSONObject selection = StartPage.dk.getJob();
         try {
             if (!selection.getString("title").equals("null")) {
                 jobTitle.setText(selection.getString("title"));
-            }
-            else {
+            } else {
                 jobTitle.setText("No title entered.");
             }
             if (!selection.getString("company").equals("null")) {
                 jobCompany.setText(selection.getString("company"));
-            }
-            else {
+            } else {
                 jobCompany.setText("No company name entered.");
             }
             if (!selection.getString("contact").equals("null")) {
                 jobContact.setText(selection.getString("contact"));
-            }
-            else {
+            } else {
                 jobContact.setText("No contact name entered.");
             }
             if (!selection.getString("address").equals("null")) {
                 jobAddress.setText(selection.getString("address"));
-            }
-            else {
+            } else {
                 jobAddress.setText("No address entered.");
             }
             if (!selection.getString("phone").equals("null")) {
                 jobPhoneNumber.setText(selection.getString("phone"));
-            }
-            else {
+            } else {
                 jobPhoneNumber.setText("No phone number entered.");
             }
             if (!selection.getString("email").equals("null")) {
                 jobEmailAddress.setText(selection.getString("email"));
-            }
-            else {
+            } else {
                 jobEmailAddress.setText("No e-mail address entered.");
             }
             try {
@@ -131,39 +137,32 @@ public class JobOpportunityProfilePage extends Activity implements View.OnClickL
                 } else {
                     jobSkills.setText("No skills chosen, or failed to load list of skills.");
                 }
-            }
-            catch (NullPointerException e) {
+            } catch (NullPointerException e) {
                 jobSkills.setText("No skills chosen, or failed to load list of skills.");
             }
             if (!selection.getString("url").equals("null")) {
                 jobWebsiteURL.setText(selection.getString("url"));
-            }
-            else {
+            } else {
                 jobWebsiteURL.setText("No website URL entered.");
             }
             if (!selection.getString("applymethod").equals("null")) {
                 jobPreferredContactMethod.setText(selection.getString("applymethod"));
-            }
-            else {
+            } else {
                 jobPreferredContactMethod.setText("No preferred contact method selected.");
             }
             if (!selection.getString("description").equals("null")) {
                 jobDescription.setText(selection.getString("description"));
-            }
-            else {
+            } else {
                 jobDescription.setText("No description entered.");
             }
             if (!selection.getString("deadline").equals("null")) {
                 jobDeadline.setText(selection.getString("deadline"));
-            }
-            else {
+            } else {
                 jobDeadline.setText("No deadline entered.");
             }
-        }
-        catch (JSONException e) {
+        } catch (JSONException e) {
             // No exceptions
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
             helpBuilder.setTitle("Error: Profile has not been created.");
             helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
@@ -181,5 +180,4 @@ public class JobOpportunityProfilePage extends Activity implements View.OnClickL
             helpDialog.show();
         }
     }
-
 }

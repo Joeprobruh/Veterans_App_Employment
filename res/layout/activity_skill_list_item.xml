@@ -9,4 +9,5 @@
         android:layout_height="fill_parent"
         android:text="New CheckBox"
         android:id="@+id/checkBox_skill"/>
+
 </LinearLayout>

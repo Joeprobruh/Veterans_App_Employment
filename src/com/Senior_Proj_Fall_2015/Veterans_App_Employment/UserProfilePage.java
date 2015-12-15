@@ -14,8 +14,10 @@ import org.json.JSONObject;
 
 /**
  * Created by Joe on 11/7/2015.
+ * <p/>
+ * Generates the User profile page chosen from the UserListPage.
  */
-public class UserProfilePage extends Activity implements View.OnClickListener{
+public class UserProfilePage extends Activity implements View.OnClickListener {
 
     protected TextView userName;
     protected TextView userAge;
@@ -50,9 +52,15 @@ public class UserProfilePage extends Activity implements View.OnClickListener{
         finish();
     }
 
+    /**
+     * When the e-mail address or phone number are clicked, activates the corresponding response to either send an
+     * email or make a phone call.
+     *
+     * @param view
+     */
     @Override
     public void onClick(View view) {
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.textView_user_email_address:
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
                 emailIntent.setData(Uri.parse("mailto:" + userEmailAddress.getText().toString()));
@@ -73,37 +81,36 @@ public class UserProfilePage extends Activity implements View.OnClickListener{
         }
     }
 
+    /**
+     * Fills in the Job profile with data from the database. If data is missing, fills in the space with the
+     * corresponding message.
+     */
     private void updateProfile() {
         JSONObject selection = StartPage.dk.getVetProfile();
         try {
             if (!selection.getString("name").equals("null")) {
                 userName.setText(selection.getString("name"));
-            }
-            else {
+            } else {
                 userName.setText("No name entered.");
             }
             if (!selection.getString("age").equals("null")) {
                 userAge.setText(selection.getString("age"));
-            }
-            else {
+            } else {
                 userAge.setText("No age entered.");
             }
             if (!selection.getString("address").equals("null")) {
                 userAddress.setText(selection.getString("address"));
-            }
-            else {
+            } else {
                 userAddress.setText("No address entered.");
             }
             if (!selection.getString("phone").equals("null")) {
                 userPhoneNumber.setText(selection.getString("phone"));
-            }
-            else {
+            } else {
                 userPhoneNumber.setText("No phone number entered.");
             }
             if (!selection.getString("email").equals("null")) {
                 userEmailAddress.setText(selection.getString("email"));
-            }
-            else {
+            } else {
                 userEmailAddress.setText("No e-mail address entered.");
             }
             try {
@@ -118,31 +125,26 @@ public class UserProfilePage extends Activity implements View.OnClickListener{
                 } else {
                     userSkills.setText("No skills chosen, or failed to load list of skills.");
                 }
-            }
-            catch (NullPointerException e) {
+            } catch (NullPointerException e) {
                 userSkills.setText("No skills chosen, or failed to load list of skills.");
             }
             if (!selection.getString("branch").equals("null")) {
                 userBranch.setText(selection.getString("branch"));
-            }
-            else {
+            } else {
                 userBranch.setText("No branch selected.");
             }
             if (!selection.getString("rank").equals("null")) {
                 userRank.setText(selection.getString("rank"));
-            }
-            else {
+            } else {
                 userRank.setText("No rank selected.");
             }
             if (!selection.getString("description").equals("null")) {
                 userDescription.setText(selection.getString("description"));
-            }
-            else {
+            } else {
                 userDescription.setText("No description entered.");
             }
         } catch (JSONException e) {
             // No exceptions
         }
     }
-
 }

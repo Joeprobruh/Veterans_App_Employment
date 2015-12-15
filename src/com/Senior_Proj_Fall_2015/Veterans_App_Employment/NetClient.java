@@ -22,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class NetClient {
+
     private static final String directory = "http://elvis.rowan.edu/~romanol8/android/";
     private static final String addVetSkill = "addskill.php";
     private static final String addEmployerProfile = "addemployerdetails.php";
@@ -77,7 +78,7 @@ public class NetClient {
         } catch (UnsupportedEncodingException e) {
             isTaskDone = true;
         }
-        try{
+        try {
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -89,8 +90,7 @@ public class NetClient {
                             JSONArray array = new JSONArray(responseBody);
                             JSONObject obj = array.getJSONObject(0);
                             isTaskDone = true;
-                        }
-                        catch(Throwable T){
+                        } catch (Throwable T) {
                             isTaskDone = true;
                         }
 
@@ -104,9 +104,9 @@ public class NetClient {
             // writing exception to log
         }
         isTaskDone = true;
-
     }
-    public void login (final String username, final String password) {
+
+    public void login(final String username, final String password) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
@@ -152,8 +152,6 @@ public class NetClient {
         isTaskDone = true;
     }
 
-
-
     public void signUp(final String username, final String password, final String roleParam) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -185,7 +183,7 @@ public class NetClient {
                             JSONArray array = new JSONArray(responseBody);
                             JSONObject obj = array.getJSONObject(0);
                             userID = obj.getString("id");
-                            role   = obj.getString("role");
+                            role = obj.getString("role");
                             isSignedUp = true;
                         } catch (Throwable t) {
                             isTaskDone = true;
@@ -202,7 +200,6 @@ public class NetClient {
             // writing exception to log
         }
         isTaskDone = true;
-
     }
 
     public void addVetProfile(final String name, final String age, final String description, final String address,
@@ -264,7 +261,7 @@ public class NetClient {
     }
 
     public void addEmployerProfile(final String name, final String title, final String company,
-                                   final String description,  final String address, final String phone,
+                                   final String description, final String address, final String phone,
                                    final String email) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -318,7 +315,7 @@ public class NetClient {
 
     public void addJob(final String id, final String title, final String company, final String description,
                        final String contact, final String address, final String phone, final String email,
-                       final String url, final String applyMethod, final String deadline){
+                       final String url, final String applyMethod, final String deadline) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
@@ -385,19 +382,18 @@ public class NetClient {
         nameValuePair.add(new BasicNameValuePair("id", jobID));
         String key;
         nameValuePair.add(new BasicNameValuePair("numskills", numSkills.toString()));
-        for (int i = 0; i < numSkills; i ++) {
+        for (int i = 0; i < numSkills; i++) {
             key = "skill" + i;
             nameValuePair.add(new BasicNameValuePair(key, skill[i]));
         }
-
         // Url Encoding the POST parameters
-        try{
+        try {
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
         } catch (UnsupportedEncodingException e) {
             isTaskDone = true;
         }
         // Making HTTP Request
-        try{
+        try {
             HttpResponse response = httpClient.execute(httpPost);
             int responseCode = response.getStatusLine().getStatusCode();
             switch (responseCode) {
@@ -409,8 +405,7 @@ public class NetClient {
                             JSONArray array = new JSONArray(responseBody);
                             JSONObject obj = array.getJSONObject(0);
                             isTaskDone = true;
-                        }
-                        catch(Throwable T){
+                        } catch (Throwable T) {
                             isTaskDone = true;
                         }
 
@@ -424,11 +419,9 @@ public class NetClient {
             // writing exception to log
         }
         isTaskDone = true;
-
     }
 
-
-    public void loadVetProfile(){
+    public void loadVetProfile() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
@@ -470,10 +463,9 @@ public class NetClient {
             // writing exception to log
         }
         isTaskDone = true;
-
     }
 
-    public void loadEmployerProfile(){
+    public void loadEmployerProfile() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
@@ -516,10 +508,9 @@ public class NetClient {
             // writing exception to log
         }
         isTaskDone = true;
-
     }
 
-    public void loadVets(){
+    public void loadVets() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
@@ -538,7 +529,6 @@ public class NetClient {
                             JSONArray array = new JSONArray(responseBody);
                             dataKeeper.setVetList(array);
                             isTaskDone = true;
-
                         } catch (Throwable t) {
                             isTaskDone = true;
                         }
@@ -552,10 +542,9 @@ public class NetClient {
             // writing exception to log
         }
         isTaskDone = true;
-
     }
 
-    public void loadJobs(){
+    public void loadJobs() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
@@ -588,7 +577,8 @@ public class NetClient {
         }
         isTaskDone = true;
     }
-    public void loadJobsByEmployer(){
+
+    public void loadJobsByEmployer() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
@@ -630,7 +620,8 @@ public class NetClient {
         }
         isTaskDone = true;
     }
-    public void loadEmployers(){
+
+    public void loadEmployers() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
@@ -646,7 +637,6 @@ public class NetClient {
                     if (entity != null) {
                         String responseBody = EntityUtils.toString(entity);
                         try {
-
                             JSONArray array = new JSONArray(responseBody);
                             dataKeeper.setEmployerList(array);
                             isTaskDone = true;
@@ -665,7 +655,7 @@ public class NetClient {
         isTaskDone = true;
     }
 
-    public void loadSkills(){
+    public void loadSkills() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         isTaskDone = false;
@@ -681,7 +671,6 @@ public class NetClient {
                     if (entity != null) {
                         String responseBody = EntityUtils.toString(entity);
                         try {
-
                             JSONArray array = new JSONArray(responseBody);
                             dataKeeper.setSkills(array);
                             isTaskDone = true;
@@ -707,14 +696,25 @@ public class NetClient {
         client = new DefaultHttpClient(new ThreadSafeClientConnManager(params,
             mgr.getSchemeRegistry()), params);
         return client;
-
     }
 
-    public String getUserID(){return userID;}
-    public boolean getSignUp(){return isSignedUp;}
-    public String getRole() { return role; }
-    public boolean getIsTaskDone(){return isTaskDone;}
-    public void setIsTaskDone (boolean bool) {
+    public String getUserID() {
+        return userID;
+    }
+
+    public boolean getSignUp() {
+        return isSignedUp;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public boolean getIsTaskDone() {
+        return isTaskDone;
+    }
+
+    public void setIsTaskDone(boolean bool) {
         isTaskDone = bool;
     }
 }

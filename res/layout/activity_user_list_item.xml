@@ -25,7 +25,6 @@
             android:text="Name"
             android:id="@+id/textView_user_list_name"
             android:layout_toRightOf="@+id/textView34"/>
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -69,8 +68,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Branch:  "
-            android:id="@+id/textView36"
-            />
+            android:id="@+id/textView36"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -92,8 +90,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Rank:  "
-            android:id="@+id/textView37"
-            />
+            android:id="@+id/textView37"/>
     </RelativeLayout>
 
 </LinearLayout>

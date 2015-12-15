@@ -15,6 +15,8 @@ import java.util.HashMap;
 
 /**
  * Created by Joe on 10/31/2015.
+ * <p/>
+ * Generates a list of job offers that have been created by the currently-logged-in Employer.
  */
 public class JobOpportunityListByEmployerPage extends Activity {
 
@@ -49,6 +51,11 @@ public class JobOpportunityListByEmployerPage extends Activity {
             return new String("");
         }
 
+        /**
+         * Populates the list's items with information from the job offers.
+         *
+         * @param string
+         */
         @Override
         protected void onPostExecute(String string) {
             for (int i = 0; i < StartPage.dk.getJobList().length(); i++) {
@@ -60,27 +67,22 @@ public class JobOpportunityListByEmployerPage extends Activity {
 
                 if (!title.equals("null")) {
                     map.put("title", title);
-                }
-                else {
+                } else {
                     map.put("title", "No title entered.");
                 }
                 if (!description.equals("null")) {
                     map.put("description", description);
-                }
-                else {
+                } else {
                     map.put("description", "No description entered.");
                 }
                 if (!deadline.equals("null")) {
                     map.put("deadline", deadline);
-                }
-                else {
+                } else {
                     map.put("deadline", "No deadline entered.");
                 }
 
                 jobList.add(map);
-
                 ListView list = (ListView) findViewById(R.id.list_jobs_by_employer);
-
                 ListAdapter adapter = new SimpleAdapter(JobOpportunityListByEmployerPage.this,
                     jobList,
                     R.layout.activity_job_list_item,
@@ -88,7 +90,6 @@ public class JobOpportunityListByEmployerPage extends Activity {
                     new int[]{R.id.textView_job_list_title,
                         R.id.textView_job_list_description,
                         R.id.textView_job_list_submission_date});
-
                 list.setAdapter(adapter);
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
@@ -101,5 +102,4 @@ public class JobOpportunityListByEmployerPage extends Activity {
             }
         }
     }
-
 }

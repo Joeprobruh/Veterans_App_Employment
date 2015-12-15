@@ -14,8 +14,10 @@ import org.json.JSONObject;
 
 /**
  * Created by Joe on 11/7/2015.
+ * <p/>
+ * Generates the profile page for the Employer chosen in the EmployerListPage.
  */
-public class EmployerProfilePage extends Activity implements View.OnClickListener{
+public class EmployerProfilePage extends Activity implements View.OnClickListener {
 
     protected TextView employerCompany;
     protected TextView employerName;
@@ -41,9 +43,15 @@ public class EmployerProfilePage extends Activity implements View.OnClickListene
         updateProfile();
     }
 
+    /**
+     * When the e-mail address or phone number are clicked, activates the corresponding response to either send an
+     * email or make a phone call.
+     *
+     * @param view
+     */
     @Override
     public void onClick(View view) {
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.textView_employer_email_address:
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
                 emailIntent.setData(Uri.parse("mailto:" + employerEmailAddress.getText().toString()));
@@ -69,55 +77,51 @@ public class EmployerProfilePage extends Activity implements View.OnClickListene
         finish();
     }
 
+    /**
+     * Populates the fields of the page with the Employer profile's information. If data is missing, fills in the space
+     * with the corresponding message.
+     */
     private void updateProfile() {
         JSONObject selection = StartPage.dk.getEmployerProfile();
         try {
             if (!selection.getString("title").equals("null")) {
                 employerTitle.setText(selection.getString("title"));
-            }
-            else {
+            } else {
                 employerTitle.setText("No title entered.");
             }
             if (!selection.getString("company").equals("null")) {
                 employerCompany.setText(selection.getString("company"));
-            }
-            else {
+            } else {
                 employerCompany.setText("No company name entered.");
             }
             if (!selection.getString("name").equals("null")) {
                 employerName.setText(selection.getString("name"));
-            }
-            else {
+            } else {
                 employerName.setText("No name entered.");
             }
             if (!selection.getString("address").equals("null")) {
                 employerAddress.setText(selection.getString("address"));
-            }
-            else {
+            } else {
                 employerAddress.setText("No address entered.");
             }
             if (!selection.getString("phone").equals("null")) {
                 employerPhoneNumber.setText(selection.getString("phone"));
-            }
-            else {
+            } else {
                 employerPhoneNumber.setText("No phone number entered.");
             }
             if (!selection.getString("email").equals("null")) {
                 employerEmailAddress.setText(selection.getString("email"));
-            }
-            else {
+            } else {
                 employerEmailAddress.setText("No e-mail address entered.");
             }
             if (!selection.getString("description").equals("null")) {
                 employerDescription.setText(selection.getString("description"));
-            }
-            else {
+            } else {
                 employerDescription.setText("No description entered.");
             }
         } catch (JSONException e) {
             // No exceptions
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
             helpBuilder.setTitle("Error: Profile has not been created.");
             helpBuilder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
@@ -129,5 +133,4 @@ public class EmployerProfilePage extends Activity implements View.OnClickListene
             helpDialog.show();
         }
     }
-
 }

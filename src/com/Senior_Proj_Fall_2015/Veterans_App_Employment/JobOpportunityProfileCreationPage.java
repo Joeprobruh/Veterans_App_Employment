@@ -16,10 +16,12 @@ import java.util.ArrayList;
 
 /**
  * Created by Joe on 10/31/2015.
+ * <p/>
+ * Creates the Job profile Creation/Editing page.
  */
 public class JobOpportunityProfileCreationPage extends Activity implements View.OnClickListener {
 
-    private static final String[] CONTACT_METHODS = new String[] {"Phone Number", "E-mail Address", "Website URL",
+    private static final String[] CONTACT_METHODS = new String[]{"Phone Number", "E-mail Address", "Website URL",
         "Snail Mail"};
     private static CharSequence[] listOfSkills;
     private static boolean[] checkedSkills = null;
@@ -104,8 +106,11 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         finish();
     }
 
-
-
+    /**
+     * Generates a pop-up window with the possible choices for the Preferred Contact Method.
+     *
+     * @param view
+     */
     private void showListPreferredContactMethod(final View view) {
         final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         helpBuilder.setTitle("Select Preferred Contact Method");
@@ -118,6 +123,12 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         helpDialog.show();
     }
 
+    /**
+     * Generates a pop-up window with the list of possible skill choices, with a search bar to narrow down the skills by
+     * name.
+     *
+     * @param view
+     */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void showListSkills(final View view) {
         final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
@@ -167,7 +178,6 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
     }
 
     private TextWatcher filterTextWatcher = new TextWatcher() {
-
         public void afterTextChanged(Editable s) {
         }
 
@@ -179,6 +189,9 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         }
     };
 
+    /**
+     * If the Job profile is to be edited, populates the fields with the existing information in the database.
+     */
     public void populateFields() {
         SystemClock.sleep(250);
         String title = StartPage.dk.getJobDetail("title");
@@ -187,8 +200,7 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         String[] skills;
         try {
             skills = StartPage.dk.getJobSkills();
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             skills = null;
         }
         String contact = StartPage.dk.getJobDetail("contact");
@@ -240,15 +252,16 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         }
     }
 
+    /**
+     * Submits data from the page's fields to the database, then submits the skills as a separately linked set.
+     */
     public void validateAndSubmitInputs() {
-
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 StartPage.client.addJob(
                     (StartPage.dk.getJob() != null) ?
-                        StartPage.dk.getJobDetail("jobid") :
-                        "0",
+                        StartPage.dk.getJobDetail("jobid") : "0",
                     ((EditText) findViewById(R.id.job_editText_title)).getText().toString().trim(),
                     ((EditText) findViewById(R.id.job_editText_company)).getText().toString().trim(),
                     ((EditText) findViewById(R.id.job_editText_description)).getText().toString().trim(),
@@ -259,7 +272,7 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
                     ((EditText) findViewById(R.id.job_editText_website_url)).getText().toString().trim(),
                     ((Button) findViewById(R.id.button_preferred_contact)).getText().toString().trim(),
                     ((EditText) findViewById(R.id.job_editText_submission_deadline)).getText().toString().trim());
-                while (!StartPage.client.getIsTaskDone()){
+                while (!StartPage.client.getIsTaskDone()) {
                     SystemClock.sleep(50);
                 }
                 final String[] skillArray = new String[listOfSkills.length];
@@ -277,5 +290,4 @@ public class JobOpportunityProfileCreationPage extends Activity implements View.
         });
         thread.start();
     }
-
 }

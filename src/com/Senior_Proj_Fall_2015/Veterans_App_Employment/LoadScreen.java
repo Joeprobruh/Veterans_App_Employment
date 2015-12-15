@@ -7,10 +7,11 @@ import android.os.Handler;
 
 /**
  * Created by Joe on 10/24/2015.
+ * <p/>
+ * Splash screen.
  */
 public class LoadScreen extends Activity {
 
-    // Splash screen timer
     private static int SPLASH_TIME_OUT = 3000;
 
     @Override
@@ -31,11 +32,10 @@ public class LoadScreen extends Activity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         Intent a = new Intent(Intent.ACTION_MAIN);
         a.addCategory(Intent.CATEGORY_HOME);
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(a);
     }
-
 }

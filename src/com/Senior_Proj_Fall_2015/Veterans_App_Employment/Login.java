@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 /**
  * Created by Joe on 10/17/2015.
+ * <p/>
+ * Login page. Users and Employers log in the same way.
  */
 public class Login extends Activity implements View.OnClickListener {
 
@@ -26,9 +28,15 @@ public class Login extends Activity implements View.OnClickListener {
         submit_OK.setOnClickListener(this);
     }
 
+    /**
+     * Verifies the username and password are a match. If not, clears the input zones and asks the user to try again. If
+     * so, moves to MenuPage with the corresponding Profile logged in.
+     *
+     * @param v
+     */
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        switch (v.getId()) {
             case R.id.submit_OK:
                 final Handler h = new Handler() {
                     @Override
@@ -65,5 +73,4 @@ public class Login extends Activity implements View.OnClickListener {
     public void onBackPressed() {
         finish();
     }
-
 }

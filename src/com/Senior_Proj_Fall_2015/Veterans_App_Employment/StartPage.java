@@ -8,6 +8,8 @@ import android.widget.Button;
 
 /**
  * Created by Joe on 10/17/2015.
+ * <p/>
+ * The first page to be seen after LoadScreen. Allows the user to choose to either log in or create an account.
  */
 public class StartPage extends Activity implements View.OnClickListener {
 
@@ -34,7 +36,7 @@ public class StartPage extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        switch (v.getId()) {
             case R.id.login_OK:
                 isLogIn = true;
                 Intent i = new Intent(
@@ -52,8 +54,7 @@ public class StartPage extends Activity implements View.OnClickListener {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
     }
-
 }

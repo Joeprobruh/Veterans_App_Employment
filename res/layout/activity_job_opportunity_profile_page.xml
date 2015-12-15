@@ -169,7 +169,9 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toEndOf="@+id/textView38"/>
             </RelativeLayout>
+
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>
